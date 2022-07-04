@@ -1,0 +1,18 @@
+{
+  "include": ["./src/**/*", "./src/providers/types/type.d.ts"],
+  "compilerOptions": {
+    "target": "es6",
+    "module": "esnext",
+    "lib": ["dom", "es2017"],
+    "allowJs": true,
+    // "checkJs": true,
+    "jsx": "react",
+    "strict": true,
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "noEmit": true,
+    "skipLibCheck": true,
+    "moduleResolution": "node"
+  }
+}
