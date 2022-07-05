@@ -1,6 +1,8 @@
 import React from 'react'
+import { Link } from 'gatsby-plugin-react-i18next'
 import styled from 'styled-components'
 import { graphql } from 'gatsby'
+import { useI18next } from 'gatsby-plugin-react-i18next'
 
 import { Layout } from '../components/layout'
 import { SEO } from '../components/seo'
@@ -12,10 +14,12 @@ type Props = {
   title: string
   userLang: string
   pathname: string
+  changeLanguage: (l: string) => void
+  language: string
 }
 
-const Component = ({ className, title, userLang, pathname }: Props) => (
-  <Layout>
+const Component = ({ className, title, userLang, pathname, changeLanguage, language }: Props) => (
+  <Layout changeLanguage={changeLanguage} language={language}>
     <SEO
       title={'home'}
       meta={
@@ -27,6 +31,9 @@ const Component = ({ className, title, userLang, pathname }: Props) => (
     <div className={className} style={{ textAlign: 'center' }}>
       <h1>{title}</h1>
       <p>“When the heart speaks, the mind finds it indecent to object.”</p>
+      <Link to={`/_/article1`} language={language}>
+        go
+      </Link>
     </div>
   </Layout>
 )
@@ -47,7 +54,8 @@ const StyledComponent = styled(Component)`
 
 const IndexPage = (props: any) => {
   const { siteMetadata } = useSiteMetadata()
-  const userLang = navigator.language || navigator.userLanguage
+  const { changeLanguage, language } = useI18next()
+  const userLang = navigator.language || navigator.userLanguage || `en`
 
   return (
     <StyledComponent
@@ -55,6 +63,8 @@ const IndexPage = (props: any) => {
       pathname={props.location.pathname}
       title={siteMetadata.title}
       userLang={userLang}
+      changeLanguage={changeLanguage}
+      language={language}
     />
   )
 }

@@ -7,11 +7,13 @@ import styled from 'styled-components'
 type Props = {
   className?: string
   children: React.ReactNode
+  changeLanguage: (l: string) => void
+  language: string
 }
 
-const Component = ({ className, children }: Props) => (
+const Component = ({ className, children, changeLanguage, language }: Props) => (
   <>
-    <Header />
+    <Header changeLanguage={changeLanguage} language={language} />
     <main className={className}>{children}</main>
     <Footer />
   </>

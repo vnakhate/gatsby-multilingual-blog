@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `Unbearable Lightness`,
+    title: `Multilingual Blog`,
     description: `add desc`,
     author: `Toshiki Kamei`,
     url: 'https://url.sample.com',
@@ -19,13 +19,6 @@ module.exports = {
     `gatsby-plugin-typescript-checker`,
     `gatsby-plugin-styled-components`,
     {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: `${__dirname}/locales`,
-        name: `locale`,
-      },
-    },
-    {
       resolve: `gatsby-plugin-react-i18next`,
       options: {
         localeJsonSourceName: `locale`, // name given to `gatsby-source-filesystem` plugin.
@@ -36,7 +29,7 @@ module.exports = {
         // if you are using Helmet, you must include siteUrl, and make sure you add http:https
         siteUrl: `https://example.com`,
         // if you are using trailingSlash gatsby config include it here, as well (the default is 'always')
-        trailingSlash: 'always',
+        // trailingSlash: 'always',
         // you can pass any i18next options
         i18nextOptions: {
           interpolation: {
@@ -44,6 +37,14 @@ module.exports = {
           },
           nsSeparator: false,
         },
+        pages: [
+          {
+            matchPath: `/:lang/_/:uid`,
+            getLanguageFromPath: true,
+            languages: [`en`, `ja`],
+            // excludeLanguages: [`en`, `ja`],
+          },
+        ],
       },
     },
     {
@@ -62,8 +63,45 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
+        path: `${__dirname}/locales`,
+        name: `locale`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
         name: `images`,
         path: `${__dirname}/src/images`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/contents`,
+        name: `contents`,
+      },
+    },
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 800,
+              quality: 90,
+            },
+          },
+          {
+            resolve: `gatsby-remark-responsive-iframe`,
+            options: {
+              wrapperStyle: `margin-bottom: 1.0725rem`,
+            },
+          },
+          `gatsby-remark-prismjs`,
+          `gatsby-remark-copy-linked-files`,
+          `gatsby-remark-smartypants`,
+        ],
       },
     },
     {
