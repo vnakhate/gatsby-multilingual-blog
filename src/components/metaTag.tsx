@@ -10,7 +10,13 @@ type Props = {
   socialShareImage?: string
 }
 
-export const SEO = ({ title, description, lang = 'en', meta = [], socialShareImage }: Props) => {
+export const MetaTag = ({
+  title,
+  description,
+  lang = 'en',
+  meta = [],
+  socialShareImage,
+}: Props) => {
   const { siteMetadata } = useSiteMetadata()
 
   const metaTitle = title ? `${title} | ${siteMetadata.title}` : siteMetadata.title

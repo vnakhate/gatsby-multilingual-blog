@@ -1,26 +1,38 @@
 import React from 'react'
-import { Link } from 'gatsby-plugin-react-i18next'
-import styled from 'styled-components'
 import { graphql } from 'gatsby'
+import styled from 'styled-components'
 import { useI18next } from 'gatsby-plugin-react-i18next'
 
 import { Layout } from '../components/layout'
-import { SEO } from '../components/seo'
+import { MetaTag } from '../components/metaTag'
+import { BlogThumbnailCard } from '../components/blogThumbnailCard'
 
-import { useSiteMetadata } from '../providers/hooks/useSiteMetadata'
+import { BlogPostNode } from '../providers/types/blogPostNode'
+import { LocaleData } from '../providers/types/localeData'
 
 type Props = {
-  className?: string
-  title: string
-  userLang: string
-  pathname: string
-  changeLanguage: (l: string) => void
-  language: string
+  location: {
+    pathname: string
+  }
+  data: {
+    locales: LocaleData
+    allMarkdownRemark: {
+      nodes: BlogPostNode[]
+    }
+  }
 }
 
-const Component = ({ className, title, userLang, pathname, changeLanguage, language }: Props) => (
-  <Layout changeLanguage={changeLanguage} language={language}>
-    <SEO
+type ComponentProps = {
+  className?: string
+  userLang: string
+  pathname: string
+  blogPosts: BlogPostNode[]
+  navigate: any
+}
+
+const Component = ({ className, userLang, pathname, blogPosts, navigate }: ComponentProps) => (
+  <Layout>
+    <MetaTag
       title={'home'}
       meta={
         pathname === '/' && userLang === `ja`
@@ -28,43 +40,29 @@ const Component = ({ className, title, userLang, pathname, changeLanguage, langu
           : []
       }
     />
-    <div className={className} style={{ textAlign: 'center' }}>
-      <h1>{title}</h1>
-      <p>“When the heart speaks, the mind finds it indecent to object.”</p>
-      <Link to={`/_/article1`} language={language}>
-        go
-      </Link>
+    <div className={className}>
+      {blogPosts.map((b) => (
+        <BlogThumbnailCard key={b.id} data={b} navigate={navigate} />
+      ))}
     </div>
   </Layout>
 )
 
-const StyledComponent = styled(Component)`
-  width: max-content;
-  margin: 0 auto;
-  padding-top: 40vh;
+const StyledComponent = styled(Component)``
 
-  > h1 {
-    font-size: 3rem;
-    margin-bottom: 20px;
-  }
-  > p {
-    font-size: 1.5rem;
-  }
-`
+const IndexPage = (props: Props) => {
+  const blogPosts = props.data.allMarkdownRemark.nodes
 
-const IndexPage = (props: any) => {
-  const { siteMetadata } = useSiteMetadata()
-  const { changeLanguage, language } = useI18next()
   const userLang = navigator.language || navigator.userLanguage || `en`
+  const { navigate } = useI18next()
 
   return (
     <StyledComponent
       {...props}
       pathname={props.location.pathname}
-      title={siteMetadata.title}
       userLang={userLang}
-      changeLanguage={changeLanguage}
-      language={language}
+      blogPosts={blogPosts}
+      navigate={navigate}
     />
   )
 }
@@ -79,6 +77,38 @@ export const query = graphql`
           ns
           data
           language
+        }
+      }
+    }
+    allMarkdownRemark(
+      sort: { fields: [frontmatter___date], order: DESC }
+      filter: { fields: { language: { eq: $language } } }
+    ) {
+      nodes {
+        id
+        excerpt
+        fields {
+          slug
+          language
+          path
+        }
+        frontmatter {
+          date(formatString: "MMMM DD, YYYY")
+          title
+          description
+          tags
+          cover {
+            childImageSharp {
+              gatsbyImageData(
+                formats: [AUTO, WEBP]
+                placeholder: BLURRED
+                webpOptions: { quality: 90 }
+                width: 700
+                height: 320
+                quality: 90
+              )
+            }
+          }
         }
       }
     }

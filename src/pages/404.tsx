@@ -2,18 +2,16 @@ import React from 'react'
 import styled from 'styled-components'
 
 import { Layout } from '../components/layout'
-import { SEO } from '../components/seo'
+import { MetaTag } from '../components/metaTag'
 import { graphql } from 'gatsby'
 
 type Props = {
   className?: string
-  changeLanguage: (l: string) => void
-  language: string
 }
 
-const Component = ({ className, changeLanguage, language }: Props) => (
-  <Layout changeLanguage={changeLanguage} language={language}>
-    <SEO title="404: Not found" />
+const Component = ({ className }: Props) => (
+  <Layout>
+    <MetaTag title="404: Not found" />
     <div className={className}>
       <h1>NOT FOUND</h1>
       <p>You just hit a route that doesn&#39;t exist... the sadness.</p>

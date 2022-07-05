@@ -27,7 +27,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   const posts = result.data.allMarkdownRemark.nodes
 
   if (posts.length > 0) {
-    const blogPostTemplate = path.resolve(`./src/templates/blog-post.js`)
+    const blogPostTemplate = path.resolve(`./src/templates/blog-post.tsx`)
 
     posts.forEach((post, index) => {
       const [, year, month, title, lang] = post.fields.slug.split('/')
@@ -52,12 +52,26 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
 
   if (node.internal.type === `MarkdownRemark`) {
-    const value = createFilePath({ node, getNode })
+    const slug = createFilePath({ node, getNode })
 
     createNodeField({
       name: `slug`,
       node,
-      value,
+      value: slug,
+    })
+
+    const [, year, month, title, lang] = slug.split('/')
+
+    createNodeField({
+      name: `language`,
+      node,
+      value: lang,
+    })
+
+    createNodeField({
+      name: `path`,
+      node,
+      value: `/_/${title}/`,
     })
   }
 }
@@ -77,13 +91,18 @@ exports.createSchemaCustomization = ({ actions }) => {
       frontmatter: Frontmatter
       fields: Fields
     }
+    
     type Frontmatter {
       title: String
       description: String
       date: Date @dateformat
+      tags: [String]
     }
+    
     type Fields {
       slug: String
+      language: String
+      path: String
     }
   `)
 }

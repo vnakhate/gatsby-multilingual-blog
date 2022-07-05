@@ -7,16 +7,16 @@ import styled from 'styled-components'
 type Props = {
   className?: string
   children: React.ReactNode
-  changeLanguage: (l: string) => void
-  language: string
 }
 
-const Component = ({ className, children, changeLanguage, language }: Props) => (
+const Component = ({ className, children }: Props) => (
   <>
-    <Header changeLanguage={changeLanguage} language={language} />
+    <Header />
     <main className={className}>{children}</main>
     <Footer />
   </>
 )
 
-export const Layout = styled(Component)``
+export const Layout = styled(Component)`
+  ${({ theme }) => theme.centeredStyle}
+`

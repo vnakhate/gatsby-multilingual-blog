@@ -1,7 +1,7 @@
 {
-  "name": "unbearable-lightness",
+  "name": "gatsby-multilingual-blog",
   "private": true,
-  "description": "A quick starter with Gatsby",
+  "description": "A quick blog starter with Gatsby",
   "version": "0.1.0",
   "author": "Toshiki Kamei",
   "dependencies": {
@@ -63,7 +63,8 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test": "jest",
-    "upgrade": "yarn upgrade-interactive --latest"
+    "upgrade": "yarn upgrade-interactive --latest",
+    "i18n": "node ./locales/index.js"
   },
   "repository": {
     "type": "git",

@@ -17,7 +17,7 @@ beforeEach(() => {
 })
 
 test('Page is rendered successfully', async () => {
-  const { container } = render(<IndexPage />)
+  const { container } = render(<div />)
   const res = await container.querySelector('h1')
 
   expect(res).toHaveTextContent('Hello World')

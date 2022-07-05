@@ -1,42 +1,77 @@
 import React from 'react'
 import styled from 'styled-components'
+import { useI18next, Link } from 'gatsby-plugin-react-i18next'
+
 import { useSiteMetadata } from '../providers/hooks/useSiteMetadata'
 
 type Props = {
   className?: string
-  changeLanguage: (l: string) => void
-  language: string
 }
 
 type ComponentProps = {
   className?: string
   toggleLanguage: () => void
+  language: string
   siteTitle: string
+  description: string
 }
 
-const Component = ({ className, toggleLanguage, siteTitle }: ComponentProps) => (
+const Component = ({
+  className,
+  toggleLanguage,
+  language,
+  siteTitle,
+  description,
+}: ComponentProps) => (
   <header className={className}>
-    <h1>{siteTitle}</h1>
-    <div onClick={toggleLanguage}>switch language</div>
+    <div>
+      <Link to={'/'} language={language}>
+        <h1>{siteTitle}</h1>
+      </Link>
+      <button onClick={toggleLanguage}>toggle language</button>
+    </div>
+    <div>{description}</div>
   </header>
 )
 
 const StyledComponent = styled(Component)`
-  > h1 {
-    font-size: 3rem;
-    font-weight: bold;
+  ${({ theme }) => theme.centeredStyle}
+
+  padding: 80px 16px;
+
+  > div:first-child {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    h1 {
+      font-size: 3rem;
+      font-weight: bold;
+    }
+  }
+
+  > div:last-child {
+    padding: 16px 0;
+    font-size: 1.4rem;
+    color: ${({ theme }) => theme.color.subGreyText};
   }
 `
 
 export const Header = (props: Props) => {
-  const { changeLanguage, language } = props
   const { siteMetadata } = useSiteMetadata()
+  const { t, changeLanguage, language } = useI18next()
 
   const toggleLanguage = () => {
     changeLanguage(language === `en` ? `ja` : `en`)
   }
 
   return (
-    <StyledComponent {...props} toggleLanguage={toggleLanguage} siteTitle={siteMetadata.title} />
+    <StyledComponent
+      {...props}
+      toggleLanguage={toggleLanguage}
+      language={language}
+      siteTitle={siteMetadata.title}
+      description={t(`index.description`)}
+    />
   )
 }
