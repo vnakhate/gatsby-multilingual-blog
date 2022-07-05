@@ -49,7 +49,7 @@ A quick look at the top-level files and directories you'll see in a Gatsby proje
     ├── .prettierrc
     ├── gatsby-browser.js
     ├── gatsby-config.js
-    ├── gatsby-node.js
+    ├── gatsby-node.ts
     ├── gatsby-ssr.js
     ├── gatsby-wrapper.js
     ├── jest.config.js

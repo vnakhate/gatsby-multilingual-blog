@@ -42,7 +42,16 @@ module.exports = {
             matchPath: `/:lang/_/:uid`,
             getLanguageFromPath: true,
             languages: [`en`, `ja`],
-            // excludeLanguages: [`en`, `ja`],
+          },
+          {
+            matchPath: `/:lang/page/:uid`,
+            getLanguageFromPath: true,
+            languages: [`en`, `ja`],
+          },
+          {
+            matchPath: `/:lang/tag/:tag`,
+            getLanguageFromPath: true,
+            languages: [`en`, `ja`],
           },
         ],
       },

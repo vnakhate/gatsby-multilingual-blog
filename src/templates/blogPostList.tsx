@@ -45,6 +45,7 @@ const Component = ({ className, userLang, pathname, blogPosts, navigate }: Compo
         <BlogThumbnailCard key={b.id} data={b} navigate={navigate} />
       ))}
     </div>
+    <div>navigation</div>
   </Layout>
 )
 
@@ -70,7 +71,7 @@ const IndexPage = (props: Props) => {
 export default IndexPage
 
 export const query = graphql`
-  query ($language: String!) {
+  query ($language: String!, $limit: Int!, $offset: Int!) {
     locales: allLocale(filter: { language: { eq: $language } }) {
       edges {
         node {
@@ -81,6 +82,8 @@ export const query = graphql`
       }
     }
     allMarkdownRemark(
+      limit: $limit
+      skip: $offset
       sort: { fields: [frontmatter___date], order: DESC }
       filter: { fields: { language: { eq: $language } } }
     ) {
