@@ -9,6 +9,7 @@ export const theme = {
   mainWith: 960,
   headerHeight: 296,
   footerHeight: 220,
+
   get centeredStyle() {
     return css`
       max-width: ${this.contentWidth}px;
@@ -21,5 +22,5 @@ export const theme = {
     subGreyText: `hsl(0, 0%, 50%)`,
   },
 
-  highlight: `linear-gradient(180deg, rgba(255, 255, 255, 0) 50%, hsla(300, 85%, 50%, 60%) 50%)`,
+  highlight: css`linear-gradient(180deg, rgba(255, 255, 255, 0) 50%, hsla(300, 85%, 50%, 60%) 50%)`,
 }
