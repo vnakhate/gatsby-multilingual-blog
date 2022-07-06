@@ -38,6 +38,7 @@ const StyledComponent = styled(Component)<{ first: boolean }>`
 
     > h2 {
       width: max-content;
+      max-width: fit-content;
       font-size: 2.4rem;
       padding-bottom: 8px;
       background: ${({ theme }) => theme.highlight};

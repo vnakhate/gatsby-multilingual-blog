@@ -7,7 +7,7 @@ type Props = {
 
 const Component = ({ className }: Props) => (
   <div className={className}>
-    <h3>This is your space</h3>
+    <h3>Put anything you want</h3>
     <div></div>
   </div>
 )

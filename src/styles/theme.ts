@@ -1,10 +1,12 @@
 import { css } from 'styled-components'
 
 export const theme = {
-  contentWidth: 1360,
   breakPoint: {
     l: 1040,
   },
+
+  contentWidth: 1360,
+  mainWith: 960,
   headerHeight: 296,
   footerHeight: 220,
   get centeredStyle() {

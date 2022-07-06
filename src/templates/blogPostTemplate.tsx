@@ -42,6 +42,7 @@ const Component = ({ className, data }: Props) => (
 const BlogPostTemplate = styled(Component)`
   > h2 {
     width: max-content;
+    max-width: fit-content;
     padding: 8px 0;
 
     font-size: 4rem;

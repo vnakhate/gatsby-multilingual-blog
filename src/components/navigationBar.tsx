@@ -41,6 +41,7 @@ const StyledComponent = styled(Component)`
   margin-top: 80px;
   font-size: 1.4rem;
   color: ${({ theme }) => theme.color.subGreyText};
+  transform: translateY(64px);
 
   > a > p {
     padding: 8px 8px 4px 8px;
