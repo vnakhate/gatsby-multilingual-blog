@@ -47,11 +47,11 @@ A quick look at the top-level files and directories you'll see in a Gatsby proje
     ├── src
     ├── .gitignore
     ├── .prettierrc
-    ├── gatsby-browser.js
-    ├── gatsby-config.js
+    ├── gatsby-browser.ts
+    ├── gatsby-config.ts
     ├── gatsby-node.ts
-    ├── gatsby-ssr.js
-    ├── gatsby-wrapper.js
+    ├── gatsby-ssr.ts
+    ├── gatsby-wrapper.tsx
     ├── jest.config.js
     ├── jest-preprocess.js
     ├── loadershim.js
