@@ -29,15 +29,16 @@ const Component = ({ className, siteTitle }: Props) => (
 const StyledComponent = styled(Component)`
   ${({ theme }) => theme.centeredStyle}
 
-  height: 120px;
-  margin-top: 80px;
+  display: grid;
+  align-content: center;
+  height: ${({ theme }) => theme.footerHeight}px;
   font-size: 1.3rem;
   color: ${({ theme }) => theme.color.subGreyText};
 
   > hr {
     border: 3px solid hsl(0, 0%, 90%);
     border-radius: 12px;
-    margin-bottom: 40px;
+    margin-bottom: 50px;
   }
 
   > div {

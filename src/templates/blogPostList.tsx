@@ -1,14 +1,15 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import styled from 'styled-components'
-import { useI18next } from 'gatsby-plugin-react-i18next'
 
 import { Layout } from '../components/layout'
 import { MetaTag } from '../components/metaTag'
 import { BlogThumbnailCard } from '../components/blogThumbnailCard'
+import { NavigationBar } from '../components/navigationBar'
 
 import { BlogPostNode } from '../providers/types/blogPostNode'
 import { LocaleData } from '../providers/types/localeData'
+import { PageContext } from '../providers/types/pageContext'
 import { i18nLanguages, i18nDefaultLanguage } from '../../i18nLanguages'
 
 type Props = {
@@ -21,55 +22,51 @@ type Props = {
       nodes: BlogPostNode[]
     }
   }
+  pageContext: PageContext
 }
 
 type ComponentProps = {
   className?: string
-  userLang: string
-  pathname: string
   blogPosts: BlogPostNode[]
-  navigate: any
+  pageContext: PageContext
+  metaTag: object[]
 }
 
-const Component = ({ className, userLang, pathname, blogPosts, navigate }: ComponentProps) => (
+const Component = ({ className, blogPosts, pageContext, metaTag }: ComponentProps) => (
   <Layout>
-    <MetaTag
-      title={'home'}
-      meta={
-        pathname === '/' && userLang !== i18nDefaultLanguage && i18nLanguages.includes(userLang)
-          ? [{ 'http-equiv': 'refresh', content: `2;url=/${userLang}` }]
-          : []
-      }
-    />
+    <MetaTag title={'home'} meta={metaTag} />
     <div className={className}>
       {blogPosts.map((b) => (
-        <BlogThumbnailCard key={b.id} data={b} navigate={navigate} />
+        <BlogThumbnailCard key={b.id} data={b} />
       ))}
     </div>
-    <div>navigation</div>
+    <NavigationBar pageContext={pageContext} />
   </Layout>
 )
 
 const StyledComponent = styled(Component)``
 
-const IndexPage = (props: Props) => {
+const BlogPostListTemplate = (props: Props) => {
   const blogPosts = props.data.allMarkdownRemark.nodes
-
   const userLang = navigator.language || navigator.userLanguage || i18nDefaultLanguage
-  const { navigate } = useI18next()
+  const metaTag =
+    props.location.pathname === '/' &&
+    userLang !== i18nDefaultLanguage &&
+    i18nLanguages.includes(userLang)
+      ? [{ 'http-equiv': 'refresh', content: `2;url=/${userLang}` }]
+      : []
 
   return (
     <StyledComponent
       {...props}
-      pathname={props.location.pathname}
-      userLang={userLang}
       blogPosts={blogPosts}
-      navigate={navigate}
+      metaTag={metaTag}
+      pageContext={props.pageContext}
     />
   )
 }
 
-export default IndexPage
+export default BlogPostListTemplate
 
 export const query = graphql`
   query ($language: String!, $limit: Int!, $offset: Int!) {
@@ -107,8 +104,8 @@ export const query = graphql`
                 formats: [AUTO, WEBP]
                 placeholder: BLURRED
                 webpOptions: { quality: 90 }
-                width: 700
-                height: 320
+                width: 350
+                height: 200
                 quality: 90
               )
             }

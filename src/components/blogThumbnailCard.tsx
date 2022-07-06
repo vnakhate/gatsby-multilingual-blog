@@ -8,23 +8,19 @@ import { BlogPostNode } from '../providers/types/blogPostNode'
 type Props = {
   className?: string
   data: BlogPostNode
-  navigate: any
 }
 
 type ComponentProps = Props & {
   imageURL: IGatsbyImageData
-  navigate: any
 }
 
-const Component = ({ className, data, imageURL, navigate }: ComponentProps) => (
-  <div
-    className={className}
-    key={data.id}
-    onClick={() => navigate(data.fields.path, { language: data.fields.language })}
-  >
-    <GatsbyImage alt={'cover'} image={imageURL} objectFit={'cover'} />
-    <div>{data.frontmatter.title}</div>
-  </div>
+const Component = ({ className, data, imageURL }: ComponentProps) => (
+  <Link to={data.fields.path} language={data.fields.language}>
+    <div className={className}>
+      <GatsbyImage alt={'cover'} image={imageURL} objectFit={'cover'} />
+      <div>{data.frontmatter.title}</div>
+    </div>
+  </Link>
 )
 
 const StyledComponent = styled(Component)`
@@ -35,5 +31,5 @@ const StyledComponent = styled(Component)`
 export const BlogThumbnailCard = (props: Props) => {
   const imageURL = getImage(props.data.frontmatter.cover)!
 
-  return <StyledComponent {...props} imageURL={imageURL} navigate={props.navigate} />
+  return <StyledComponent {...props} imageURL={imageURL} />
 }

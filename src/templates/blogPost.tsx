@@ -77,7 +77,7 @@ export const pageQuery = graphql`
               placeholder: BLURRED
               webpOptions: { quality: 90 }
               width: 700
-              height: 320
+              height: 400
               quality: 90
             )
           }

@@ -59,15 +59,7 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions,
     })
   })
 
-  const postsPerPage = 2
-
-  // Set pagination for default root
-  createBlogPostPagination({
-    data: posts,
-    postsPerPage,
-    createPage,
-    component: path.resolve(`${__dirname}/src/templates/blogPostList.tsx`),
-  })
+  const postsPerPage = 6
 
   // Set pagination for each language
   i18nLanguages.forEach((lang) => {

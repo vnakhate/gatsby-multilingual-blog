@@ -6,7 +6,7 @@ type Props = {
   title?: string
   description?: string
   lang?: string
-  meta?: [any] | []
+  meta?: any[] | []
   socialShareImage?: string
 }
 

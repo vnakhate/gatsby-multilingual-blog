@@ -19,4 +19,11 @@ const Component = ({ className, children }: Props) => (
 
 export const Layout = styled(Component)`
   ${({ theme }) => theme.centeredStyle}
+
+  min-height: calc(
+    100vh - ${({ theme }) => theme.headerHeight}px - ${({ theme }) => theme.footerHeight}px
+  );
+  min-height: calc(
+    100dvh - ${({ theme }) => theme.headerHeight}px - ${({ theme }) => theme.footerHeight}px
+  );
 `

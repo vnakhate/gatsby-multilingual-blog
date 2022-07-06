@@ -38,7 +38,9 @@ const Component = ({
 const StyledComponent = styled(Component)`
   ${({ theme }) => theme.centeredStyle}
 
-  padding: 80px 16px;
+  display: grid;
+  align-content: center;
+  height: ${({ theme }) => theme.headerHeight}px;
 
   > div:first-child {
     display: flex;

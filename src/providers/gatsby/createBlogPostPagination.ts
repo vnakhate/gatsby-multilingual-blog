@@ -1,12 +1,13 @@
 import { NodePluginArgs } from 'gatsby'
 import { BlogPostNode } from '../types/blogPostNode'
+import { i18nDefaultLanguage } from '../../../i18nLanguages'
 
 type Props = {
   data: BlogPostNode[]
   postsPerPage: number
   createPage: NodePluginArgs['actions']['createPage']
   component: string
-  lang?: string
+  lang: string
 }
 
 export const createBlogPostPagination = ({
@@ -21,8 +22,8 @@ export const createBlogPostPagination = ({
   const totalCount = data.length
   const numberOfPages = Math.ceil(totalCount / postsPerPage)
 
-  if (!lang) {
-    return createPage({
+  if (lang === i18nDefaultLanguage) {
+    createPage({
       path: `/`,
       component,
       context: {
@@ -34,6 +35,7 @@ export const createBlogPostPagination = ({
         hasPrevPage: false,
         hasNextPage: numberOfPages >= 2,
         numberOfPages,
+        language: lang,
       },
     })
   }
@@ -46,26 +48,28 @@ export const createBlogPostPagination = ({
       limit: postsPerPage,
       offset: 0,
       prevPagePath: `/${lang}/`,
-      nextPagePath: `/${lang}/page/1/`,
+      nextPagePath: `/page/1/`,
       hasPrevPage: false,
       hasNextPage: numberOfPages >= 2,
       numberOfPages,
+      language: lang,
     },
   })
 
   for (let i = 0; i < numberOfPages; i++) {
     createPage({
-      path: `/${lang}/page/${i}/`,
+      path: `/page/${i}/`,
       component,
       context: {
         currentPage: i,
         limit: postsPerPage,
         offset: i * postsPerPage,
-        prevPagePath: i <= 1 ? `/` : `/${lang}/page/${i - 1}/`,
-        nextPagePath: `/${lang}/page/${i + 1}/`,
+        prevPagePath: i <= 1 ? `/` : `/page/${i - 1}/`,
+        nextPagePath: `/page/${i + 1}/`,
         hasPrevPage: i !== 0,
         hasNextPage: i !== numberOfPages - 1,
         numberOfPages,
+        language: lang,
       },
     })
   }

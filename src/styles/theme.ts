@@ -2,6 +2,8 @@ import { css } from 'styled-components'
 
 export const theme = {
   contentWidth: 1360,
+  headerHeight: 240,
+  footerHeight: 220,
   get centeredStyle() {
     return css`
       max-width: ${this.contentWidth}px;
