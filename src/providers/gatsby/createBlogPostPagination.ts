@@ -9,7 +9,13 @@ type Props = {
   lang?: string
 }
 
-export const createPostListPage = ({ data, postsPerPage, createPage, lang, component }: Props) => {
+export const createBlogPostPagination = ({
+  data,
+  postsPerPage,
+  createPage,
+  lang,
+  component,
+}: Props) => {
   if (!data.length) return
 
   const totalCount = data.length

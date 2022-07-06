@@ -25,7 +25,7 @@ const Component = ({ className, data }: Props) => (
       <h2>{data.markdownRemark.frontmatter.title}</h2>
       <ul>
         {data.markdownRemark.frontmatter.tags.map((t) => (
-          <li>#{t}</li>
+          <li key={t}>#{t}</li>
         ))}
       </ul>
       <div dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }} />

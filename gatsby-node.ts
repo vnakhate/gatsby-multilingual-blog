@@ -2,17 +2,16 @@ import path from 'path'
 import { GatsbyNode } from 'gatsby'
 import { createFilePath } from 'gatsby-source-filesystem'
 
-import { createPostListPage } from './src/providers/gatsby/createPostListPage'
+import { createBlogPostPagination } from './src/providers/gatsby/createBlogPostPagination'
 import { BlogPostNode } from './src/providers/types/blogPostNode'
+import { GatsbyGraphqlResult } from './src/providers/types/gatsbyGraphql'
+import { i18nLanguages } from './i18nLanguages'
 
-type Result = {
-  data?: {
-    allMarkdownRemark: {
-      nodes: BlogPostNode[]
-    }
+type Result = GatsbyGraphqlResult<{
+  allMarkdownRemark: {
+    nodes: BlogPostNode[]
   }
-  errors?: Error
-}
+}>
 
 export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
@@ -42,8 +41,7 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions,
 
   if (posts.length === 0) return
 
-  const blogPostTemplate = path.resolve(`${__dirname}/src/templates/blogPost.tsx`)
-
+  // Create pages for all blog posts
   posts.forEach((post, index) => {
     const [, year, month, title, lang] = post.fields.slug.split('/')
 
@@ -52,7 +50,7 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions,
 
     createPage({
       path: `/${lang}/_/${title}/`,
-      component: blogPostTemplate,
+      component: path.resolve(`${__dirname}/src/templates/blogPost.tsx`),
       context: {
         id: post.id,
         previousPostId,
@@ -61,27 +59,25 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions,
     })
   })
 
-  createPostListPage({
+  const postsPerPage = 2
+
+  // Set pagination for default root
+  createBlogPostPagination({
     data: posts,
-    postsPerPage: 2,
+    postsPerPage,
     createPage,
     component: path.resolve(`${__dirname}/src/templates/blogPostList.tsx`),
   })
 
-  createPostListPage({
-    data: posts.filter((p) => p.fields.language === `en`),
-    postsPerPage: 2,
-    createPage,
-    lang: `en`,
-    component: path.resolve(`${__dirname}/src/templates/blogPostList.tsx`),
-  })
-
-  createPostListPage({
-    data: posts.filter((p) => p.fields.language === `ja`),
-    postsPerPage: 2,
-    createPage,
-    lang: `ja`,
-    component: path.resolve(`${__dirname}/src/templates/blogPostList.tsx`),
+  // Set pagination for each language
+  i18nLanguages.forEach((lang) => {
+    createBlogPostPagination({
+      data: posts.filter((p) => p.fields.language === lang),
+      postsPerPage,
+      createPage,
+      lang,
+      component: path.resolve(`${__dirname}/src/templates/blogPostList.tsx`),
+    })
   })
 }
 

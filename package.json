@@ -51,6 +51,7 @@
     "jest-environment-jsdom": "^28.1.2",
     "prettier": "^2.7.1",
     "ts-jest": "^28.0.5",
+    "ts-node": "^10.8.2",
     "typescript": "^4.7.4"
   },
   "keywords": [
@@ -66,7 +67,7 @@
     "clean": "gatsby clean",
     "test": "jest",
     "upgrade": "yarn upgrade-interactive --latest",
-    "i18n": "node ./locales/index.js"
+    "i18n": "ts-node -O '{\"module\": \"commonjs\"}' ./locales/index.ts"
   },
   "repository": {
     "type": "git",

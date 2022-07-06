@@ -9,6 +9,7 @@ import { BlogThumbnailCard } from '../components/blogThumbnailCard'
 
 import { BlogPostNode } from '../providers/types/blogPostNode'
 import { LocaleData } from '../providers/types/localeData'
+import { i18nLanguages, i18nDefaultLanguage } from '../../i18nLanguages'
 
 type Props = {
   location: {
@@ -35,8 +36,8 @@ const Component = ({ className, userLang, pathname, blogPosts, navigate }: Compo
     <MetaTag
       title={'home'}
       meta={
-        pathname === '/' && userLang === `ja`
-          ? [{ 'http-equiv': 'refresh', content: `2;url=/ja` }]
+        pathname === '/' && userLang !== i18nDefaultLanguage && i18nLanguages.includes(userLang)
+          ? [{ 'http-equiv': 'refresh', content: `2;url=/${userLang}` }]
           : []
       }
     />
@@ -54,7 +55,7 @@ const StyledComponent = styled(Component)``
 const IndexPage = (props: Props) => {
   const blogPosts = props.data.allMarkdownRemark.nodes
 
-  const userLang = navigator.language || navigator.userLanguage || `en`
+  const userLang = navigator.language || navigator.userLanguage || i18nDefaultLanguage
   const { navigate } = useI18next()
 
   return (

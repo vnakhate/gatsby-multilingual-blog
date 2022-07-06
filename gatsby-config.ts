@@ -1,4 +1,5 @@
 import type { GatsbyConfig } from 'gatsby'
+import { i18nLanguages, i18nDefaultLanguage } from './i18nLanguages'
 
 const config: GatsbyConfig = {
   siteMetadata: {
@@ -24,9 +25,9 @@ const config: GatsbyConfig = {
       resolve: `gatsby-plugin-react-i18next`,
       options: {
         localeJsonSourceName: `locale`, // name given to `gatsby-source-filesystem` plugin.
-        languages: [`en`, `ja`],
-        defaultLanguage: `en`,
-        fallbackLanguage: `en`,
+        languages: i18nLanguages,
+        defaultLanguage: i18nDefaultLanguage,
+        fallbackLanguage: i18nDefaultLanguage,
         generateDefaultLanguagePage: true,
         // if you are using Helmet, you must include siteUrl, and make sure you add http:https
         siteUrl: `https://example.com`,
@@ -43,17 +44,17 @@ const config: GatsbyConfig = {
           {
             matchPath: `/:lang/_/:uid`,
             getLanguageFromPath: true,
-            languages: [`en`, `ja`],
+            languages: i18nLanguages,
           },
           {
             matchPath: `/:lang/page/:uid`,
             getLanguageFromPath: true,
-            languages: [`en`, `ja`],
+            languages: i18nLanguages,
           },
           {
             matchPath: `/:lang/tag/:tag`,
             getLanguageFromPath: true,
-            languages: [`en`, `ja`],
+            languages: i18nLanguages,
           },
         ],
       },
@@ -124,7 +125,7 @@ const config: GatsbyConfig = {
         background_color: `#ffffff`,
         theme_color: `#ffffff`,
         display: `fullscreen`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `${__dirname}/src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
