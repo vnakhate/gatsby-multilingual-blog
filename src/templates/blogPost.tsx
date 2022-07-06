@@ -4,6 +4,7 @@ import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 
 import { Layout } from '../components/layout'
 import { MetaTag } from '../components/metaTag'
+import { WithSideBar } from '../components/withSideBar'
 
 import { LocaleData } from '../providers/types/localeData'
 import { BlogPostNode } from '../providers/types/blogPostNode'
@@ -20,16 +21,18 @@ type Props = {
 const Component = ({ className, data }: Props) => (
   <Layout>
     <MetaTag />
-    <div className={className}>
-      <GatsbyImage alt={'cover'} image={getImage(data.markdownRemark.frontmatter.cover)!} />
-      <h2>{data.markdownRemark.frontmatter.title}</h2>
-      <ul>
-        {data.markdownRemark.frontmatter.tags.map((t) => (
-          <li key={t}>#{t}</li>
-        ))}
-      </ul>
-      <div dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }} />
-    </div>
+    <WithSideBar>
+      <div className={className}>
+        <GatsbyImage alt={'cover'} image={getImage(data.markdownRemark.frontmatter.cover)!} />
+        <h2>{data.markdownRemark.frontmatter.title}</h2>
+        <ul>
+          {data.markdownRemark.frontmatter.tags.map((t) => (
+            <li key={t}>#{t}</li>
+          ))}
+        </ul>
+        <div dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }} />
+      </div>
+    </WithSideBar>
   </Layout>
 )
 

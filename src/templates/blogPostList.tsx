@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { graphql } from 'gatsby'
 import styled from 'styled-components'
 
@@ -6,6 +6,7 @@ import { Layout } from '../components/layout'
 import { MetaTag } from '../components/metaTag'
 import { BlogThumbnailCard } from '../components/blogThumbnailCard'
 import { NavigationBar } from '../components/navigationBar'
+import { WithSideBar } from '../components/withSideBar'
 
 import { BlogPostNode } from '../providers/types/blogPostNode'
 import { LocaleData } from '../providers/types/localeData'
@@ -30,23 +31,45 @@ type ComponentProps = {
   blogPosts: BlogPostNode[]
   pageContext: PageContext
   metaTag: object[]
+  searchInput: string
+  onInputType?: (e: React.ChangeEvent<HTMLInputElement>) => void
 }
 
-const Component = ({ className, blogPosts, pageContext, metaTag }: ComponentProps) => (
+const Component = ({
+  className,
+  blogPosts,
+  pageContext,
+  metaTag,
+  searchInput,
+  onInputType,
+}: ComponentProps) => (
   <Layout>
     <MetaTag title={'home'} meta={metaTag} />
-    <div className={className}>
-      {blogPosts.map((b) => (
-        <BlogThumbnailCard key={b.id} data={b} />
-      ))}
-    </div>
+    <WithSideBar onInputType={onInputType} searchInput={searchInput}>
+      <div className={className}>
+        {blogPosts.map((b, i) => (
+          <BlogThumbnailCard key={b.id} data={b} first={i === 0} />
+        ))}
+      </div>
+    </WithSideBar>
     <NavigationBar pageContext={pageContext} />
   </Layout>
 )
 
-const StyledComponent = styled(Component)``
+const StyledComponent = styled(Component)`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-rows: min-content;
+  column-gap: min(5vw, 64px);
+  row-gap: 64px;
+
+  max-width: 960px;
+`
 
 const BlogPostListTemplate = (props: Props) => {
+  const [searchInput, setSearchInput] = useState<string>('')
+  const [searchedPosts, setSearchedPosts] = useState<BlogPostNode[]>([])
+
   const blogPosts = props.data.allMarkdownRemark.nodes
   const userLang = navigator.language || navigator.userLanguage || i18nDefaultLanguage
   const metaTag =
@@ -56,12 +79,29 @@ const BlogPostListTemplate = (props: Props) => {
       ? [{ 'http-equiv': 'refresh', content: `2;url=/${userLang}` }]
       : []
 
+  useEffect(() => {
+    const t = setTimeout(() => {
+      console.log(searchInput)
+      searchBlogPosts()
+    }, 300)
+
+    return () => clearTimeout(t)
+  }, [searchInput])
+
+  const searchBlogPosts = () => {}
+
+  const onInputType = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchInput(e.target.value)
+  }
+
   return (
     <StyledComponent
       {...props}
       blogPosts={blogPosts}
       metaTag={metaTag}
       pageContext={props.pageContext}
+      searchInput={searchInput}
+      onInputType={onInputType}
     />
   )
 }
@@ -104,8 +144,7 @@ export const query = graphql`
                 formats: [AUTO, WEBP]
                 placeholder: BLURRED
                 webpOptions: { quality: 90 }
-                width: 350
-                height: 200
+                width: 600
                 quality: 90
               )
             }

@@ -1,8 +1,10 @@
 ---
-title: Japanese blog 1
+title: 日本語ブログ 6
 date: "2022-06-20T20:08:00.000Z"
 cover: "./cover.jpg"
 tags: ["tag1", "tag2", "tag3"]
 ---
 
-japanese blog
+これは日本語で書かれたブログです。
+
+言語を切り替えることでこのブログを別の言語で読むことが可能です！

@@ -1,32 +1,38 @@
 import React from 'react'
 import styled from 'styled-components'
-import { useSiteMetadata } from '../providers/hooks/useSiteMetadata'
+import { Link } from 'gatsby-plugin-react-i18next'
+import { SiteMetadata } from '../providers/types/siteMetadata'
 
 type Props = {
   className?: string
-  siteTitle: string
+  siteMetadata: SiteMetadata
+  language: string
 }
 
-const Component = ({ className, siteTitle }: Props) => (
+const Component = ({ className, siteMetadata, language }: Props) => (
   <footer className={className}>
     <hr />
     <div>
       <ul>
         <li>
-          {siteTitle}
+          {siteMetadata.title}
           {` `}© {new Date().getFullYear()}
         </li>
         <li>|</li>
-        <li>Privacy policy</li>
+        <Link to={`/privacy-policy`} language={language}>
+          <li>Privacy policy</li>
+        </Link>
         <li>|</li>
-        <li>Contact</li>
+        <Link to={`/contact`} language={language}>
+          <li>Contact</li>
+        </Link>
       </ul>
       <div></div>
     </div>
   </footer>
 )
 
-const StyledComponent = styled(Component)`
+export const Footer = styled(Component)`
   ${({ theme }) => theme.centeredStyle}
 
   display: grid;
@@ -52,9 +58,3 @@ const StyledComponent = styled(Component)`
     }
   }
 `
-
-export const Footer = () => {
-  const { siteMetadata } = useSiteMetadata()
-
-  return <StyledComponent siteTitle={siteMetadata.title} />
-}

@@ -1,23 +1,43 @@
 import React from 'react'
+import styled from 'styled-components'
+import { useI18next } from 'gatsby-plugin-react-i18next'
 
 import { Header } from './header'
 import { Footer } from './footer'
-import styled from 'styled-components'
+
+import { useSiteMetadata } from '../providers/hooks/useSiteMetadata'
+import { SiteMetadata } from '../providers/types/siteMetadata'
 
 type Props = {
   className?: string
   children: React.ReactNode
 }
 
-const Component = ({ className, children }: Props) => (
+type ComponentProps = {
+  className?: string
+  children: React.ReactNode
+  siteMetadata: SiteMetadata
+  t: (s: string) => string
+  changeLanguage: (lang: string) => void
+  language: string
+}
+
+const Component = ({
+  className,
+  children,
+  t,
+  changeLanguage,
+  language,
+  siteMetadata,
+}: ComponentProps) => (
   <>
-    <Header />
+    <Header t={t} language={language} changeLanguage={changeLanguage} siteMetadata={siteMetadata} />
     <main className={className}>{children}</main>
-    <Footer />
+    <Footer siteMetadata={siteMetadata} language={language} />
   </>
 )
 
-export const Layout = styled(Component)`
+const StyledComponent = styled(Component)`
   ${({ theme }) => theme.centeredStyle}
 
   min-height: calc(
@@ -27,3 +47,18 @@ export const Layout = styled(Component)`
     100dvh - ${({ theme }) => theme.headerHeight}px - ${({ theme }) => theme.footerHeight}px
   );
 `
+
+export const Layout = (props: Props) => {
+  const { siteMetadata } = useSiteMetadata()
+  const { t, changeLanguage, language } = useI18next()
+
+  return (
+    <StyledComponent
+      {...props}
+      siteMetadata={siteMetadata}
+      t={t}
+      changeLanguage={changeLanguage}
+      language={language}
+    />
+  )
+}

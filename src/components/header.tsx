@@ -2,11 +2,15 @@ import React from 'react'
 import styled from 'styled-components'
 import { useI18next, Link } from 'gatsby-plugin-react-i18next'
 
-import { useSiteMetadata } from '../providers/hooks/useSiteMetadata'
 import { i18nLanguages } from '../../i18nLanguages'
+import { SiteMetadata } from '../providers/types/siteMetadata'
 
 type Props = {
   className?: string
+  siteMetadata: SiteMetadata
+  t: (s: string) => string
+  changeLanguage: (lang: string) => void
+  language: string
 }
 
 type ComponentProps = {
@@ -61,8 +65,7 @@ const StyledComponent = styled(Component)`
 `
 
 export const Header = (props: Props) => {
-  const { siteMetadata } = useSiteMetadata()
-  const { t, changeLanguage, language } = useI18next()
+  const { siteMetadata, t, changeLanguage, language } = props
 
   const toggleLanguage = () => {
     const currentLanguageIdx = i18nLanguages.indexOf(language)

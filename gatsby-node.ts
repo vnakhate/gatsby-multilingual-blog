@@ -59,7 +59,7 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions,
     })
   })
 
-  const postsPerPage = 6
+  const postsPerPage = 7
 
   // Set pagination for each language
   i18nLanguages.forEach((lang) => {

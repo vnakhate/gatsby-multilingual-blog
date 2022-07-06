@@ -3,6 +3,7 @@ import type { ImageDataLike } from 'gatsby-plugin-image'
 export type BlogPostNode = {
   id: string
   html: string
+  excerpt: string
   fields: {
     slug: string
     language: string
