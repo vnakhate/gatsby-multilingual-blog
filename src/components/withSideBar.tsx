@@ -20,7 +20,7 @@ const Component = ({ className, children, searchInput, onInputType }: Props) => 
 
 export const WithSideBar = styled(Component)`
   display: grid;
-  grid-template-columns: 3fr 1fr;
+  grid-template-columns: 3fr minmax(296px, 1fr);
 
   > div:first-child {
     display: none;

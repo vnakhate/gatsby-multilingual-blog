@@ -2,7 +2,7 @@ import { css } from 'styled-components'
 
 export const theme = {
   breakPoint: {
-    l: 1040,
+    l: 992,
   },
 
   contentWidth: 1360,
