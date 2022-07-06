@@ -3,6 +3,7 @@ title: English blog 6
 date: "2022-06-20T20:08:00.000Z"
 cover: "./cover.jpg"
 tags: ["tag1", "tag2", "tag3"]
+description: "this is description"
 ---
 
 This is the content of English blog post.

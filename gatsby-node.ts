@@ -50,7 +50,7 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions,
 
     createPage({
       path: `/${lang}/_/${title}/`,
-      component: path.resolve(`${__dirname}/src/templates/blogPost.tsx`),
+      component: path.resolve(`${__dirname}/src/templates/blogPostTemplate.tsx`),
       context: {
         id: post.id,
         previousPostId,
@@ -68,7 +68,7 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions,
       postsPerPage,
       createPage,
       lang,
-      component: path.resolve(`${__dirname}/src/templates/blogPostList.tsx`),
+      component: path.resolve(`${__dirname}/src/templates/blogPostListTemplate.tsx`),
     })
   })
 }

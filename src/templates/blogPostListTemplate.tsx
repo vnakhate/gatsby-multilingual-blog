@@ -4,9 +4,11 @@ import styled from 'styled-components'
 
 import { Layout } from '../components/layout'
 import { MetaTag } from '../components/metaTag'
-import { BlogThumbnailCard } from '../components/blogThumbnailCard'
 import { NavigationBar } from '../components/navigationBar'
 import { WithSideBar } from '../components/withSideBar'
+import { BlogPostList } from '../components/blogPostList'
+import { SearchedBlogPostList } from '../components/searchedBlogPostList'
+import { SearchInput } from '../components/searchInput'
 
 import { BlogPostNode } from '../providers/types/blogPostNode'
 import { LocaleData } from '../providers/types/localeData'
@@ -19,6 +21,9 @@ type Props = {
   }
   data: {
     locales: LocaleData
+    archives: {
+      nodes: BlogPostNode[]
+    }
     allMarkdownRemark: {
       nodes: BlogPostNode[]
     }
@@ -27,8 +32,8 @@ type Props = {
 }
 
 type ComponentProps = {
-  className?: string
   blogPosts: BlogPostNode[]
+  searchedPosts: BlogPostNode[] | null
   pageContext: PageContext
   metaTag: object[]
   searchInput: string
@@ -36,8 +41,8 @@ type ComponentProps = {
 }
 
 const Component = ({
-  className,
   blogPosts,
+  searchedPosts,
   pageContext,
   metaTag,
   searchInput,
@@ -46,32 +51,25 @@ const Component = ({
   <Layout>
     <MetaTag title={'home'} meta={metaTag} />
     <WithSideBar onInputType={onInputType} searchInput={searchInput}>
-      <div className={className}>
-        {blogPosts.map((b, i) => (
-          <BlogThumbnailCard key={b.id} data={b} first={i === 0} />
-        ))}
-      </div>
+      {searchedPosts ? (
+        <SearchedBlogPostList blogPosts={searchedPosts} />
+      ) : (
+        <BlogPostList blogPosts={blogPosts} />
+      )}
     </WithSideBar>
     <NavigationBar pageContext={pageContext} />
   </Layout>
 )
 
-const StyledComponent = styled(Component)`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-auto-rows: min-content;
-  column-gap: min(5vw, 64px);
-  row-gap: 64px;
-
-  max-width: 960px;
-`
+const StyledComponent = styled(Component)``
 
 const BlogPostListTemplate = (props: Props) => {
   const [searchInput, setSearchInput] = useState<string>('')
-  const [searchedPosts, setSearchedPosts] = useState<BlogPostNode[]>([])
+  const [searchedPosts, setSearchedPosts] = useState<BlogPostNode[] | null>(null)
 
-  const blogPosts = props.data.allMarkdownRemark.nodes
   const userLang = navigator.language || navigator.userLanguage || i18nDefaultLanguage
+
+  // navigate to the certain language page if it's not default language
   const metaTag =
     props.location.pathname === '/' &&
     userLang !== i18nDefaultLanguage &&
@@ -81,27 +79,47 @@ const BlogPostListTemplate = (props: Props) => {
 
   useEffect(() => {
     const t = setTimeout(() => {
-      console.log(searchInput)
       searchBlogPosts()
     }, 300)
 
     return () => clearTimeout(t)
   }, [searchInput])
 
-  const searchBlogPosts = () => {}
+  const searchBlogPosts = () => {
+    if (!searchInput) return setSearchedPosts(null)
+
+    const keywords = searchInput.trim().split(' ')
+
+    let searched = props.data.archives.nodes
+
+    for (let keyword of keywords) {
+      if (!keyword) continue
+
+      searched = searched.filter(
+        (b) =>
+          b.frontmatter.title.toLowerCase().includes(keyword) ||
+          b.frontmatter.tags.join('').toLowerCase().includes(keyword) ||
+          b.frontmatter.description.toLowerCase().includes(keyword)
+      )
+    }
+
+    setSearchedPosts(searched)
+  }
 
   const onInputType = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchInput(e.target.value)
+    if (!e) return
+    setSearchInput(e.target.value.toLowerCase())
   }
 
   return (
     <StyledComponent
       {...props}
-      blogPosts={blogPosts}
+      blogPosts={props.data.allMarkdownRemark.nodes}
       metaTag={metaTag}
       pageContext={props.pageContext}
       searchInput={searchInput}
       onInputType={onInputType}
+      searchedPosts={searchedPosts}
     />
   )
 }
@@ -116,6 +134,37 @@ export const query = graphql`
           ns
           data
           language
+        }
+      }
+    }
+    archives: allMarkdownRemark(
+      sort: { fields: [frontmatter___date], order: DESC }
+      filter: { fields: { language: { eq: $language } } }
+    ) {
+      nodes {
+        id
+        excerpt
+        fields {
+          slug
+          language
+          path
+        }
+        frontmatter {
+          date(formatString: "MMMM DD, YYYY")
+          title
+          description
+          tags
+          cover {
+            childImageSharp {
+              gatsbyImageData(
+                formats: [AUTO, WEBP]
+                placeholder: BLURRED
+                webpOptions: { quality: 90 }
+                width: 600
+                quality: 90
+              )
+            }
+          }
         }
       }
     }

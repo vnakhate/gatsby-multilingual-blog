@@ -26,19 +26,21 @@ const Component = ({ className, data, imageURL }: ComponentProps) => (
 )
 
 const StyledComponent = styled(Component)<{ first: boolean }>`
-  cursor: pointer;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  align-items: center;
 
   > div {
     :first-child {
       aspect-ratio: 4/3;
-      margin: 0 0 16px 0;
+      margin: 0 16px 0 0;
     }
 
     > h2 {
       width: max-content;
       font-size: 2.4rem;
       padding-bottom: 8px;
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0) 50%, hsla(300, 85%, 50%, 60%) 50%);
+      background: ${({ theme }) => theme.highlight};
     }
 
     > p {
@@ -47,24 +49,9 @@ const StyledComponent = styled(Component)<{ first: boolean }>`
       color: ${({ theme }) => theme.color.subGreyText};
     }
   }
-
-  ${({ first }) =>
-    first
-      ? css`
-          display: grid;
-          grid-template-columns: 2fr 1fr;
-          grid-column: span 2;
-          align-items: flex-end;
-
-          > div:first-child {
-            aspect-ratio: 2 / 1.2;
-            margin: 0 24px 0 0;
-          }
-        `
-      : null}
 `
 
-export const BlogThumbnailCard = (props: Props) => {
+export const SearchedBlogPostThumbnailCard = (props: Props) => {
   const imageURL = getImage(props.data.frontmatter.cover)!
 
   return <StyledComponent {...props} imageURL={imageURL} first={props.first} />

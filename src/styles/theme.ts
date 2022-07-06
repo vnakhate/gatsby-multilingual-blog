@@ -18,4 +18,6 @@ export const theme = {
   color: {
     subGreyText: `hsl(0, 0%, 50%)`,
   },
+
+  highlight: `linear-gradient(180deg, rgba(255, 255, 255, 0) 50%, hsla(300, 85%, 50%, 60%) 50%)`,
 }

@@ -22,7 +22,7 @@ const Component = ({ className, pageContext, pages }: ComponentProps) => (
       </Link>
     ) : null}
     {pages.map((i) => (
-      <Link to={i === 0 ? `/` : `/page/${i}`} language={pageContext.language}>
+      <Link key={i} to={i === 0 ? `/` : `/page/${i}`} language={pageContext.language}>
         <p className={pageContext.currentPage === i ? 'current' : ''}>{i}</p>
       </Link>
     ))}

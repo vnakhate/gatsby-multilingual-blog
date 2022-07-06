@@ -2,7 +2,8 @@
 title: 日本語ブログ 2
 date: "2022-06-20T20:08:00.000Z"
 cover: "./cover.jpg"
-tags: ["tag1", "tag2", "tag3"]
+tags: ["tag1", "tag2", "tag3", "react", "gatsby"]
+description: "this is description"
 ---
 
 これは日本語で書かれたブログです。

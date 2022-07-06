@@ -1,5 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
+import { Link } from 'gatsby-plugin-react-i18next'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 
 import { Layout } from '../components/layout'
@@ -22,24 +23,48 @@ const Component = ({ className, data }: Props) => (
   <Layout>
     <MetaTag />
     <WithSideBar>
-      <div className={className}>
+      <article className={className}>
         <GatsbyImage alt={'cover'} image={getImage(data.markdownRemark.frontmatter.cover)!} />
         <h2>{data.markdownRemark.frontmatter.title}</h2>
         <ul>
           {data.markdownRemark.frontmatter.tags.map((t) => (
-            <li key={t}>#{t}</li>
+            <Link to={t} key={t}>
+              <li>#{t}</li>
+            </Link>
           ))}
         </ul>
         <div dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }} />
-      </div>
+      </article>
     </WithSideBar>
   </Layout>
 )
 
 const BlogPostTemplate = styled(Component)`
   > h2 {
+    width: max-content;
+    padding: 8px 0;
+
     font-size: 4rem;
     font-weight: bold;
+    background: ${({ theme }) => theme.highlight};
+  }
+
+  > ul {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 16px 0;
+
+    font-size: 1.8rem;
+    color: ${({ theme }) => theme.color.subGreyText};
+
+    > a:not(:last-child) {
+      margin-right: 16px;
+      padding: 1px 0;
+    }
+  }
+
+  > div:last-child {
+    font-size: 1.8rem;
   }
 `
 
