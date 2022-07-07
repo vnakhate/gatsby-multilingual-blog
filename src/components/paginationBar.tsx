@@ -44,7 +44,7 @@ const StyledComponent = styled(Component)`
   position: absolute;
   bottom: 0;
 
-  width: 100%;
+  width: calc(100% - ${({ theme }) => theme.sideSpace * 2}px);
 
   font-size: 1.4rem;
   color: ${({ theme }) => theme.color.subGreyText};

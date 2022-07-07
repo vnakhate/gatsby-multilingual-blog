@@ -9,12 +9,13 @@ export const theme = {
   mainWith: 960,
   headerHeight: 296,
   footerHeight: 220,
+  sideSpace: 16,
 
   get centeredStyle() {
     return css`
       max-width: ${this.contentWidth}px;
       margin: 0 auto;
-      padding: 0 16px;
+      padding: 0 ${this.sideSpace}px;
     `
   },
 
