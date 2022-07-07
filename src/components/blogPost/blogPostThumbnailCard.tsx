@@ -1,10 +1,10 @@
 /** 1. Imports **/
 import React from 'react'
 import styled, { css } from 'styled-components'
-import { BlogPostThumbnailCardComponent } from './BlogPostThumbnailCardComponent'
+import { _BlogPostThumbnailCardComponent } from './_blogPostThumbnailCardComponent'
 
 /** 4. Styled component */
-export const BlogPostThumbnailCard = styled(BlogPostThumbnailCardComponent)<{ first: boolean }>`
+export const BlogPostThumbnailCard = styled(_BlogPostThumbnailCardComponent)<{ first: boolean }>`
   ${({ first }) =>
     first
       ? css`
@@ -26,21 +26,5 @@ export const BlogPostThumbnailCard = styled(BlogPostThumbnailCardComponent)<{ fi
             margin: 0 24px 0 0;
           `
         : null}
-  }
-
-  > div#info {
-    > h2 {
-      width: max-content;
-      max-width: fit-content;
-      font-size: 2.4rem;
-      padding-bottom: 8px;
-      background: ${({ theme }) => theme.highlight};
-    }
-
-    > p {
-      line-height: 1.2;
-      font-size: 1.6rem;
-      color: ${({ theme }) => theme.color.subGreyText};
-    }
   }
 `

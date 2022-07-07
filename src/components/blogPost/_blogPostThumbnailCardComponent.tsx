@@ -4,6 +4,7 @@ import { Link } from 'gatsby-plugin-react-i18next'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 
 import { BlogPostNode } from '../../providers/types/blogPostNode'
+import styled from 'styled-components'
 
 /** 2. Types **/
 type Props = {
@@ -13,7 +14,7 @@ type Props = {
 }
 
 /** 3. Base component **/
-export const BlogPostThumbnailCardComponent = ({ className, data }: Props) => (
+const Component = ({ className, data }: Props) => (
   <Link className={className} to={data.fields.path} language={data.fields.language}>
     <GatsbyImage
       class={'img'}
@@ -27,3 +28,21 @@ export const BlogPostThumbnailCardComponent = ({ className, data }: Props) => (
     </div>
   </Link>
 )
+
+export const _BlogPostThumbnailCardComponent = styled(Component)`
+  > div#info {
+    > h2 {
+      width: max-content;
+      max-width: fit-content;
+      font-size: 2.4rem;
+      padding-bottom: 8px;
+      background: ${({ theme }) => theme.highlight};
+    }
+
+    > p {
+      line-height: 1.2;
+      font-size: 1.6rem;
+      color: ${({ theme }) => theme.color.subGreyText};
+    }
+  }
+`
