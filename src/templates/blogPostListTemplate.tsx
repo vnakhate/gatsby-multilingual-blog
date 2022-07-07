@@ -5,7 +5,7 @@ import styled from 'styled-components'
 
 import { Layout } from '../components/layout'
 import { MetaTag } from '../components/metaTag'
-import { NavigationBar } from '../components/navigationBar'
+import { PaginationBar } from '../components/paginationBar'
 import { WithSideBar } from '../components/withSideBar'
 import { BlogPostList } from '../components/blogPost/blogPostList'
 import { SearchedBlogPostList } from '../components/blogPost/searchedBlogPostList'
@@ -59,7 +59,7 @@ const Component = ({
         <BlogPostList blogPosts={blogPosts} />
       )}
     </WithSideBar>
-    <NavigationBar pageContext={pageContext} />
+    <PaginationBar pageContext={pageContext} />
   </Layout>
 )
 

@@ -67,7 +67,7 @@ const StyledComponent = styled(Component)`
 `
 
 /** 5. Container **/
-export const NavigationBar = (props: Props) => {
+export const PaginationBar = (props: Props) => {
   const { pageContext } = props
 
   // generate pages on navigation
