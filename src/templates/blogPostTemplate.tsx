@@ -1,7 +1,7 @@
 /** 1. Imports **/
 import React from 'react'
 import { graphql } from 'gatsby'
-import { Link } from 'gatsby-plugin-react-i18next'
+import { Link, useI18next } from 'gatsby-plugin-react-i18next'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 
 import { Layout } from '../components/layout'
@@ -21,8 +21,12 @@ type Props = {
   }
 }
 
+type ComponentProps = Props & {
+  language: string
+}
+
 /** 3. Base component **/
-const Component = ({ className, data }: Props) => (
+const Component = ({ className, data, language }: ComponentProps) => (
   <Layout>
     <MetaTag />
     <WithSideBar>
@@ -31,7 +35,7 @@ const Component = ({ className, data }: Props) => (
         <h2>{data.markdownRemark.frontmatter.title}</h2>
         <ul>
           {data.markdownRemark.frontmatter.tags.map((t) => (
-            <Link to={t} key={t}>
+            <Link key={t} to={`/?tag=${t}`} language={language}>
               <li>#{t}</li>
             </Link>
           ))}
@@ -43,7 +47,7 @@ const Component = ({ className, data }: Props) => (
 )
 
 /** 4. Styled component **/
-const BlogPostTemplate = styled(Component)`
+const StyledComponent = styled(Component)`
   > h2 {
     width: max-content;
     max-width: fit-content;
@@ -72,6 +76,12 @@ const BlogPostTemplate = styled(Component)`
     font-size: 1.8rem;
   }
 `
+
+const BlogPostTemplate = (props: Props) => {
+  const { language } = useI18next()
+
+  return <StyledComponent {...props} language={language} />
+}
 export default BlogPostTemplate
 
 export const pageQuery = graphql`

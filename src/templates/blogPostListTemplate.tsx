@@ -19,6 +19,7 @@ import { i18nLanguages, i18nDefaultLanguage } from '../../i18nLanguages'
 type Props = {
   location: {
     pathname: string
+    search: string
   }
   data: {
     locales: LocaleData
@@ -82,6 +83,14 @@ const BlogPostListTemplate = (props: Props) => {
       : []
 
   useEffect(() => {
+    const param = new URLSearchParams(props.location.search)
+    const tagParam = param.get('tag')
+    if (tagParam) {
+      setSearchInput(`#${tagParam}`)
+    }
+  }, [])
+
+  useEffect(() => {
     const t = setTimeout(() => {
       searchBlogPosts()
     }, 300)
@@ -102,7 +111,7 @@ const BlogPostListTemplate = (props: Props) => {
       searched = searched.filter(
         (b) =>
           b.frontmatter.title.toLowerCase().includes(keyword) ||
-          b.frontmatter.tags.join('').toLowerCase().includes(keyword) ||
+          ('#' + b.frontmatter.tags.join('#').toLowerCase()).includes(keyword) ||
           b.frontmatter.description.toLowerCase().includes(keyword)
       )
     }
