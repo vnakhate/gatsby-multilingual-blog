@@ -72,10 +72,14 @@ const BlogPostListTemplate = (props: Props) => {
   const [searchInput, setSearchInput] = useState<string>('')
   const [searchedPosts, setSearchedPosts] = useState<BlogPostNode[] | null>(null)
 
-  const userLang = navigator.language || navigator.userLanguage || i18nDefaultLanguage
+  const userLang =
+    typeof window !== 'undefined'
+      ? navigator.language || navigator.userLanguage || i18nDefaultLanguage
+      : null
 
   // navigate to the certain language page if it's not default language
   const metaTag =
+    userLang &&
     props.location.pathname === '/' &&
     userLang !== i18nDefaultLanguage &&
     i18nLanguages.includes(userLang)

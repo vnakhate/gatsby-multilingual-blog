@@ -5,7 +5,7 @@
   "version": "0.1.0",
   "author": "Toshiki Kamei",
   "dependencies": {
-    "gatsby": "^4.17.2",
+    "gatsby": "^4.18.0",
     "gatsby-image": "^3.11.0",
     "gatsby-plugin-image": "^2.17.0",
     "gatsby-plugin-manifest": "^4.17.0",
@@ -66,7 +66,7 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test": "jest",
-    "upgrade": "yarn upgrade-interactive --latest",
+    "update": "yarn upgrade-interactive --latest",
     "i18n": "ts-node -O '{\"module\": \"commonjs\"}' ./locales/index.ts"
   },
   "repository": {
