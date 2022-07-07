@@ -10,11 +10,28 @@ This is the content of English blog post.
 
 You can read this post in different language, click the language toggle button!
 
+# H1 title
 
-```js
+# H2 title
+
+## Highlight
+```js {4-6}
+// index.js
 import React from 'react'
 
-export const Component = () => {
+const Component = () => {
   return <div>Hello World</div>
 }
+
+export default Component
+```
+
+## Diff
+```diff
+- interface {
+-   id: number
+- }
++ type Props = {
++   className?: string    
++ }
 ```

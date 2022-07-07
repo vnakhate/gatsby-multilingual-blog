@@ -5,6 +5,10 @@ import { CssReset } from './src/styles/cssReset'
 import { CustomGlobalCss } from './src/styles/customGlobalCss'
 import { theme } from './src/styles/theme'
 
+import 'prismjs/plugins/line-numbers/prism-line-numbers.css'
+import './src/styles/prism.css'
+import './src/styles/customPrism.css'
+
 type Props = { element: ReactElement<any, string | JSXElementConstructor<any>> }
 type RootWrapper = GatsbyBrowser['wrapRootElement'] | GatsbySSR['wrapRootElement']
 type PageWrapper = GatsbyBrowser['wrapPageElement'] | GatsbySSR['wrapPageElement']
