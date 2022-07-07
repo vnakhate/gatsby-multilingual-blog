@@ -6,13 +6,63 @@ tags: ["tag1", "react", "gatsby"]
 description: "this is description"
 ---
 
-This is the content of English blog post.
-
+This is the content of English blog post.  
 You can read this post in different language, click the language toggle button!
 
-# H1 title
+## Heading & emphasize
 
-# H2 title
+To declare heading tag, put '\#' right before the word. \#\# for \<h2>, \#\#\# for \<h3>. From h2 to h6 are available and they should be used by order in the article. Only avoid h1 tag, that's for article title. 
+
+Write paragraph with *emphasized* word and **strong** word.  
+use \*LETTER\* for emphasize and \*\*LETTER\*\* for strong.
+
+
+## BlockQuotes
+
+> This is blockquotes
+
+## Lists
+
+<p class="subtitle">List</p>
+
+1. first
+2. second
+3. third
+
+<p class="subtitle">Nested list</p>
+
+- first
+  - nested 1
+  - nested 2
+  - nested 3
+- second
+  - nested 4
+  - nested 5
+- third
+
+## Table
+
+|            | Frontend | Backend |
+|------------|----------|---------|
+| Javascript | ✅        | ✅       |  
+| Go         | ❌        | ✅       |
+| Python | ❌         | ✅        |
+
+| Good                                                                                      | Bad                                                                                            |
+|-------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------|
+| <br/> Now is the winter of our discontent Made glorious summer by this sun of York. <br/><br/> | <br/>But I, that am not shaped for sportive tricks,Nor made to court an amorous looking-glass.<br/><br/> |
+
+## Horizontal line
+
+---
+
+## With Image
+Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. 
+![mountain](./img1.jpg)
+Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. 
+
+
+Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
 
 ## Highlight
 ```js {4-6}

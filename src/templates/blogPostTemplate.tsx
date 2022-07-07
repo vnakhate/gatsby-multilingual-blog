@@ -9,6 +9,7 @@ import { BlogPost } from '../components/blogPost/blogPost'
 
 import { LocaleData } from '../providers/types/localeData'
 import { BlogPostNode } from '../providers/types/blogPostNode'
+import { getRandomEmoji } from '../providers/utils/getRandomEmoji'
 
 /** 2. Types **/
 type Props = {
@@ -27,7 +28,7 @@ const BlogPostTemplate = ({ data }: Props) => (
       description={data.markdownRemark.frontmatter.description}
     />
     <WithSideBar>
-      <BlogPost data={data.markdownRemark} />
+      <BlogPost data={data.markdownRemark} emojiList={getRandomEmoji()} />
     </WithSideBar>
   </Layout>
 )

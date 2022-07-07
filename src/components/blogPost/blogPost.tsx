@@ -10,20 +10,24 @@ import { BlogPostNode } from '../../providers/types/blogPostNode'
 type Props = {
   className?: string
   data: BlogPostNode
+  emojiList: string[]
 }
 
 /** 3. Base component **/
-const Component = ({ className, data }: Props) => (
+const Component = ({ className, data, emojiList }: Props) => (
   <article className={className}>
     <GatsbyImage alt={'cover'} image={getImage(data.frontmatter.cover)!} />
     <h1>{data.frontmatter.title}</h1>
     <ul>
-      {data.frontmatter.tags.map((t) => (
+      {data.frontmatter.tags.map((t, i) => (
         <Link key={t} to={`/?tag=${t}`} language={data.fields.language}>
-          <li>#{t}</li>
+          <li>
+            {emojiList[i]}#{t}
+          </li>
         </Link>
       ))}
     </ul>
+    <p>Written or Updated on {data.frontmatter.date} 🖋️</p>
     <BlogBody data={data} />
   </article>
 )
@@ -43,7 +47,7 @@ export const BlogPost = styled(Component)`
   > ul {
     display: flex;
     flex-wrap: wrap;
-    margin: 16px 0;
+    margin: 16px 0 0 0;
 
     font-size: 1.8rem;
     color: ${({ theme }) => theme.color.subGreyText};
@@ -52,5 +56,15 @@ export const BlogPost = styled(Component)`
       margin-right: 16px;
       padding: 1px 0;
     }
+  }
+
+  > p {
+    width: 88%;
+    padding: 8px 8px;
+    margin: 56px auto;
+    text-align: center;
+    font-size: 1.3rem;
+    color: ${({ theme }) => theme.color.subGreyText};
+    border: 3px hsl(0, 0%, 95%) dashed;
   }
 `

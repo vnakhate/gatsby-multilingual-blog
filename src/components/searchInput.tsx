@@ -41,14 +41,14 @@ export const SearchInput = styled(Component)`
   > svg {
     position: absolute;
     top: 12px;
-    left: 10px;
+    left: 15px;
     height: 17px;
   }
 
   > input {
     width: 100%;
     height: 40px;
-    padding: 0 16px 0 32px;
+    padding: 0 16px 0 40px;
 
     background-color: hsl(0, 0%, 99%);
     border: none;

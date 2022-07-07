@@ -59,6 +59,10 @@ const StyledComponent = styled(Component)`
       font-size: 3rem;
       font-weight: bold;
     }
+
+    > button {
+      height: 28px;
+    }
   }
 
   > div#description {

@@ -16,10 +16,106 @@ const Component = ({ className, data }: Props) => (
 
 /** 4. Styled component **/
 export const BlogBody = styled(Component)`
-  font-size: 1.8rem;
+  font-size: 1.9rem;
+  margin-bottom: 120px;
+
+  > * {
+    margin: 4px 0;
+  }
+
+  > p {
+    margin-bottom: 32px;
+  }
+
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    width: max-content;
+    max-width: fit-content;
+    padding: 6px 24px 6px 12px;
+    margin: 80px 0 16px 0;
+
+    font-size: 2.8rem;
+    font-family: ${({ theme }) => theme.serifFamily};
+
+    border-left: 4px solid ${({ theme }) => theme.color.highlightMagenta};
+  }
+
+  blockquote {
+    padding: 32px;
+    margin: 0 16px;
+    background-color: hsl(0, 0%, 94%);
+    border-radius: 8px;
+    border-left: 8px solid hsl(0, 0%, 80%);
+
+    font-style: italic;
+  }
+
+  p {
+    line-height: 2.8rem;
+  }
+
+  p.subtitle {
+    margin: 4px 0;
+    font-weight: bolder;
+  }
+
+  em {
+    font-style: italic;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 50%, hsl(0, 0%, 90%) 50%);
+  }
+
+  strong {
+    font-weight: bolder;
+    font-size: larger;
+  }
 
   pre {
     font-size: 1.4rem;
     border-radius: 8px;
+  }
+
+  span.gatsby-resp-image-wrapper {
+    margin: 16px 0;
+  }
+
+  ul,
+  ol {
+    li {
+      margin: 16px 0;
+      margin-left: 8px;
+
+      > ul {
+        margin-left: 16px;
+        font-size: smaller;
+      }
+    }
+  }
+
+  table {
+    width: 100%;
+    margin: 16px 0;
+
+    th,
+    td {
+      border: 1px solid hsl(0, 0%, 90%);
+    }
+
+    thead {
+      th {
+        padding: 8px;
+        border-bottom: 1.5px solid hsl(0, 0%, 85%);
+        background-color: hsl(0, 0%, 94%);
+      }
+    }
+
+    tbody {
+      td {
+        padding: 16px 16px;
+        line-height: 2.4rem;
+      }
+    }
   }
 `
