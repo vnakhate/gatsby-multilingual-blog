@@ -44,6 +44,8 @@ const Component = ({
 const StyledComponent = styled(Component)`
   ${({ theme }) => theme.centeredStyle}
 
+  position: relative;
+
   min-height: calc(
     100vh - ${({ theme }) => theme.headerHeight}px - ${({ theme }) => theme.footerHeight}px
   );

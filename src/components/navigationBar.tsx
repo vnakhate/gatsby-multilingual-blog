@@ -21,7 +21,7 @@ const Component = ({ className, pageContext, pages }: ComponentProps) => (
   <nav className={className}>
     {pageContext.hasPrevPage ? (
       <Link to={pageContext.prevPagePath} language={pageContext.language}>
-        <p>{'<< NEW'}</p>
+        <p>{'<<'}</p>
       </Link>
     ) : null}
     {pages.map((i) => (
@@ -31,7 +31,7 @@ const Component = ({ className, pageContext, pages }: ComponentProps) => (
     ))}
     {pageContext.hasNextPage ? (
       <Link to={pageContext.nextPagePath} language={pageContext.language}>
-        <p>{'OLD >>'}</p>
+        <p>{'>>'}</p>
       </Link>
     ) : null}
   </nav>
@@ -40,15 +40,20 @@ const Component = ({ className, pageContext, pages }: ComponentProps) => (
 /** 4. Styled component **/
 const StyledComponent = styled(Component)`
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  position: absolute;
+  bottom: 0;
 
   width: 100%;
-  margin-top: 80px;
 
   font-size: 1.4rem;
   color: ${({ theme }) => theme.color.subGreyText};
 
   transform: translateY(64px);
+
+  > a {
+    margin: 0 clamp(8px, 3vw, 24px);
+  }
 
   > a > p {
     padding: 8px 8px 4px 8px;
