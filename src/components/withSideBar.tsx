@@ -30,6 +30,10 @@ export const WithSideBar = styled(Component)`
     display: none;
   }
 
+  > *:nth-child(2) {
+    max-width: ${({ theme }) => theme.mainWith}px;
+  }
+
   @media only screen and (max-width: ${({ theme }) => theme.breakPoint.l}px) {
     grid-template-columns: 1fr;
 

@@ -17,6 +17,4 @@ export const BlogPostListComponent = styled(Component)`
   grid-template-columns: 1fr;
   grid-auto-rows: min-content;
   row-gap: 64px;
-
-  max-width: 960px;
 `
