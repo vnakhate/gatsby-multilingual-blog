@@ -1,10 +1,13 @@
+/** 1. Imports **/
 import React from 'react'
 import styled from 'styled-components'
 
+/** 2. Types **/
 type Props = {
   className?: string
 }
 
+/** 3. Base component **/
 const Component = ({ className }: Props) => (
   <div className={className}>
     <h3>Put anything you want</h3>
@@ -12,6 +15,7 @@ const Component = ({ className }: Props) => (
   </div>
 )
 
+/** 4. Styled component **/
 export const YourSpace = styled(Component)`
   > h3 {
     font-size: 1.5rem;

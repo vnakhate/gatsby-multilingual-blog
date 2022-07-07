@@ -1,8 +1,10 @@
+/** 1. Imports **/
 import React from 'react'
 import styled from 'styled-components'
 import { SideBar } from './sideBar'
 import { SearchInput } from './searchInput'
 
+/** 2. Types **/
 type Props = {
   className?: string
   children: React.ReactNode
@@ -10,6 +12,7 @@ type Props = {
   onInputType?: (e: React.ChangeEvent<HTMLInputElement>) => void
 }
 
+/** 3. Base component **/
 const Component = ({ className, children, searchInput, onInputType }: Props) => (
   <div className={className}>
     {onInputType ? <SearchInput onInputType={onInputType} searchInput={searchInput} /> : <div />}
@@ -18,6 +21,7 @@ const Component = ({ className, children, searchInput, onInputType }: Props) => 
   </div>
 )
 
+/** 4. Styled component **/
 export const WithSideBar = styled(Component)`
   display: grid;
   grid-template-columns: 3fr minmax(296px, 1fr);

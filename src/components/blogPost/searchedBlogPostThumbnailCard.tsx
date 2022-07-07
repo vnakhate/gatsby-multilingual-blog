@@ -1,7 +1,9 @@
+/** 1. Imports **/
 import React from 'react'
 import styled from 'styled-components'
 import { BlogPostThumbnailCardComponent } from './BlogPostThumbnailCardComponent'
 
+/** 4. Styled component **/
 export const SearchedBlogPostThumbnailCard = styled(BlogPostThumbnailCardComponent)<{
   first: boolean
 }>`
@@ -9,12 +11,12 @@ export const SearchedBlogPostThumbnailCard = styled(BlogPostThumbnailCardCompone
   grid-template-columns: 1fr 2fr;
   align-items: center;
 
-  > div {
-    :first-child {
-      aspect-ratio: 4/3;
-      margin: 0 16px 0 0;
-    }
+  > div.img {
+    aspect-ratio: 4/3;
+    margin: 0 16px 0 0;
+  }
 
+  > div#info {
     > h2 {
       width: max-content;
       max-width: fit-content;

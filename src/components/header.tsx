@@ -1,3 +1,4 @@
+/** 1. Imports **/
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby-plugin-react-i18next'
@@ -5,6 +6,7 @@ import { Link } from 'gatsby-plugin-react-i18next'
 import { i18nLanguages } from '../../i18nLanguages'
 import { SiteMetadata } from '../providers/types/siteMetadata'
 
+/** 2. Types **/
 type Props = {
   className?: string
   siteMetadata: SiteMetadata
@@ -15,12 +17,13 @@ type Props = {
 
 type ComponentProps = {
   className?: string
-  toggleLanguage: () => void
   language: string
+  toggleLanguage: () => void
   siteTitle: string
   description: string
 }
 
+/** 3. Base component **/
 const Component = ({
   className,
   toggleLanguage,
@@ -29,16 +32,17 @@ const Component = ({
   description,
 }: ComponentProps) => (
   <header className={className}>
-    <div>
+    <div id={'topBox'}>
       <Link to={'/'} language={language}>
         <h1>{siteTitle}</h1>
       </Link>
       <button onClick={toggleLanguage}>toggle language</button>
     </div>
-    <div>{description}</div>
+    <div id={'description'}>{description}</div>
   </header>
 )
 
+/** 4. Styled component **/
 const StyledComponent = styled(Component)`
   ${({ theme }) => theme.centeredStyle}
 
@@ -46,7 +50,7 @@ const StyledComponent = styled(Component)`
   align-content: center;
   height: ${({ theme }) => theme.headerHeight}px;
 
-  > div:first-child {
+  > div#topBox {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -57,13 +61,14 @@ const StyledComponent = styled(Component)`
     }
   }
 
-  > div:last-child {
+  > div#description {
     padding: 16px 0;
     font-size: 1.4rem;
     color: ${({ theme }) => theme.color.subGreyText};
   }
 `
 
+/** 5. Container **/
 export const Header = (props: Props) => {
   const { siteMetadata, t, changeLanguage, language } = props
 
@@ -78,8 +83,8 @@ export const Header = (props: Props) => {
   return (
     <StyledComponent
       {...props}
-      toggleLanguage={toggleLanguage}
       language={language}
+      toggleLanguage={toggleLanguage}
       siteTitle={siteMetadata.title}
       description={t(`index.description`)}
     />

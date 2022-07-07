@@ -1,12 +1,15 @@
+/** 1. Imports **/
 import React from 'react'
 import styled from 'styled-components'
 
+/** 2. Types **/
 type Props = {
   className?: string
   onInputType?: (e: React.ChangeEvent<HTMLInputElement>) => void
   searchInput?: string
 }
 
+/** 3. Base component **/
 const Component = ({ className, onInputType, searchInput }: Props) => (
   <div className={className}>
     <svg
@@ -31,6 +34,7 @@ const Component = ({ className, onInputType, searchInput }: Props) => (
   </div>
 )
 
+/** 4. Styled component **/
 export const SearchInput = styled(Component)`
   position: relative;
 
@@ -44,7 +48,6 @@ export const SearchInput = styled(Component)`
   > input {
     width: 100%;
     height: 40px;
-
     padding: 0 16px 0 32px;
 
     background-color: hsl(0, 0%, 99%);

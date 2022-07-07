@@ -1,3 +1,4 @@
+/** 1. Imports **/
 import React, { useEffect, useState } from 'react'
 import { graphql } from 'gatsby'
 import styled from 'styled-components'
@@ -14,6 +15,7 @@ import { LocaleData } from '../providers/types/localeData'
 import { PageContext } from '../providers/types/pageContext'
 import { i18nLanguages, i18nDefaultLanguage } from '../../i18nLanguages'
 
+/** 2. Types **/
 type Props = {
   location: {
     pathname: string
@@ -39,6 +41,7 @@ type ComponentProps = {
   onInputType?: (e: React.ChangeEvent<HTMLInputElement>) => void
 }
 
+/** 3. Base component **/
 const Component = ({
   blogPosts,
   searchedPosts,
@@ -60,8 +63,10 @@ const Component = ({
   </Layout>
 )
 
+/** 4. Styled component **/
 const StyledComponent = styled(Component)``
 
+/** 5. Container **/
 const BlogPostListTemplate = (props: Props) => {
   const [searchInput, setSearchInput] = useState<string>('')
   const [searchedPosts, setSearchedPosts] = useState<BlogPostNode[] | null>(null)
@@ -122,7 +127,6 @@ const BlogPostListTemplate = (props: Props) => {
     />
   )
 }
-
 export default BlogPostListTemplate
 
 export const query = graphql`

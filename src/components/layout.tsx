@@ -1,3 +1,4 @@
+/** 1. Imports **/
 import React from 'react'
 import styled from 'styled-components'
 import { useI18next } from 'gatsby-plugin-react-i18next'
@@ -8,6 +9,7 @@ import { Footer } from './footer'
 import { useSiteMetadata } from '../providers/hooks/useSiteMetadata'
 import { SiteMetadata } from '../providers/types/siteMetadata'
 
+/** 2. Types **/
 type Props = {
   className?: string
   children: React.ReactNode
@@ -18,25 +20,27 @@ type ComponentProps = {
   children: React.ReactNode
   siteMetadata: SiteMetadata
   t: (s: string) => string
-  changeLanguage: (lang: string) => void
   language: string
+  changeLanguage: (lang: string) => void
 }
 
+/** 3. Base component **/
 const Component = ({
   className,
   children,
-  t,
-  changeLanguage,
-  language,
   siteMetadata,
+  t,
+  language,
+  changeLanguage,
 }: ComponentProps) => (
   <>
     <Header t={t} language={language} changeLanguage={changeLanguage} siteMetadata={siteMetadata} />
     <main className={className}>{children}</main>
-    <Footer siteMetadata={siteMetadata} language={language} />
+    <Footer language={language} siteMetadata={siteMetadata} />
   </>
 )
 
+/** 4. Styled component **/
 const StyledComponent = styled(Component)`
   ${({ theme }) => theme.centeredStyle}
 
@@ -48,6 +52,7 @@ const StyledComponent = styled(Component)`
   );
 `
 
+/** 5. Container **/
 export const Layout = (props: Props) => {
   const { siteMetadata } = useSiteMetadata()
   const { t, changeLanguage, language } = useI18next()

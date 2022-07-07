@@ -1,3 +1,4 @@
+/** 1. Imports **/
 import React from 'react'
 import { graphql } from 'gatsby'
 import { Link } from 'gatsby-plugin-react-i18next'
@@ -11,6 +12,7 @@ import { LocaleData } from '../providers/types/localeData'
 import { BlogPostNode } from '../providers/types/blogPostNode'
 import styled from 'styled-components'
 
+/** 2. Types **/
 type Props = {
   className?: string
   data: {
@@ -19,6 +21,7 @@ type Props = {
   }
 }
 
+/** 3. Base component **/
 const Component = ({ className, data }: Props) => (
   <Layout>
     <MetaTag />
@@ -39,6 +42,7 @@ const Component = ({ className, data }: Props) => (
   </Layout>
 )
 
+/** 4. Styled component **/
 const BlogPostTemplate = styled(Component)`
   > h2 {
     width: max-content;
@@ -68,7 +72,6 @@ const BlogPostTemplate = styled(Component)`
     font-size: 1.8rem;
   }
 `
-
 export default BlogPostTemplate
 
 export const pageQuery = graphql`

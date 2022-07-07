@@ -1,8 +1,10 @@
+/** 1. Imports **/
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby-plugin-react-i18next'
 import { PageContext } from '../providers/types/pageContext'
 
+/** 2. Types **/
 type Props = {
   className?: string
   pageContext: PageContext
@@ -14,6 +16,7 @@ type ComponentProps = {
   pages: number[]
 }
 
+/** 3. Base component **/
 const Component = ({ className, pageContext, pages }: ComponentProps) => (
   <nav className={className}>
     {pageContext.hasPrevPage ? (
@@ -34,13 +37,17 @@ const Component = ({ className, pageContext, pages }: ComponentProps) => (
   </nav>
 )
 
+/** 4. Styled component **/
 const StyledComponent = styled(Component)`
   display: flex;
   justify-content: space-between;
+
   width: 100%;
   margin-top: 80px;
+
   font-size: 1.4rem;
   color: ${({ theme }) => theme.color.subGreyText};
+
   transform: translateY(64px);
 
   > a > p {
@@ -54,9 +61,11 @@ const StyledComponent = styled(Component)`
   }
 `
 
+/** 5. Container **/
 export const NavigationBar = (props: Props) => {
   const { pageContext } = props
 
+  // generate pages on navigation
   const pages = React.useCallback(() => {
     const { currentPage, numberOfPages } = pageContext
 
