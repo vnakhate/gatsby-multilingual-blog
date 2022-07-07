@@ -23,7 +23,7 @@ const Component = ({ className, data }: Props) => (
       objectFit={'cover'}
     />
     <div id={'info'}>
-      <h2>{data.frontmatter.title}</h2>
+      <h1>{data.frontmatter.title}</h1>
       <p>{data.excerpt}</p>
     </div>
   </Link>
@@ -31,7 +31,7 @@ const Component = ({ className, data }: Props) => (
 
 export const _BlogPostThumbnailCardComponent = styled(Component)`
   > div#info {
-    > h2 {
+    > h1 {
       width: max-content;
       max-width: fit-content;
       font-size: 2.4rem;

@@ -16,7 +16,7 @@ type Props = {
 const Component = ({ className, data }: Props) => (
   <article className={className}>
     <GatsbyImage alt={'cover'} image={getImage(data.frontmatter.cover)!} />
-    <h2>{data.frontmatter.title}</h2>
+    <h1>{data.frontmatter.title}</h1>
     <ul>
       {data.frontmatter.tags.map((t) => (
         <Link key={t} to={`/?tag=${t}`} language={data.fields.language}>
@@ -30,7 +30,7 @@ const Component = ({ className, data }: Props) => (
 
 /** 4. Styled component **/
 export const BlogPost = styled(Component)`
-  > h2 {
+  > h1 {
     width: max-content;
     max-width: fit-content;
     padding: 8px 0;

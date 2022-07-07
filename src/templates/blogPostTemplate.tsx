@@ -22,7 +22,10 @@ type Props = {
 /** 3. Base component **/
 const BlogPostTemplate = ({ data }: Props) => (
   <Layout>
-    <MetaTag />
+    <MetaTag
+      title={data.markdownRemark.frontmatter.title}
+      description={data.markdownRemark.frontmatter.description}
+    />
     <WithSideBar>
       <BlogPost data={data.markdownRemark} />
     </WithSideBar>

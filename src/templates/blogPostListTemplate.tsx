@@ -52,7 +52,7 @@ const Component = ({
   onInputType,
 }: ComponentProps) => (
   <Layout>
-    <MetaTag title={'home'} meta={metaTag} />
+    <MetaTag meta={metaTag} />
     <WithSideBar onInputType={onInputType} searchInput={searchInput}>
       {searchedPosts ? (
         <SearchedBlogPostList blogPosts={searchedPosts} />

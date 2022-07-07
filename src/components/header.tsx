@@ -34,7 +34,7 @@ const Component = ({
   <header className={className}>
     <div id={'topBox'}>
       <Link to={'/'} language={language}>
-        <h1>{siteTitle}</h1>
+        <div id={'logo'}>{siteTitle}</div>
       </Link>
       <button onClick={toggleLanguage}>toggle language</button>
     </div>
@@ -55,7 +55,7 @@ const StyledComponent = styled(Component)`
     justify-content: space-between;
     align-items: center;
 
-    h1 {
+    > a > div#logo {
       font-size: 3rem;
       font-weight: bold;
     }

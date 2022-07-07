@@ -17,7 +17,7 @@ type ComponentProps = {
 /** 3. Base component **/
 const Component = ({ className }: ComponentProps) => (
   <Layout>
-    <MetaTag />
+    <MetaTag title={'Privacy Policy'} />
     <div className={className}>Privacy policy</div>
   </Layout>
 )
