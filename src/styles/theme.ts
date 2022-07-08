@@ -20,6 +20,7 @@ export const theme = {
   },
 
   color: {
+    backgroundWhite: `hsl(0, 0%, 98%)`,
     subGreyText: `hsl(0, 0%, 50%)`,
     highlightMagenta: `hsla(300, 85%, 50%, 60%)`,
   },

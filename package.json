@@ -5,7 +5,7 @@
   "version": "0.1.0",
   "author": "Toshiki Kamei",
   "dependencies": {
-    "gatsby": "^4.17.2",
+    "gatsby": "4.17.2",
     "gatsby-image": "^3.11.0",
     "gatsby-plugin-image": "^2.17.0",
     "gatsby-plugin-manifest": "^4.17.0",
@@ -59,15 +59,15 @@
   ],
   "license": "MIT",
   "scripts": {
+    "i18n": "ts-node -O '{\"module\": \"commonjs\"}' ./locales/index.ts",
     "start": "gatsby develop -H 0.0.0.0",
     "develop": "gatsby develop -H 0.0.0.0",
+    "serve": "gatsby serve -H 0.0.0.0",
     "build": "gatsby build",
-    "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\"",
-    "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test": "jest",
-    "upgrade": "yarn upgrade-interactive --latest",
-    "i18n": "ts-node -O '{\"module\": \"commonjs\"}' ./locales/index.ts"
+    "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\"",
+    "update": "yarn upgrade-interactive --latest"
   },
   "repository": {
     "type": "git",
