@@ -50,42 +50,43 @@ Kick off your project with this boilerplate. This starter ships with the several
 ## 🇺🇳 Set available languages
 
 1. **Edit i18nLanguages.ts**
-    
-    Set available languages and default language. They are automatically applied in the project.
 
-    ```typescript
-    // i18nLanguages.ts
-   
-    export const i18nLanguages: string[] = [`en`, `ja`]
-    export const i18nDefaultLanguage: string = `en`
-    ```    
-    
+   Set available languages and default language. They are automatically applied in the project.
+
+   ```typescript
+   // i18nLanguages.ts
+
+   export const i18nLanguages: string[] = [`en`, `ja`]
+   export const i18nDefaultLanguage: string = `en`
+   ```
+
 2. **Write Translations for each language**
-    
-    Translations should be { key:value } format. It can be deeply nested if necessary.
 
-    ```typescript
-    // locales/index.ts
-   
-    const translations = {
-      index: {
-        description: {
-          en: `Hello world. This is Multilingual Blog. you can switch languages clicking the top-right button.`,
-          ja: `ハローワールド。これは多言語対応ブログです。右上のボタンで言語をスイッチすることが可能です。`,
-        },
-      },
-    }
-    ```
-   
+   Translations should be { key:value } format. It can be deeply nested if necessary.
+
+   ```typescript
+   // locales/index.ts
+
+   const translations = {
+     index: {
+       description: {
+         en: `Hello world. This is Multilingual Blog. you can switch languages clicking the top-right button.`,
+         ja: `ハローワールド。これは多言語対応ブログです。右上のボタンで言語をスイッチすることが可能です。`,
+       },
+     },
+   }
+   ```
+
 3. **Generate translation.json**
 
-    Usually you need to make translation.json file for each language in locales folder. But in this project, all you need to do is just run command `yarn i18n`
+   Usually you need to make translation.json file for each language in locales folder. But in this project, all you need to do is just run command `yarn i18n`
 
-    ```shell
-    yarn i18n
-    ```
+   ```shell
+   yarn i18n
+   ```
 
 ## 🏗️ Component architecture
+
 A component file consists of five layers.
 
 1. Import layer
@@ -121,18 +122,18 @@ const Component = ({ className, someData }: ComponentProps) => (
 const StyledComponent = styled(Component)`
   width: 100%;
   margin: 16px;
-  
+
   font-size: 2rem;
-` 
+`
 
 /** 5. Container layer **/
 export const MyComponent = (props: ContainerProps) => {
   const [yourState, setYourState] = useState<string>('')
-  
+
   useEffect(() => {
     // do something here
   }, [])
-  
+
   return <StyledComponent {...props} someData={yourState} />
 }
 ```
