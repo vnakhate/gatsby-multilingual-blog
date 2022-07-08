@@ -28,7 +28,7 @@ const Component = ({ className, data, emojiList }: Props) => (
       ))}
     </ul>
     <p>Written or Updated on {data.frontmatter.date} 🖋️</p>
-    <BlogBody data={data} language={data.fields.language} />
+    <BlogBody data={data} />
   </article>
 )
 

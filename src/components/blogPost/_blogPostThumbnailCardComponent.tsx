@@ -34,14 +34,14 @@ export const _BlogPostThumbnailCardComponent = styled(Component)`
     > h1 {
       width: max-content;
       max-width: fit-content;
-      font-size: 2.4rem;
+      font-size: ${({ data }) => (data.fields.language === 'ja' ? 2.2 : 2.4)}rem;
       padding-bottom: 8px;
       background: ${({ theme }) => theme.highlight};
     }
 
     > p {
-      line-height: 1.2;
-      font-size: 1.6rem;
+      line-height: 1.95rem;
+      font-size: ${({ data }) => (data.fields.language === 'ja' ? 1.4 : 1.6)}rem;
       color: ${({ theme }) => theme.color.subGreyText};
     }
   }

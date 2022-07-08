@@ -1,13 +1,12 @@
 /** 1. Imports **/
 import React from 'react'
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 import { BlogPostNode } from '../../providers/types/blogPostNode'
 
 /** 2. Types **/
 type Props = {
   className?: string
   data: BlogPostNode
-  language: string
 }
 
 /** 3. Base component **/
@@ -17,7 +16,7 @@ const Component = ({ className, data }: Props) => (
 
 /** 4. Styled component **/
 export const BlogBody = styled(Component)`
-  font-size: ${({ language }) => (language === 'ja' ? 1.7 : 1.9)}rem;
+  font-size: ${({ data }) => (data.fields.language === 'ja' ? 1.7 : 1.9)}rem;
   margin-bottom: 120px;
 
   > * {
@@ -57,7 +56,7 @@ export const BlogBody = styled(Component)`
   }
 
   p {
-    line-height: ${({ language }) => (language === 'ja' ? 3.3 : 3)}rem;
+    line-height: ${({ data }) => (data.fields.language === 'ja' ? 3.3 : 3)}rem;
   }
 
   p.subtitle {
@@ -118,7 +117,7 @@ export const BlogBody = styled(Component)`
     tbody {
       td {
         padding: 16px 16px;
-        line-height: ${({ language }) => (language === 'ja' ? 2.8 : 2.5)}rem;
+        line-height: ${({ data }) => (data.fields.language === 'ja' ? 2.8 : 2.5)}rem;
       }
     }
   }
