@@ -17,7 +17,7 @@ type Props = {
 const Component = ({ className, data, emojiList }: Props) => (
   <article className={className}>
     <GatsbyImage alt={'cover'} image={getImage(data.frontmatter.cover)!} />
-    <h1>{data.frontmatter.title}</h1>
+    <h1 className={data.fields.language === 'ja' ? 'ja-title' : ''}>{data.frontmatter.title}</h1>
     <ul>
       {data.frontmatter.tags.map((t, i) => (
         <Link key={t} to={`/?tag=${t}`} language={data.fields.language}>
@@ -42,6 +42,9 @@ export const BlogPost = styled(Component)`
     font-size: 4rem;
     font-weight: bold;
     background: ${({ theme }) => theme.highlight};
+  }
+  > h1.ja-title {
+    font-size: 3.7rem;
   }
 
   > ul {
