@@ -33,7 +33,7 @@ export const LanguageSwitchButton = styled(Component)`
 
   background-color: hsl(0, 0%, 85%);
   border-radius: 12px;
-  box-shadow: inset 2px 2px 8px hsla(0, 0%, 0%, 16%);
+  box-shadow: inset 2px 2px 6px hsla(0, 0%, 0%, 16%);
 
   cursor: pointer;
 
