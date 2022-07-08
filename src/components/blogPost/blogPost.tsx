@@ -36,8 +36,10 @@ const Component = ({ className, data, emojiList }: Props) => (
 
 /** 4. Styled component **/
 export const BlogPost = styled(Component)`
+  max-width: 800px !important;
+
   > div:first-child {
-    aspect-ratio: 7 / 4;
+    aspect-ratio: 7 / 3.5;
     object-fit: cover;
   }
 
