@@ -75,8 +75,7 @@ export const pageQuery = graphql`
                 formats: [AUTO, WEBP]
                 placeholder: BLURRED
                 webpOptions: { quality: 90 }
-                width: 700
-                height: 400
+                width: 300
                 quality: 90
               )
             }
@@ -98,8 +97,7 @@ export const pageQuery = graphql`
               formats: [AUTO, WEBP]
               placeholder: BLURRED
               webpOptions: { quality: 90 }
-              width: 700
-              height: 400
+              width: 800
               quality: 90
             )
           }
