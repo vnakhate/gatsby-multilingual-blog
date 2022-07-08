@@ -159,7 +159,7 @@ export const query = graphql`
     ) {
       nodes {
         id
-        excerpt
+        excerpt(pruneLength: 160)
         fields {
           slug
           language
@@ -192,7 +192,7 @@ export const query = graphql`
     ) {
       nodes {
         id
-        excerpt
+        excerpt(pruneLength: 160)
         fields {
           slug
           language

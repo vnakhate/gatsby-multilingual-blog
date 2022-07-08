@@ -16,7 +16,6 @@ export const BlogPostThumbnailCard = styled(_BlogPostThumbnailCardComponent)<{ f
       : null}
 
   > div.img {
-    aspect-ratio: 4/3;
     margin: 0 0 16px 0;
 
     ${({ first }) =>

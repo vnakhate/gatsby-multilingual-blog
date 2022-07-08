@@ -1,20 +1,24 @@
 /** 1. Imports **/
 import React from 'react'
 import styled from 'styled-components'
-import { SearchInput } from './searchInput'
+import { SearchInput } from '../searchInput'
 import { YourSpace } from './yourSpace'
+import { RelatedPosts } from './relatedPosts'
+import { BlogPostNode } from '../../providers/types/blogPostNode'
 
 /** 2. Types **/
 type Props = {
   className?: string
   searchInput?: string
   onInputType?: (e: React.ChangeEvent<HTMLInputElement>) => void
+  relatedPosts?: BlogPostNode[]
 }
 
 /** 3. Base component **/
-const Component = ({ className, searchInput, onInputType }: Props) => (
+const Component = ({ className, searchInput, onInputType, relatedPosts }: Props) => (
   <aside className={className}>
     {onInputType ? <SearchInput searchInput={searchInput} onInputType={onInputType} /> : null}
+    {relatedPosts ? <RelatedPosts data={relatedPosts} /> : null}
     <YourSpace />
     <YourSpace />
   </aside>

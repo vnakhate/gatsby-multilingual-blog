@@ -52,7 +52,7 @@ export const SearchInput = styled(Component)`
 
     background-color: hsl(0, 0%, 99%);
     border: none;
-    border: 1px solid hsl(0, 0%, 70%);
+    border: 1px solid hsl(0, 0%, 80%);
     border-radius: 12px;
 
     letter-spacing: 0.08rem;

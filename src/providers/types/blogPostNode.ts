@@ -4,6 +4,7 @@ export type BlogPostNode = {
   id: string
   html: string
   excerpt: string
+  relatedPosts: BlogPostNode[]
   fields: {
     slug: string
     language: string

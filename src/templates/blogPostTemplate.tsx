@@ -21,17 +21,22 @@ type Props = {
 }
 
 /** 3. Base component **/
-const BlogPostTemplate = ({ data }: Props) => (
+const Component = ({ data }: Props) => (
   <Layout>
     <MetaTag
       title={data.markdownRemark.frontmatter.title}
       description={data.markdownRemark.frontmatter.description}
     />
-    <WithSideBar>
+    <WithSideBar relatedPosts={data.markdownRemark.relatedPosts}>
       <BlogPost data={data.markdownRemark} emojiList={getRandomEmoji()} />
     </WithSideBar>
   </Layout>
 )
+
+/** 5. Container **/
+const BlogPostTemplate = (props: Props) => {
+  return <Component {...props} data={props.data} />
+}
 export default BlogPostTemplate
 
 export const pageQuery = graphql`
@@ -54,6 +59,30 @@ export const pageQuery = graphql`
       id
       excerpt(pruneLength: 160)
       html
+      relatedPosts {
+        id
+        excerpt(pruneLength: 160)
+        fields {
+          language
+          path
+        }
+        frontmatter {
+          title
+          tags
+          cover {
+            childImageSharp {
+              gatsbyImageData(
+                formats: [AUTO, WEBP]
+                placeholder: BLURRED
+                webpOptions: { quality: 90 }
+                width: 700
+                height: 400
+                quality: 90
+              )
+            }
+          }
+        }
+      }
       fields {
         slug
         language

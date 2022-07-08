@@ -115,6 +115,7 @@ export const createSchemaCustomization: GatsbyNode['createSchemaCustomization'] 
     type MarkdownRemark implements Node {
       frontmatter: Frontmatter
       fields: Fields
+      relatedPosts: [MarkdownRemark]
     }
     
     type Frontmatter {
@@ -130,4 +131,39 @@ export const createSchemaCustomization: GatsbyNode['createSchemaCustomization'] 
       path: String
     }
   `)
+}
+
+export const createResolvers: GatsbyNode['createResolvers'] = ({ createResolvers }) => {
+  createResolvers({
+    MarkdownRemark: {
+      relatedPosts: {
+        type: [`MarkdownRemark`],
+        resolve: async (source: BlogPostNode, args: any, context: any) => {
+          const { entries } = await context.nodeModel.findAll({
+            type: `MarkdownRemark`,
+            query: {
+              limit: 8,
+              filter: {
+                id: {
+                  ne: source.id,
+                },
+                fields: {
+                  language: {
+                    eq: source.fields.language,
+                  },
+                },
+                frontmatter: {
+                  tags: {
+                    in: source.frontmatter.tags,
+                  },
+                },
+              },
+            },
+          })
+
+          return entries
+        },
+      },
+    },
+  })
 }

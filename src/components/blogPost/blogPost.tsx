@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import { Link } from 'gatsby-plugin-react-i18next'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import { BlogBody } from './blogBody'
+import { RelatedPosts } from './relatedPosts'
 import { BlogPostNode } from '../../providers/types/blogPostNode'
 
 /** 2. Types **/
@@ -29,11 +30,17 @@ const Component = ({ className, data, emojiList }: Props) => (
     </ul>
     <p>Written or Updated on {data.frontmatter.date} 🖋️</p>
     <BlogBody data={data} />
+    <RelatedPosts data={data.relatedPosts} />
   </article>
 )
 
 /** 4. Styled component **/
 export const BlogPost = styled(Component)`
+  > div:first-child {
+    aspect-ratio: 7 / 4;
+    object-fit: cover;
+  }
+
   > h1 {
     width: max-content;
     max-width: fit-content;
