@@ -60,6 +60,7 @@ export const BlogBody = styled(Component)`
   p.subtitle {
     margin: 4px 0;
     font-weight: bolder;
+    font-size: larger;
   }
 
   em {
@@ -78,7 +79,7 @@ export const BlogBody = styled(Component)`
   }
 
   span.gatsby-resp-image-wrapper {
-    margin: 16px 0;
+    margin: 24px 0;
   }
 
   ul,

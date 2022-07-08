@@ -40,6 +40,16 @@ use \*LETTER\* for emphasize and \*\*LETTER\*\* for strong.
   - nested 5
 - third
 
+## Subtitles
+
+**Subtitle with \<strong> tag**  
+You can use strong \*\*LETTER\*\* tag as subtitle. Do not put space under subtitle otherwise it's recognised independent \<p> tag. Use line break.
+
+<p class="subtitle">Subtitle with &#60;p> tag</p> 
+
+*\<p class="subtitle">* is also available to make subtitle. In this case, make sure to put space under subtitle.
+
+
 ## Table
 
 |            | Frontend | Backend |

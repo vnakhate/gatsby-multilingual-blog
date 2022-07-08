@@ -62,9 +62,11 @@ export const BlogPost = styled(Component)`
     width: 88%;
     padding: 8px 8px;
     margin: 56px auto;
+
+    border: 3px hsl(0, 0%, 95%) dashed;
     text-align: center;
     font-size: 1.3rem;
+    letter-spacing: 0.03rem;
     color: ${({ theme }) => theme.color.subGreyText};
-    border: 3px hsl(0, 0%, 95%) dashed;
   }
 `
