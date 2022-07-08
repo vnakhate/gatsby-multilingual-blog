@@ -39,6 +39,7 @@ export const BlogBody = styled(Component)`
 
     font-size: 2.8rem;
     font-family: ${({ theme }) => theme.serifFamily};
+    font-weight: bolder;
 
     border-left: 4px solid ${({ theme }) => theme.color.highlightMagenta};
   }
