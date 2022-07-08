@@ -1,8 +1,9 @@
 /** 1. Imports **/
 import React from 'react'
 import styled from 'styled-components'
-import { SideBar } from './sideBar'
+import { SideBar } from './sideBar/sideBar'
 import { SearchInput } from './searchInput'
+import { BlogPostNode } from '../providers/types/blogPostNode'
 
 /** 2. Types **/
 type Props = {
@@ -10,14 +11,15 @@ type Props = {
   children: React.ReactNode
   searchInput?: string
   onInputType?: (e: React.ChangeEvent<HTMLInputElement>) => void
+  relatedPosts?: BlogPostNode[]
 }
 
 /** 3. Base component **/
-const Component = ({ className, children, searchInput, onInputType }: Props) => (
+const Component = ({ className, children, searchInput, onInputType, relatedPosts }: Props) => (
   <div className={className}>
     {onInputType ? <SearchInput onInputType={onInputType} searchInput={searchInput} /> : <div />}
     {children}
-    <SideBar onInputType={onInputType} searchInput={searchInput} />
+    <SideBar onInputType={onInputType} searchInput={searchInput} relatedPosts={relatedPosts} />
   </div>
 )
 

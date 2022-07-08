@@ -12,7 +12,6 @@ export const SearchedBlogPostThumbnailCard = styled(_BlogPostThumbnailCardCompon
   align-items: center;
 
   > div.img {
-    aspect-ratio: 4/3;
     margin: 0 16px 0 0;
   }
 `

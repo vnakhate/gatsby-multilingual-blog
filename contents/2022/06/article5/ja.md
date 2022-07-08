@@ -2,7 +2,7 @@
 title: 日本語ブログ 5
 date: "2022-06-20T20:08:00.000Z"
 cover: "./cover.jpg"
-tags: ["tag1", "tag2", "tag3"]
+tags: ["react", "javascript", "css", "style"]
 description: "this is description"
 ---
 
