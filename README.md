@@ -1,14 +1,15 @@
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 <h1 align="center">
-  Gatsby's custom starter
+  Gatsby's multilingual blog starter
 </h1>
 
-Kick off your project with this default boilerplate. This starter ships with the main Gatsby configuration files you might need to get up and running blazing fast with the blazing fast app generator for React.
+Kick off your project with this boilerplate. This starter ships with the several configuration files you might need to get up and running blazing fast app.
 
 ## 🖥️ Minimum starter with some setup
 
 - Typescript
 - Styled-component
+- i18n
 - PWA (optional)
 - Testing (Jest)
 
@@ -46,29 +47,131 @@ Kick off your project with this default boilerplate. This starter ships with the
 
     _Note: You'll also see a second link: _`http://localhost:8000/___graphql`_. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.org/tutorial/part-five/#introducing-graphiql)._
 
+## 🇺🇳 Set available languages
+
+1. **Edit i18nLanguages.ts**
+
+   Set available languages and default language. They are automatically applied in the project.
+
+   ```typescript
+   // i18nLanguages.ts
+
+   export const i18nLanguages: string[] = [`en`, `ja`]
+   export const i18nDefaultLanguage: string = `en`
+   ```
+
+2. **Write Translations for each language**
+
+   Translations should be { key:value } format. It can be deeply nested if necessary.
+
+   ```typescript
+   // locales/index.ts
+
+   const translations = {
+     index: {
+       description: {
+         en: `Hello world. This is Multilingual Blog. you can switch languages clicking the top-right button.`,
+         ja: `ハローワールド。これは多言語対応ブログです。右上のボタンで言語をスイッチすることが可能です。`,
+       },
+     },
+   }
+   ```
+
+3. **Generate translation.json**
+
+   Usually you need to make translation.json file for each language in locales folder. But in this project, all you need to do is just run command `yarn i18n`
+
+   ```shell
+   yarn i18n
+   ```
+
+## 🏗️ Component architecture
+
+A component file consists of five layers.
+
+1. Import layer
+2. Type layer
+3. Component layer (Should be stateless. Only concerned rendering.)
+4. Style layer
+5. Container layer (Able to have state and logic.)
+
+```tsx
+/** 1. Import layer **/
+import React, { useEffect, useState } from 'react'
+import styled from 'styled-components'
+import { ChildComponent } from './child-component'
+
+/** 2. Type layer **/
+type ContainerProps = {
+  className?: string
+}
+
+type ComponentProps = {
+  className?: string
+  someData: any
+}
+
+/** 3. Component layer **/
+const Component = ({ className, someData }: ComponentProps) => (
+  <div className={className}>
+    <ChildComponent data={someData} />
+  </div>
+)
+
+/** 4. Style layer **/
+const StyledComponent = styled(Component)`
+  width: 100%;
+  margin: 16px;
+
+  font-size: 2rem;
+`
+
+/** 5. Container layer **/
+export const MyComponent = (props: ContainerProps) => {
+  const [yourState, setYourState] = useState<string>('')
+
+  useEffect(() => {
+    // do something here
+  }, [])
+
+  return <StyledComponent {...props} someData={yourState} />
+}
+```
+
 ## 📝 What's inside?
 
-A quick look at the top-level files and directories you'll see in a Gatsby project.
+A quick look at files and directories you'll see in this project.
 
     .
-    ├── node_modules
-    ├── functions
+    ├── .github
+    ├── __mocks__
+    ├── contents
+    ├── locales
     ├── src
+    │    ├── components
+    │    ├── images
+    │    ├── pages
+    │    ├── providers
+    │    ├── styled
+    │    └── templates
     ├── .gitignore
+    ├── .prettierignore
     ├── .prettierrc
     ├── gatsby-browser.ts
     ├── gatsby-config.ts
     ├── gatsby-node.ts
     ├── gatsby-ssr.ts
     ├── gatsby-wrapper.tsx
+    ├── i18nLanguages.ts
     ├── jest.config.js
     ├── jest-preprocess.js
-    ├── loadershim.js
-    ├── setup-test-env.js
     ├── LICENSE
-    ├── package-lock.json
+    ├── loadershim.js
     ├── package.json
-    └── README.md
+    ├── README.md
+    ├── setup-test-env.js
+    ├── tsconfig.json
+    └── yarn.lock
 
 ## 🎓 Learning Gatsby
 
