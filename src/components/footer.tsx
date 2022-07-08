@@ -18,8 +18,9 @@ const Component = ({ className, siteMetadata, language }: Props) => (
     <div>
       <ul>
         <li>
+          © {new Date().getFullYear()}
+          {` `}
           {siteMetadata.title}
-          {` `}© {new Date().getFullYear()}
         </li>
         <li>|</li>
         <Link to={`/privacy-policy`} language={language}>
