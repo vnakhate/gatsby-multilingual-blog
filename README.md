@@ -16,6 +16,11 @@ Kick off your project with this default boilerplate. This starter ships with the
 
 [Demo Site](https://gatsby-multilingual-blog.netlify.app/)
 
+## ✅ Status
+
+[![Build test](https://github.com/zett-8/gatsby-multilingual-blog/actions/workflows/build-test.yml/badge.svg)](https://github.com/zett-8/gatsby-multilingual-blog/actions/workflows/build-test.yml)　
+[![Netlify Status](https://api.netlify.com/api/v1/badges/5e416975-85a6-4d39-bd1a-282f9d0666ca/deploy-status)](https://app.netlify.com/sites/gatsby-multilingual-blog/deploys)
+
 ## 🚀 Quick start
 
 1.  **Create a Gatsby site.**
