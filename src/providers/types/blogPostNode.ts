@@ -10,6 +10,10 @@ export type BlogPostNode = {
     language: string
     path: string
   }
+  headings: {
+    id: string
+    value: string
+  }[]
   frontmatter: {
     date: string
     title: string

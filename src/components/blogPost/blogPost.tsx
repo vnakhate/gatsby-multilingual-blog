@@ -37,6 +37,9 @@ const Component = ({ className, data, emojiList }: Props) => (
 /** 4. Styled component **/
 export const BlogPost = styled(Component)`
   max-width: 800px !important;
+  @media only screen and (max-width: ${({ theme }) => theme.breakPoint.l}px) {
+    margin: 0 auto;
+  }
 
   > div:first-child {
     aspect-ratio: 7 / 3.5;

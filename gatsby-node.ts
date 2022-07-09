@@ -130,10 +130,60 @@ export const createSchemaCustomization: GatsbyNode['createSchemaCustomization'] 
       language: String
       path: String
     }
+    
+    type PopularTags {
+      language: String
+      tags: [PopularTag]
+    }
+    
+    type PopularTag {
+      value: String
+      count: Int
+    }
   `)
 }
 
 export const createResolvers: GatsbyNode['createResolvers'] = ({ createResolvers }) => {
+  createResolvers({
+    Query: {
+      popularTags: {
+        type: `PopularTags`,
+        args: {
+          language: `String!`,
+        },
+        resolve: async (source: any, args: any, context: any) => {
+          const { entries } = await context.nodeModel.findAll({
+            type: `MarkdownRemark`,
+            query: {
+              filter: {
+                fields: {
+                  language: {
+                    eq: args.language,
+                  },
+                },
+              },
+            },
+          })
+
+          const t: { [key: string]: number } = {}
+
+          entries.forEach((e: BlogPostNode) => {
+            e.frontmatter.tags.forEach((tag) => {
+              t[tag] = ~~t[tag] + 1
+            })
+          })
+
+          return {
+            language: args.language,
+            tags: Object.keys(t)
+              .map((tag) => ({ value: tag, count: t[tag] }))
+              .sort((a, b) => b.count - a.count),
+          }
+        },
+      },
+    },
+  })
+
   createResolvers({
     MarkdownRemark: {
       relatedPosts: {

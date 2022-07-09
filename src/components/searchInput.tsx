@@ -1,16 +1,16 @@
 /** 1. Imports **/
 import React from 'react'
 import styled from 'styled-components'
+import { StateHandler } from '../providers/hooks/useStateHandler'
 
 /** 2. Types **/
 type Props = {
   className?: string
-  onInputType?: (e: React.ChangeEvent<HTMLInputElement>) => void
-  searchInput?: string
+  searchInputHandler: StateHandler<string>
 }
 
 /** 3. Base component **/
-const Component = ({ className, onInputType, searchInput }: Props) => (
+const Component = ({ className, searchInputHandler }: Props) => (
   <div className={className}>
     <svg
       version="1.1"
@@ -30,7 +30,12 @@ const Component = ({ className, onInputType, searchInput }: Props) => (
         />
       </g>
     </svg>
-    <input placeholder={'type keyword'} value={searchInput} onChange={onInputType} />
+    <input
+      type={'text'}
+      placeholder={'Type keyword'}
+      value={searchInputHandler.value}
+      onChange={(e) => searchInputHandler.setValue(e?.target?.value || '')}
+    />
   </div>
 )
 
@@ -43,6 +48,7 @@ export const SearchInput = styled(Component)`
     top: 12px;
     left: 15px;
     height: 17px;
+    fill: hsl(0, 0%, 30%);
   }
 
   > input {

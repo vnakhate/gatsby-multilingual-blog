@@ -27,7 +27,7 @@ const Component = ({ data }: Props) => (
       title={data.markdownRemark.frontmatter.title}
       description={data.markdownRemark.frontmatter.description}
     />
-    <WithSideBar relatedPosts={data.markdownRemark.relatedPosts}>
+    <WithSideBar blogPostData={data.markdownRemark}>
       <BlogPost data={data.markdownRemark} emojiList={getRandomEmoji()} />
     </WithSideBar>
   </Layout>
@@ -59,6 +59,31 @@ export const pageQuery = graphql`
       id
       excerpt(pruneLength: 160)
       html
+      fields {
+        slug
+        language
+      }
+      headings {
+        id
+        value
+      }
+      frontmatter {
+        title
+        date(formatString: "MMMM DD, YYYY")
+        description
+        tags
+        cover {
+          childImageSharp {
+            gatsbyImageData(
+              formats: [AUTO, WEBP]
+              placeholder: BLURRED
+              webpOptions: { quality: 90 }
+              width: 800
+              quality: 90
+            )
+          }
+        }
+      }
       relatedPosts {
         id
         excerpt(pruneLength: 160)
@@ -79,27 +104,6 @@ export const pageQuery = graphql`
                 quality: 90
               )
             }
-          }
-        }
-      }
-      fields {
-        slug
-        language
-      }
-      frontmatter {
-        title
-        date(formatString: "MMMM DD, YYYY")
-        description
-        tags
-        cover {
-          childImageSharp {
-            gatsbyImageData(
-              formats: [AUTO, WEBP]
-              placeholder: BLURRED
-              webpOptions: { quality: 90 }
-              width: 800
-              quality: 90
-            )
           }
         }
       }

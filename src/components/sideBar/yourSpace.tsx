@@ -10,19 +10,14 @@ type Props = {
 /** 3. Base component **/
 const Component = ({ className }: Props) => (
   <div className={className}>
-    <h3>Put anything you want</h3>
+    <div className={'side-title'}>Put anything you want</div>
     <div></div>
   </div>
 )
 
 /** 4. Styled component **/
 export const YourSpace = styled(Component)`
-  > h3 {
-    font-size: 1.5rem;
-    margin-bottom: 16px;
-  }
-
-  > div {
+  > div:last-child {
     height: 200px;
     width: 100%;
     border: 1px solid hsl(0, 0%, 88%);
