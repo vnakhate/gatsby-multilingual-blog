@@ -12,21 +12,34 @@ type Props = {
   searchInput?: string
   onInputType?: (e: React.ChangeEvent<HTMLInputElement>) => void
   relatedPosts?: BlogPostNode[]
+  headings?: BlogPostNode
 }
 
 /** 3. Base component **/
-const Component = ({ className, children, searchInput, onInputType, relatedPosts }: Props) => (
+const Component = ({
+  className,
+  children,
+  searchInput,
+  onInputType,
+  relatedPosts,
+  headings,
+}: Props) => (
   <div className={className}>
     {onInputType ? <SearchInput onInputType={onInputType} searchInput={searchInput} /> : <div />}
     {children}
-    <SideBar onInputType={onInputType} searchInput={searchInput} relatedPosts={relatedPosts} />
+    <SideBar
+      onInputType={onInputType}
+      searchInput={searchInput}
+      relatedPosts={relatedPosts}
+      headings={headings}
+    />
   </div>
 )
 
 /** 4. Styled component **/
 export const WithSideBar = styled(Component)`
   display: grid;
-  grid-template-columns: 3fr minmax(296px, 1fr);
+  grid-template-columns: 3fr minmax(304px, 1fr);
 
   > div:first-child {
     display: none;

@@ -14,7 +14,7 @@ type Props = {
 /** 3. Base Component **/
 const Component = ({ className, data }: Props) => (
   <div className={className}>
-    <div>Related posts</div>
+    <div className={'side-title'}>Related posts</div>
     {data.map((b) => (
       <div className={'relatedPost'} key={b.id}>
         <Link to={b.fields.path} language={b.fields.language}>
@@ -33,11 +33,6 @@ const Component = ({ className, data }: Props) => (
 
 /** 4. Styled Component **/
 export const RelatedPosts = styled(Component)`
-  > div:first-child {
-    margin-bottom: 16px;
-    font-size: 1.5rem;
-  }
-
   > div.relatedPost {
     margin-bottom: 32px;
 
