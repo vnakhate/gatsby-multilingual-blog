@@ -1,12 +1,12 @@
 import React from 'react'
 import Helmet from 'react-helmet'
-import { useSiteMetadata } from '../providers/hooks/useSiteMetadata'
+import { useSiteMetadata } from '../../providers/hooks/useSiteMetadata'
 
 type Props = {
+  meta?: any[] | []
+  lang?: string
   title?: string
   description?: string
-  lang?: string
-  meta?: any[] | []
   socialShareImage?: string
 }
 
@@ -23,7 +23,6 @@ export const MetaTag = ({
   const metaDescription = description || siteMetadata.description
 
   return (
-    // @ts-ignore
     <Helmet
       htmlAttributes={{
         lang,

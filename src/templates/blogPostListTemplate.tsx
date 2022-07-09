@@ -1,10 +1,9 @@
 /** 1. Imports **/
 import React, { useEffect } from 'react'
 import { graphql } from 'gatsby'
-import styled from 'styled-components'
 
-import { Layout } from '../components/layout'
-import { MetaTag } from '../components/metaTag'
+import { Layout } from '../components/layout/layout'
+import { MetaTag } from '../components/layout/metaTag'
 import { WithSideBar } from '../components/withSideBar'
 import { PaginationBar } from '../components/paginationBar'
 import { BlogPostList } from '../components/blogPost/blogPostList'

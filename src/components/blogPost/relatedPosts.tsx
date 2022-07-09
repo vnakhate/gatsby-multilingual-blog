@@ -60,7 +60,7 @@ export const RelatedPosts = styled(Component)`
     > div.info {
       > a {
         font-size: ${({ data }) =>
-          data.length > 0 && data[0].fields.language === 'ja' ? 2.8 : 3}rem;
+          data.length > 0 && data[0].fields.language === 'ja' ? 2.6 : 2.8}rem;
       }
 
       p {

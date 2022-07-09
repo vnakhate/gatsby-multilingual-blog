@@ -41,6 +41,7 @@ const Component = ({ className, pageContext, pages }: ComponentProps) => (
 const StyledComponent = styled(Component)`
   display: flex;
   justify-content: center;
+
   position: absolute;
   bottom: 0;
 
