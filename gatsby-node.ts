@@ -5,7 +5,7 @@ import { createFilePath } from 'gatsby-source-filesystem'
 import { createBlogPostPagination } from './src/providers/gatsby/createBlogPostPagination'
 import { BlogPostNode } from './src/providers/types/blogPostNode'
 import { GatsbyGraphqlResult } from './src/providers/types/gatsbyGraphql'
-import { i18nLanguages } from './i18nLanguages'
+import { i18nDefaultLanguage, i18nLanguages } from './i18nLanguages'
 
 type Result = GatsbyGraphqlResult<{
   allMarkdownRemark: {
@@ -130,10 +130,55 @@ export const createSchemaCustomization: GatsbyNode['createSchemaCustomization'] 
       language: String
       path: String
     }
+    
+    type PopularTags {
+      tags: [PopularTag]
+    }
+    
+    type PopularTag {
+      value: String
+      count: Int
+    }
   `)
 }
 
 export const createResolvers: GatsbyNode['createResolvers'] = ({ createResolvers }) => {
+  createResolvers({
+    Query: {
+      popularTags: {
+        type: `PopularTags`,
+        resolve: async (source: any, args: any, context: any) => {
+          const { entries } = await context.nodeModel.findAll({
+            type: `MarkdownRemark`,
+            query: {
+              filter: {
+                fields: {
+                  language: {
+                    eq: i18nDefaultLanguage,
+                  },
+                },
+              },
+            },
+          })
+
+          const t: { [key: string]: number } = {}
+
+          entries.forEach((e: BlogPostNode) => {
+            e.frontmatter.tags.forEach((tag) => {
+              t[tag] = ~~t[tag] + 1
+            })
+          })
+
+          return {
+            tags: Object.keys(t)
+              .map((tag) => ({ value: tag, count: t[tag] }))
+              .sort((a, b) => b.count - a.count),
+          }
+        },
+      },
+    },
+  })
+
   createResolvers({
     MarkdownRemark: {
       relatedPosts: {

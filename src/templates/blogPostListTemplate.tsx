@@ -13,6 +13,7 @@ import { SearchedBlogPostList } from '../components/blogPost/searchedBlogPostLis
 import { BlogPostNode } from '../providers/types/blogPostNode'
 import { LocaleData } from '../providers/types/localeData'
 import { PageContext } from '../providers/types/pageContext'
+import { PopularTag } from '../providers/types/popularTag'
 import { i18nLanguages, i18nDefaultLanguage } from '../../i18nLanguages'
 
 /** 2. Types **/
@@ -25,6 +26,9 @@ type Props = {
     locales: LocaleData
     archives: {
       nodes: BlogPostNode[]
+    }
+    popularTags: {
+      tags: PopularTag[]
     }
     allMarkdownRemark: {
       nodes: BlogPostNode[]
@@ -39,6 +43,7 @@ type ComponentProps = {
   pageContext: PageContext
   metaTag: object[]
   searchInput: string
+  popularTags: PopularTag[]
   onInputType?: (e: React.ChangeEvent<HTMLInputElement>) => void
 }
 
@@ -50,10 +55,11 @@ const Component = ({
   metaTag,
   searchInput,
   onInputType,
+  popularTags,
 }: ComponentProps) => (
   <Layout>
     <MetaTag meta={metaTag} />
-    <WithSideBar onInputType={onInputType} searchInput={searchInput}>
+    <WithSideBar onInputType={onInputType} searchInput={searchInput} popularTags={popularTags}>
       {searchedPosts ? (
         <SearchedBlogPostList blogPosts={searchedPosts} />
       ) : (
@@ -137,6 +143,7 @@ const BlogPostListTemplate = (props: Props) => {
       searchInput={searchInput}
       onInputType={onInputType}
       searchedPosts={searchedPosts}
+      popularTags={props.data.popularTags.tags}
     />
   )
 }
@@ -215,6 +222,12 @@ export const query = graphql`
             }
           }
         }
+      }
+    }
+    popularTags {
+      tags {
+        value
+        count
       }
     }
   }
