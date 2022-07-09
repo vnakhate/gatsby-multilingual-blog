@@ -16,10 +16,10 @@ const Component = ({ className, data, emoji }: Props) =>
   useMemo(
     () => (
       <div className={className}>
-        <div className={'side-title'}>Popular tags</div>
+        <div className={'side-title'}>Popular Tags</div>
         <div>
           {data.tags.map((t, i) => (
-            <Link to={`/?tag=${t.value}`} language={data.language}>
+            <Link key={t.value} to={`/?tag=${t.value}`} language={data.language}>
               <p>
                 #{t.value}
                 {emoji[i]}

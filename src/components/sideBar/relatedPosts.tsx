@@ -14,7 +14,7 @@ type Props = {
 /** 3. Base Component **/
 const Component = ({ className, data }: Props) => (
   <div className={className}>
-    <div className={'side-title'}>Related posts</div>
+    <div className={'side-title'}>Related Posts</div>
     {data.slice(0, 3).map((b) => (
       <div className={'relatedPost'} key={b.id}>
         <Link to={b.fields.path} language={b.fields.language}>

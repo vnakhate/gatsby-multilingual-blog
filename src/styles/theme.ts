@@ -14,6 +14,7 @@ export const theme = {
   serifFamily: `'Georgia', 'Hiragino Mincho ProN', '游明朝', serif`,
 
   color: {
+    disableGrey: `hsl(0, 0%, 64%)`,
     subTextGrey: `hsl(0, 0%, 50%)`,
     regularBlack: `hsl(0, 0%, 13%)`,
     backgroundWhite: `hsl(0, 0%, 98%)`,
