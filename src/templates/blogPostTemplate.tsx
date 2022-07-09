@@ -27,10 +27,7 @@ const Component = ({ data }: Props) => (
       title={data.markdownRemark.frontmatter.title}
       description={data.markdownRemark.frontmatter.description}
     />
-    <WithSideBar
-      relatedPosts={data.markdownRemark.relatedPosts.slice(0, 3)}
-      headings={data.markdownRemark}
-    >
+    <WithSideBar blogPostData={data.markdownRemark}>
       <BlogPost data={data.markdownRemark} emojiList={getRandomEmoji()} />
     </WithSideBar>
   </Layout>

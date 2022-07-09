@@ -5,7 +5,7 @@ import { createFilePath } from 'gatsby-source-filesystem'
 import { createBlogPostPagination } from './src/providers/gatsby/createBlogPostPagination'
 import { BlogPostNode } from './src/providers/types/blogPostNode'
 import { GatsbyGraphqlResult } from './src/providers/types/gatsbyGraphql'
-import { i18nDefaultLanguage, i18nLanguages } from './i18nLanguages'
+import { i18nLanguages } from './i18nLanguages'
 
 type Result = GatsbyGraphqlResult<{
   allMarkdownRemark: {
@@ -132,6 +132,7 @@ export const createSchemaCustomization: GatsbyNode['createSchemaCustomization'] 
     }
     
     type PopularTags {
+      language: String
       tags: [PopularTag]
     }
     
@@ -147,6 +148,9 @@ export const createResolvers: GatsbyNode['createResolvers'] = ({ createResolvers
     Query: {
       popularTags: {
         type: `PopularTags`,
+        args: {
+          language: `String!`,
+        },
         resolve: async (source: any, args: any, context: any) => {
           const { entries } = await context.nodeModel.findAll({
             type: `MarkdownRemark`,
@@ -154,7 +158,7 @@ export const createResolvers: GatsbyNode['createResolvers'] = ({ createResolvers
               filter: {
                 fields: {
                   language: {
-                    eq: i18nDefaultLanguage,
+                    eq: args.language,
                   },
                 },
               },
@@ -170,6 +174,7 @@ export const createResolvers: GatsbyNode['createResolvers'] = ({ createResolvers
           })
 
           return {
+            language: args.language,
             tags: Object.keys(t)
               .map((tag) => ({ value: tag, count: t[tag] }))
               .sort((a, b) => b.count - a.count),

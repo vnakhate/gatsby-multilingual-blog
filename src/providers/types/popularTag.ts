@@ -1,4 +1,7 @@
 export type PopularTag = {
-  value: string
-  count: number
+  language: string
+  tags: {
+    value: string
+    count: number
+  }[]
 }

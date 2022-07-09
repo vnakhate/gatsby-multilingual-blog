@@ -1,19 +1,21 @@
 /** 1. Imports **/
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { graphql } from 'gatsby'
 import styled from 'styled-components'
 
 import { Layout } from '../components/layout'
 import { MetaTag } from '../components/metaTag'
-import { PaginationBar } from '../components/paginationBar'
 import { WithSideBar } from '../components/withSideBar'
+import { PaginationBar } from '../components/paginationBar'
 import { BlogPostList } from '../components/blogPost/blogPostList'
 import { SearchedBlogPostList } from '../components/blogPost/searchedBlogPostList'
 
-import { BlogPostNode } from '../providers/types/blogPostNode'
 import { LocaleData } from '../providers/types/localeData'
-import { PageContext } from '../providers/types/pageContext'
 import { PopularTag } from '../providers/types/popularTag'
+import { BlogPostNode } from '../providers/types/blogPostNode'
+import { PageContext } from '../providers/types/pageContext'
+import { StateHandler } from '../providers/hooks/useStateHandler'
+import { useStateHandler } from '../providers/hooks/useStateHandler'
 import { i18nLanguages, i18nDefaultLanguage } from '../../i18nLanguages'
 
 /** 2. Types **/
@@ -27,43 +29,37 @@ type Props = {
     archives: {
       nodes: BlogPostNode[]
     }
-    popularTags: {
-      tags: PopularTag[]
-    }
     allMarkdownRemark: {
       nodes: BlogPostNode[]
     }
+    popularTags: PopularTag
   }
   pageContext: PageContext
 }
 
 type ComponentProps = {
-  blogPosts: BlogPostNode[]
-  searchedPosts: BlogPostNode[] | null
-  pageContext: PageContext
   metaTag: object[]
-  searchInput: string
-  popularTags: PopularTag[]
-  onInputType?: (e: React.ChangeEvent<HTMLInputElement>) => void
+  queryData: Props['data']
+  pageContext: PageContext
+  searchedPosts: BlogPostNode[] | null
+  searchInputHandler: StateHandler<string>
 }
 
 /** 3. Base component **/
 const Component = ({
-  blogPosts,
-  searchedPosts,
-  pageContext,
   metaTag,
-  searchInput,
-  onInputType,
-  popularTags,
+  queryData,
+  pageContext,
+  searchedPosts,
+  searchInputHandler,
 }: ComponentProps) => (
   <Layout>
     <MetaTag meta={metaTag} />
-    <WithSideBar onInputType={onInputType} searchInput={searchInput} popularTags={popularTags}>
+    <WithSideBar searchInputHandler={searchInputHandler} popularTags={queryData.popularTags}>
       {searchedPosts ? (
         <SearchedBlogPostList blogPosts={searchedPosts} />
       ) : (
-        <BlogPostList blogPosts={blogPosts} />
+        <BlogPostList blogPosts={queryData.allMarkdownRemark.nodes} />
       )}
     </WithSideBar>
     <PaginationBar pageContext={pageContext} />
@@ -75,15 +71,15 @@ const StyledComponent = styled(Component)``
 
 /** 5. Container **/
 const BlogPostListTemplate = (props: Props) => {
-  const [searchInput, setSearchInput] = useState<string>('')
-  const [searchedPosts, setSearchedPosts] = useState<BlogPostNode[] | null>(null)
+  const searchInputHandler = useStateHandler<string>('')
+  const searchedPostsHandler = useStateHandler<BlogPostNode[] | null>(null)
 
   const userLang =
     typeof window !== 'undefined'
       ? navigator.language || navigator.userLanguage || i18nDefaultLanguage
       : null
 
-  // navigate to the certain language page if it's not default language
+  // Navigate to the certain language page if it's not default language
   const metaTag =
     userLang &&
     props.location.pathname === '/' &&
@@ -92,13 +88,14 @@ const BlogPostListTemplate = (props: Props) => {
       ? [{ 'http-equiv': 'refresh', content: `2;url=/${userLang}` }]
       : []
 
+  // Type search input according to query param
   useEffect(() => {
     const param = new URLSearchParams(props.location.search)
     const tagParam = param.get('tag')
     if (tagParam) {
-      setSearchInput(`#${tagParam}`)
+      searchInputHandler.setValue(`#${tagParam}`)
     }
-  }, [])
+  }, [props.location])
 
   useEffect(() => {
     const t = setTimeout(() => {
@@ -106,12 +103,12 @@ const BlogPostListTemplate = (props: Props) => {
     }, 300)
 
     return () => clearTimeout(t)
-  }, [searchInput])
+  }, [searchInputHandler.value])
 
   const searchBlogPosts = () => {
-    if (!searchInput) return setSearchedPosts(null)
+    if (!searchInputHandler.value) return searchedPostsHandler.setValue(null)
 
-    const keywords = searchInput.trim().split(' ')
+    const keywords = searchInputHandler.value.trim().toLowerCase().split(' ')
 
     let searched = props.data.archives.nodes
 
@@ -126,24 +123,17 @@ const BlogPostListTemplate = (props: Props) => {
       )
     }
 
-    setSearchedPosts(searched)
-  }
-
-  const onInputType = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (!e) return
-    setSearchInput(e.target.value.toLowerCase())
+    searchedPostsHandler.setValue(searched)
   }
 
   return (
     <StyledComponent
       {...props}
-      blogPosts={props.data.allMarkdownRemark.nodes}
       metaTag={metaTag}
+      queryData={props.data}
       pageContext={props.pageContext}
-      searchInput={searchInput}
-      onInputType={onInputType}
-      searchedPosts={searchedPosts}
-      popularTags={props.data.popularTags.tags}
+      searchInputHandler={searchInputHandler}
+      searchedPosts={searchedPostsHandler.value}
     />
   )
 }
@@ -224,7 +214,8 @@ export const query = graphql`
         }
       }
     }
-    popularTags {
+    popularTags(language: $language) {
+      language
       tags {
         value
         count

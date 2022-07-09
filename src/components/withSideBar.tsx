@@ -1,41 +1,37 @@
 /** 1. Imports **/
 import React from 'react'
 import styled from 'styled-components'
+
 import { SideBar } from './sideBar/sideBar'
 import { SearchInput } from './searchInput'
-import { BlogPostNode } from '../providers/types/blogPostNode'
 import { PopularTag } from '../providers/types/popularTag'
+import { BlogPostNode } from '../providers/types/blogPostNode'
+import { StateHandler } from '../providers/hooks/useStateHandler'
 
 /** 2. Types **/
 type Props = {
   className?: string
   children: React.ReactNode
-  searchInput?: string
-  onInputType?: (e: React.ChangeEvent<HTMLInputElement>) => void
-  relatedPosts?: BlogPostNode[]
-  headings?: BlogPostNode
-  popularTags?: PopularTag[]
+  popularTags?: PopularTag
+  blogPostData?: BlogPostNode
+  searchInputHandler?: StateHandler<string>
 }
 
 /** 3. Base component **/
 const Component = ({
   className,
   children,
-  searchInput,
-  onInputType,
-  relatedPosts,
-  headings,
   popularTags,
+  blogPostData,
+  searchInputHandler,
 }: Props) => (
   <div className={className}>
-    {onInputType ? <SearchInput onInputType={onInputType} searchInput={searchInput} /> : <div />}
+    {searchInputHandler ? <SearchInput searchInputHandler={searchInputHandler} /> : <div />}
     {children}
     <SideBar
-      onInputType={onInputType}
-      searchInput={searchInput}
-      relatedPosts={relatedPosts}
-      headings={headings}
       popularTags={popularTags}
+      blogPostData={blogPostData}
+      searchInputHandler={searchInputHandler}
     />
   </div>
 )

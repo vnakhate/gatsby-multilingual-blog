@@ -1,39 +1,32 @@
 /** 1. Imports **/
 import React from 'react'
 import styled from 'styled-components'
-import { SearchInput } from '../searchInput'
-import { YourSpace } from './yourSpace'
-import { RelatedPosts } from './relatedPosts'
+
 import { Headings } from './headings'
 import { PopularTags } from './popularTags'
-import { BlogPostNode } from '../../providers/types/blogPostNode'
+import { SearchInput } from '../searchInput'
+import { RelatedPosts } from './relatedPosts'
+
 import { PopularTag } from '../../providers/types/popularTag'
+import { BlogPostNode } from '../../providers/types/blogPostNode'
+import { StateHandler } from '../../providers/hooks/useStateHandler'
 import { getRandomEmoji } from '../../providers/utils/getRandomEmoji'
 
 /** 2. Types **/
 type Props = {
   className?: string
-  searchInput?: string
-  onInputType?: (e: React.ChangeEvent<HTMLInputElement>) => void
-  relatedPosts?: BlogPostNode[]
-  headings?: BlogPostNode
-  popularTags?: PopularTag[]
+  blogPostData?: BlogPostNode
+  popularTags?: PopularTag
+  searchInputHandler?: StateHandler<string>
 }
 
 /** 3. Base component **/
-const Component = ({
-  className,
-  searchInput,
-  onInputType,
-  relatedPosts,
-  headings,
-  popularTags,
-}: Props) => (
+const Component = ({ className, blogPostData, popularTags, searchInputHandler }: Props) => (
   <aside className={className}>
-    {onInputType ? <SearchInput searchInput={searchInput} onInputType={onInputType} /> : null}
-    {relatedPosts ? <RelatedPosts data={relatedPosts} /> : null}
+    {searchInputHandler ? <SearchInput searchInputHandler={searchInputHandler} /> : null}
+    {blogPostData ? <RelatedPosts data={blogPostData.relatedPosts} /> : null}
     {popularTags ? <PopularTags data={popularTags} emoji={getRandomEmoji()} /> : null}
-    {headings ? <Headings data={headings} /> : null}
+    {blogPostData ? <Headings data={blogPostData} /> : null}
     {/*<YourSpace />*/}
     {/*<YourSpace />*/}
   </aside>
