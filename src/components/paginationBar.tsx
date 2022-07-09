@@ -47,7 +47,7 @@ const StyledComponent = styled(Component)`
   width: calc(100% - ${({ theme }) => theme.sideSpace * 2}px);
 
   font-size: 1.4rem;
-  color: ${({ theme }) => theme.color.subGreyText};
+  color: ${({ theme }) => theme.color.subTextGrey};
 
   transform: translateY(64px);
 
@@ -62,7 +62,7 @@ const StyledComponent = styled(Component)`
   > a > p.current {
     font-weight: bold;
     text-underline: grey;
-    border-bottom: 2px solid ${({ theme }) => theme.color.subGreyText};
+    border-bottom: 2px solid ${({ theme }) => theme.color.subTextGrey};
   }
 `
 

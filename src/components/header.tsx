@@ -69,7 +69,7 @@ const StyledComponent = styled(Component)`
   > div#description {
     padding: 16px 0;
     font-size: 1.4rem;
-    color: ${({ theme }) => theme.color.subGreyText};
+    color: ${({ theme }) => theme.color.subTextGrey};
   }
 `
 

@@ -1,4 +1,5 @@
 import type { GatsbyConfig } from 'gatsby'
+import { theme } from './src/styles/theme'
 import { i18nLanguages, i18nDefaultLanguage } from './i18nLanguages'
 
 const config: GatsbyConfig = {
@@ -48,11 +49,6 @@ const config: GatsbyConfig = {
           },
           {
             matchPath: `/:lang/page/:uid`,
-            getLanguageFromPath: true,
-            languages: i18nLanguages,
-          },
-          {
-            matchPath: `/:lang/tag/:tag`,
             getLanguageFromPath: true,
             languages: i18nLanguages,
           },
@@ -126,11 +122,11 @@ const config: GatsbyConfig = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Unbearable Lightness`,
+        name: `Multilingual Blog`,
         short_name: `Gatsby`,
         start_url: `/`,
-        background_color: `#ffffff`,
-        theme_color: `#ffffff`,
+        background_color: theme.color.backgroundWhite,
+        theme_color: theme.color.backgroundWhite,
         display: `fullscreen`,
         icon: `${__dirname}/src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },

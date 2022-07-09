@@ -37,7 +37,7 @@ export const Headings = styled(Component)`
 
     > span {
       margin: 4px 4px 0 0;
-      color: ${({ theme }) => theme.color.subGreyText};
+      color: ${({ theme }) => theme.color.subTextGrey};
       color: ${({ theme }) => theme.color.highlightMagenta};
     }
 

@@ -54,7 +54,7 @@ export const RelatedPosts = styled(Component)`
         font-size: ${({ data }) =>
           data.length && data[0].fields.language === 'ja' ? 1.2 : 1.4}rem;
         font-weight: 100;
-        color: ${({ theme }) => theme.color.subGreyText};
+        color: ${({ theme }) => theme.color.subTextGrey};
       }
     }
   }

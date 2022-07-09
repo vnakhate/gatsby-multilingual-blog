@@ -47,7 +47,7 @@ export const _BlogPostThumbnailCardComponent = styled(Component)`
     > p {
       line-height: 1.95rem;
       font-size: ${({ data }) => (data.fields.language === 'ja' ? 1.4 : 1.6)}rem;
-      color: ${({ theme }) => theme.color.subGreyText};
+      color: ${({ theme }) => theme.color.subTextGrey};
     }
   }
 `

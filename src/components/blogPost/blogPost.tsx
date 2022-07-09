@@ -65,7 +65,7 @@ export const BlogPost = styled(Component)`
     margin: 16px 0 0 0;
 
     font-size: 1.8rem;
-    color: ${({ theme }) => theme.color.subGreyText};
+    color: ${({ theme }) => theme.color.subTextGrey};
 
     > a:not(:last-child) {
       margin-right: 16px;
@@ -82,6 +82,6 @@ export const BlogPost = styled(Component)`
     text-align: center;
     font-size: 1.3rem;
     letter-spacing: 0.03rem;
-    color: ${({ theme }) => theme.color.subGreyText};
+    color: ${({ theme }) => theme.color.subTextGrey};
   }
 `

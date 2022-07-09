@@ -45,7 +45,7 @@ export const Footer = styled(Component)`
   height: ${({ theme }) => theme.footerHeight}px;
 
   font-size: 1.3rem;
-  color: ${({ theme }) => theme.color.subGreyText};
+  color: ${({ theme }) => theme.color.subTextGrey};
 
   > hr {
     margin-bottom: 50px;

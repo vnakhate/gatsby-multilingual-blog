@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components'
+import { theme } from './theme'
 
 export const CustomGlobalCss = createGlobalStyle`
   html {
@@ -9,8 +10,8 @@ export const CustomGlobalCss = createGlobalStyle`
   body {
     height: 100%;
     font-family: 'Roboto', 'Helvetica', 'Hiragino Sans', 'Meiryo', sans-serif;
-    background-color: hsl(0, 0%, 98%);
-    color: hsl(0, 0%, 13%);
+    background-color: ${theme.color.backgroundWhite};
+    color: ${theme.color.regularBlack};
   }
   
   #___gatsby, #gatsby-focus-wrapper {

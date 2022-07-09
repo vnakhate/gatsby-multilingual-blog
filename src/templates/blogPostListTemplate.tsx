@@ -12,8 +12,8 @@ import { SearchedBlogPostList } from '../components/blogPost/searchedBlogPostLis
 
 import { LocaleData } from '../providers/types/localeData'
 import { PopularTag } from '../providers/types/popularTag'
-import { BlogPostNode } from '../providers/types/blogPostNode'
 import { PageContext } from '../providers/types/pageContext'
+import { BlogPostNode } from '../providers/types/blogPostNode'
 import { StateHandler } from '../providers/hooks/useStateHandler'
 import { useStateHandler } from '../providers/hooks/useStateHandler'
 import { i18nLanguages, i18nDefaultLanguage } from '../../i18nLanguages'
@@ -21,18 +21,18 @@ import { i18nLanguages, i18nDefaultLanguage } from '../../i18nLanguages'
 /** 2. Types **/
 type Props = {
   location: {
-    pathname: string
     search: string
+    pathname: string
   }
   data: {
     locales: LocaleData
+    popularTags: PopularTag
     archives: {
       nodes: BlogPostNode[]
     }
     allMarkdownRemark: {
       nodes: BlogPostNode[]
     }
-    popularTags: PopularTag
   }
   pageContext: PageContext
 }
@@ -65,9 +65,6 @@ const Component = ({
     <PaginationBar pageContext={pageContext} />
   </Layout>
 )
-
-/** 4. Styled component **/
-const StyledComponent = styled(Component)``
 
 /** 5. Container **/
 const BlogPostListTemplate = (props: Props) => {
@@ -127,7 +124,7 @@ const BlogPostListTemplate = (props: Props) => {
   }
 
   return (
-    <StyledComponent
+    <Component
       {...props}
       metaTag={metaTag}
       queryData={props.data}
