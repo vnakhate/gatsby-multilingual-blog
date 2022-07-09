@@ -31,7 +31,7 @@ const Component = ({ className, data }: Props) => (
 
 export const _BlogPostThumbnailCardComponent = styled(Component)`
   > div:first-child {
-    aspect-ratio: 7 / 4;
+    aspect-ratio: ${({ theme }) => theme.imageRatio.default};
     object-fit: cover;
   }
 

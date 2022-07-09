@@ -138,6 +138,10 @@ export const MyComponent = (props: ContainerProps) => {
 }
 ```
 
+## 🖼️ Image ratio and size
+
+All Images are displayed with 16 / 9 ratio. The size should be bigger than 800 x 450 px.
+
 ## 📝 What's inside?
 
 A quick look at files and directories you'll see in this project.

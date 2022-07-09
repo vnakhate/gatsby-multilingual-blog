@@ -3,6 +3,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 import { Headings } from './headings'
+import { YourSpace } from './yourSpace'
 import { PopularTags } from './popularTags'
 import { SearchInput } from '../searchInput'
 import { RelatedPosts } from './relatedPosts'
@@ -15,19 +16,20 @@ import { getRandomEmoji } from '../../providers/utils/getRandomEmoji'
 /** 2. Types **/
 type Props = {
   className?: string
+  ad?: boolean
   blogPostData?: BlogPostNode
   popularTags?: PopularTag
   searchInputHandler?: StateHandler<string>
 }
 
 /** 3. Base component **/
-const Component = ({ className, blogPostData, popularTags, searchInputHandler }: Props) => (
+const Component = ({ className, ad, blogPostData, popularTags, searchInputHandler }: Props) => (
   <aside className={className}>
     {searchInputHandler ? <SearchInput searchInputHandler={searchInputHandler} /> : null}
     {blogPostData ? <RelatedPosts data={blogPostData.relatedPosts} /> : null}
     {popularTags ? <PopularTags data={popularTags} emoji={getRandomEmoji()} /> : null}
     {blogPostData ? <Headings data={blogPostData} /> : null}
-    {/*<YourSpace />*/}
+    {ad ? <YourSpace /> : null}
     {/*<YourSpace />*/}
   </aside>
 )

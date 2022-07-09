@@ -12,6 +12,7 @@ import { StateHandler } from '../providers/hooks/useStateHandler'
 type Props = {
   className?: string
   children: React.ReactNode
+  ad?: boolean
   popularTags?: PopularTag
   blogPostData?: BlogPostNode
   searchInputHandler?: StateHandler<string>
@@ -21,6 +22,7 @@ type Props = {
 const Component = ({
   className,
   children,
+  ad,
   popularTags,
   blogPostData,
   searchInputHandler,
@@ -29,6 +31,7 @@ const Component = ({
     {searchInputHandler ? <SearchInput searchInputHandler={searchInputHandler} /> : <div />}
     {children}
     <SideBar
+      ad={ad}
       popularTags={popularTags}
       blogPostData={blogPostData}
       searchInputHandler={searchInputHandler}

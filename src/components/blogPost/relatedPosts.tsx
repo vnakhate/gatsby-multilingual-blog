@@ -53,7 +53,7 @@ export const RelatedPosts = styled(Component)`
     > div:first-child {
       height: 72px;
       margin-right: 16px;
-      aspect-ratio: 7/4;
+      aspect-ratio: ${({ theme }) => theme.imageRatio.default};
       object-fit: cover;
     }
 

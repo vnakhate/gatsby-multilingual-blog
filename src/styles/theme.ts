@@ -21,6 +21,11 @@ export const theme = {
     highlightMagenta: `hsla(300, 85%, 50%, 60%)`,
   },
 
+  imageRatio: {
+    default: 16 / 9,
+    blogHeader: 2,
+  },
+
   get centeredStyle() {
     return css`
       max-width: ${this.contentWidth}px;

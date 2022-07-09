@@ -37,7 +37,7 @@ export const RelatedPosts = styled(Component)`
     margin-bottom: 32px;
 
     div.image {
-      aspect-ratio: 7 / 4;
+      aspect-ratio: ${({ theme }) => theme.imageRatio.default};
       object-fit: cover;
     }
 

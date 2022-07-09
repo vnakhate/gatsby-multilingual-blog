@@ -177,7 +177,8 @@ export const createResolvers: GatsbyNode['createResolvers'] = ({ createResolvers
             language: args.language,
             tags: Object.keys(t)
               .map((tag) => ({ value: tag, count: t[tag] }))
-              .sort((a, b) => b.count - a.count),
+              .sort((a, b) => b.count - a.count)
+              .slice(0, 20),
           }
         },
       },

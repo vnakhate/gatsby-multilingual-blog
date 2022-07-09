@@ -54,7 +54,7 @@ const Component = ({
 }: ComponentProps) => (
   <Layout>
     <MetaTag meta={metaTag} />
-    <WithSideBar searchInputHandler={searchInputHandler} popularTags={queryData.popularTags}>
+    <WithSideBar ad searchInputHandler={searchInputHandler} popularTags={queryData.popularTags}>
       {searchedPosts ? (
         <SearchedBlogPostList blogPosts={searchedPosts} />
       ) : (

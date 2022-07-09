@@ -10,7 +10,7 @@ type Props = {
 /** 3. Base component **/
 const Component = ({ className }: Props) => (
   <div className={className}>
-    <div className={'side-title'}>Put anything you want</div>
+    <div className={'side-title'}>Ad</div>
     <div></div>
   </div>
 )
