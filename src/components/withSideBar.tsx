@@ -56,7 +56,7 @@ export const WithSideBar = styled(Component)`
       display: block;
       justify-self: right;
       grid-column: span 3;
-      max-width: 250px;
+      max-width: 240px;
 
       transform: translateY(-32px);
     }

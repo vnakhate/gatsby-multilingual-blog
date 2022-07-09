@@ -27,6 +27,16 @@ export const BlogBody = styled(Component)`
     margin-bottom: 32px;
   }
 
+  p {
+    line-height: ${({ data }) => (data.fields.language === 'ja' ? 3.3 : 3)}rem;
+  }
+
+  p.subtitle {
+    margin: 4px 0;
+    font-weight: bolder;
+    font-size: larger;
+  }
+
   h2,
   h3,
   h4,
@@ -47,22 +57,13 @@ export const BlogBody = styled(Component)`
   blockquote {
     padding: 32px;
     margin: 0 16px;
+
     background-color: hsl(0, 0%, 94%);
     border-radius: 8px;
     border-left: 8px solid hsl(0, 0%, 80%);
 
     font-style: italic;
     color: hsl(0, 0%, 35%);
-  }
-
-  p {
-    line-height: ${({ data }) => (data.fields.language === 'ja' ? 3.3 : 3)}rem;
-  }
-
-  p.subtitle {
-    margin: 4px 0;
-    font-weight: bolder;
-    font-size: larger;
   }
 
   em {
@@ -116,7 +117,7 @@ export const BlogBody = styled(Component)`
 
     tbody {
       td {
-        padding: 16px 16px;
+        padding: 16px;
         line-height: ${({ data }) => (data.fields.language === 'ja' ? 2.8 : 2.5)}rem;
       }
     }

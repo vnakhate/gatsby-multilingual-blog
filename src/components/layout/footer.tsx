@@ -2,17 +2,16 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby-plugin-react-i18next'
-import { SiteMetadata } from '../providers/types/siteMetadata'
 
 /** 2. Types **/
 type Props = {
   className?: string
-  siteMetadata: SiteMetadata
+  siteTitle: string
   language: string
 }
 
 /** 3. Base component **/
-const Component = ({ className, siteMetadata, language }: Props) => (
+const Component = ({ className, siteTitle, language }: Props) => (
   <footer className={className}>
     <hr />
     <div>
@@ -20,7 +19,7 @@ const Component = ({ className, siteMetadata, language }: Props) => (
         <li>
           © {new Date().getFullYear()}
           {` `}
-          {siteMetadata.title}
+          {siteTitle}
         </li>
         <li>|</li>
         <Link to={`/privacy-policy`} language={language}>
@@ -45,7 +44,7 @@ export const Footer = styled(Component)`
   height: ${({ theme }) => theme.footerHeight}px;
 
   font-size: 1.3rem;
-  color: ${({ theme }) => theme.color.subGreyText};
+  color: ${({ theme }) => theme.color.subTextGrey};
 
   > hr {
     margin-bottom: 50px;

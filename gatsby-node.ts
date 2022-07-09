@@ -2,9 +2,9 @@ import path from 'path'
 import { GatsbyNode } from 'gatsby'
 import { createFilePath } from 'gatsby-source-filesystem'
 
-import { createBlogPostPagination } from './src/providers/gatsby/createBlogPostPagination'
 import { BlogPostNode } from './src/providers/types/blogPostNode'
 import { GatsbyGraphqlResult } from './src/providers/types/gatsbyGraphql'
+import { createBlogPostPagination } from './src/providers/gatsby/createBlogPostPagination'
 import { i18nLanguages } from './i18nLanguages'
 
 type Result = GatsbyGraphqlResult<{

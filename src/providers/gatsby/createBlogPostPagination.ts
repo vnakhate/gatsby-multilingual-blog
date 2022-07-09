@@ -4,18 +4,18 @@ import { i18nDefaultLanguage } from '../../../i18nLanguages'
 
 type Props = {
   data: BlogPostNode[]
+  lang: string
+  component: string
   postsPerPage: number
   createPage: NodePluginArgs['actions']['createPage']
-  component: string
-  lang: string
 }
 
 export const createBlogPostPagination = ({
   data,
-  postsPerPage,
-  createPage,
   lang,
   component,
+  postsPerPage,
+  createPage,
 }: Props) => {
   if (!data.length) return
 

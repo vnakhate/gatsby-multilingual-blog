@@ -43,7 +43,7 @@ export const SideBar = styled(Component)`
     margin-bottom: 16px;
     font-size: 1.5rem;
     font-weight: bold;
-    color: ${({ theme }) => theme.color.subGreyText};
+    color: ${({ theme }) => theme.color.subTextGrey};
   }
 
   > div:first-child {

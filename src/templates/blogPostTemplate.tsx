@@ -2,8 +2,8 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 
-import { Layout } from '../components/layout'
-import { MetaTag } from '../components/metaTag'
+import { Layout } from '../components/layout/layout'
+import { MetaTag } from '../components/layout/metaTag'
 import { WithSideBar } from '../components/withSideBar'
 import { BlogPost } from '../components/blogPost/blogPost'
 

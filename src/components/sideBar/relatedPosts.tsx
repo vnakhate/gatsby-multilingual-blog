@@ -15,7 +15,7 @@ type Props = {
 const Component = ({ className, data }: Props) => (
   <div className={className}>
     <div className={'side-title'}>Related posts</div>
-    {data.map((b) => (
+    {data.slice(0, 3).map((b) => (
       <div className={'relatedPost'} key={b.id}>
         <Link to={b.fields.path} language={b.fields.language}>
           <GatsbyImage className={'image'} alt={'cover'} image={getImage(b.frontmatter.cover)!} />
@@ -54,7 +54,7 @@ export const RelatedPosts = styled(Component)`
         font-size: ${({ data }) =>
           data.length && data[0].fields.language === 'ja' ? 1.2 : 1.4}rem;
         font-weight: 100;
-        color: ${({ theme }) => theme.color.subGreyText};
+        color: ${({ theme }) => theme.color.subTextGrey};
       }
     }
   }

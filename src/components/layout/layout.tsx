@@ -6,8 +6,8 @@ import { useI18next } from 'gatsby-plugin-react-i18next'
 import { Header } from './header'
 import { Footer } from './footer'
 
-import { useSiteMetadata } from '../providers/hooks/useSiteMetadata'
-import { SiteMetadata } from '../providers/types/siteMetadata'
+import { useSiteMetadata } from '../../providers/hooks/useSiteMetadata'
+import { i18nLanguages } from '../../../i18nLanguages'
 
 /** 2. Types **/
 type Props = {
@@ -18,25 +18,30 @@ type Props = {
 type ComponentProps = {
   className?: string
   children: React.ReactNode
-  siteMetadata: SiteMetadata
-  t: (s: string) => string
+  siteTitle: string
+  headerDescription: string
   language: string
-  changeLanguage: (lang: string) => void
+  toggleLanguage: () => void
 }
 
 /** 3. Base component **/
 const Component = ({
   className,
   children,
-  siteMetadata,
-  t,
+  siteTitle,
+  headerDescription,
   language,
-  changeLanguage,
+  toggleLanguage,
 }: ComponentProps) => (
   <>
-    <Header t={t} language={language} changeLanguage={changeLanguage} siteMetadata={siteMetadata} />
+    <Header
+      language={language}
+      siteTitle={siteTitle}
+      description={headerDescription}
+      toggleLanguage={toggleLanguage}
+    />
     <main className={className}>{children}</main>
-    <Footer language={language} siteMetadata={siteMetadata} />
+    <Footer language={language} siteTitle={siteTitle} />
   </>
 )
 
@@ -57,15 +62,24 @@ const StyledComponent = styled(Component)`
 /** 5. Container **/
 export const Layout = (props: Props) => {
   const { siteMetadata } = useSiteMetadata()
-  const { t, changeLanguage, language } = useI18next()
+  const { t, language, changeLanguage } = useI18next()
+
+  const toggleLanguage = () => {
+    const currentLanguageIdx = i18nLanguages.indexOf(language)
+    const nextLanguage =
+      i18nLanguages[currentLanguageIdx === i18nLanguages.length - 1 ? 0 : currentLanguageIdx + 1]
+
+    changeLanguage(nextLanguage)
+  }
 
   return (
     <StyledComponent
       {...props}
-      siteMetadata={siteMetadata}
-      t={t}
-      changeLanguage={changeLanguage}
+      children={props.children}
+      siteTitle={siteMetadata.title}
+      headerDescription={t(`index.description`)}
       language={language}
+      toggleLanguage={toggleLanguage}
     />
   )
 }

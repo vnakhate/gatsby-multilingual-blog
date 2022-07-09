@@ -1,9 +1,9 @@
 /** 1. Imports **/
 import React from 'react'
-import styled from 'styled-components'
-import { Layout } from '../components/layout'
-import { MetaTag } from '../components/metaTag'
 import { graphql } from 'gatsby'
+import styled from 'styled-components'
+import { Layout } from '../components/layout/layout'
+import { MetaTag } from '../components/layout/metaTag'
 
 /** 2. Types **/
 type Props = {

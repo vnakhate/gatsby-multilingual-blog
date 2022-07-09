@@ -40,7 +40,7 @@ export const RelatedPosts = styled(Component)`
 
     font-size: 2rem;
     font-weight: bold;
-    color: ${({ theme }) => theme.color.subGreyText};
+    color: ${({ theme }) => theme.color.subTextGrey};
   }
 
   > div.relatedPost {
@@ -60,7 +60,7 @@ export const RelatedPosts = styled(Component)`
     > div.info {
       > a {
         font-size: ${({ data }) =>
-          data.length > 0 && data[0].fields.language === 'ja' ? 2.8 : 3}rem;
+          data.length > 0 && data[0].fields.language === 'ja' ? 2.6 : 2.8}rem;
       }
 
       p {
@@ -75,7 +75,7 @@ export const RelatedPosts = styled(Component)`
         > span {
           margin-right: 12px;
           font-size: 1.5rem;
-          color: ${({ theme }) => theme.color.subGreyText};
+          color: ${({ theme }) => theme.color.subTextGrey};
         }
       }
     }
