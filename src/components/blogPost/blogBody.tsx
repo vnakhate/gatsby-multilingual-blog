@@ -45,7 +45,7 @@ export const BlogBody = styled(Component)`
     width: max-content;
     max-width: fit-content;
     padding: 6px 24px 6px 12px;
-    margin: 80px 0 16px 0;
+    margin: 80px 0 24px 0;
 
     font-size: 2.8rem;
     font-family: ${({ theme }) => theme.serifFamily};
@@ -58,9 +58,9 @@ export const BlogBody = styled(Component)`
     padding: 32px;
     margin: 0 16px;
 
-    background-color: hsl(0, 0%, 94%);
+    background-color: hsl(0, 0%, 96%);
     border-radius: 8px;
-    border-left: 8px solid hsl(0, 0%, 80%);
+    border-left: 6px solid hsl(0, 0%, 90%);
 
     font-style: italic;
     color: hsl(0, 0%, 35%);
@@ -82,7 +82,15 @@ export const BlogBody = styled(Component)`
   }
 
   span.gatsby-resp-image-wrapper {
-    margin: 24px 0;
+    margin: 32px 0;
+  }
+
+  > ul,
+  > ol {
+    padding: 16px 32px;
+    margin: 32px 16px 56px 16px;
+    border: 1px solid hsl(0, 0%, 90%);
+    border-radius: 4px;
   }
 
   ul,

@@ -21,7 +21,7 @@ export const BlogPostThumbnailCard = styled(_BlogPostThumbnailCardComponent)<{ f
     ${({ first }) =>
       first
         ? css`
-            aspect-ratio: 2 / 1.2;
+            aspect-ratio: ${({ theme }) => theme.imageRatio.default};
             margin: 0 24px 0 0;
           `
         : null}

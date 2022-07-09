@@ -43,7 +43,7 @@ export const BlogPost = styled(Component)`
   }
 
   > div:first-child {
-    aspect-ratio: 7 / 3.5;
+    aspect-ratio: ${({ theme }) => theme.imageRatio.blogHeader};
     object-fit: cover;
   }
 
