@@ -1,5 +1,5 @@
 /** 1. Imports **/
-import React from 'react'
+import React, { useEffect } from 'react'
 import { graphql } from 'gatsby'
 
 import { Layout } from '../components/layout/layout'
@@ -10,9 +10,10 @@ import { BlogPost } from '../components/blogPost/blogPost'
 import { LocaleData } from '../providers/types/localeData'
 import { BlogPostNode } from '../providers/types/blogPostNode'
 import { getRandomEmoji } from '../providers/utils/getRandomEmoji'
+import { useStateHandler } from '../providers/hooks/useStateHandler'
 
 /** 2. Types **/
-type Props = {
+type ContainerProps = {
   className?: string
   data: {
     locales: LocaleData
@@ -20,22 +21,32 @@ type Props = {
   }
 }
 
+type Props = ContainerProps & {
+  emoji: string[]
+}
+
 /** 3. Base component **/
-const Component = ({ data }: Props) => (
+const Component = ({ data, emoji }: Props) => (
   <Layout>
     <MetaTag
       title={data.markdownRemark.frontmatter.title}
       description={data.markdownRemark.frontmatter.description}
     />
     <WithSideBar blogPostData={data.markdownRemark}>
-      <BlogPost data={data.markdownRemark} emojiList={getRandomEmoji()} />
+      <BlogPost data={data.markdownRemark} emoji={emoji} />
     </WithSideBar>
   </Layout>
 )
 
 /** 5. Container **/
-const BlogPostTemplate = (props: Props) => {
-  return <Component {...props} data={props.data} />
+const BlogPostTemplate = (props: ContainerProps) => {
+  const emojiHandler = useStateHandler<string[]>([])
+
+  useEffect(() => {
+    emojiHandler.setValue(getRandomEmoji())
+  }, [])
+
+  return <Component {...props} data={props.data} emoji={emojiHandler.value} />
 }
 export default BlogPostTemplate
 
