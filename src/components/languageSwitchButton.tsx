@@ -31,10 +31,11 @@ export const LanguageSwitchButton = styled(Component)`
   width: 96px;
   height: 32px;
 
-  background-color: hsl(0, 0%, 85%);
+  background-color: hsl(0, 0%, 46%);
   border-radius: 12px;
   box-shadow: inset 2px 2px 6px hsla(0, 0%, 0%, 16%);
 
+  transform: scale(0.9);
   cursor: pointer;
 
   > ul {
