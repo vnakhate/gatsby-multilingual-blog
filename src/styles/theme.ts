@@ -3,6 +3,7 @@ import { css } from 'styled-components'
 export const theme = {
   breakPoint: {
     l: 992,
+    m: 640,
   },
 
   mainWith: 960,
@@ -15,7 +16,7 @@ export const theme = {
 
   color: {
     disableGrey: `hsl(0, 0%, 64%)`,
-    subTextGrey: `hsl(0, 0%, 50%)`,
+    subTextGrey: `hsl(0, 0%, 45%)`,
     regularBlack: `hsl(0, 0%, 13%)`,
     backgroundWhite: `hsl(0, 0%, 98%)`,
     highlightMagenta: `hsla(300, 85%, 50%, 60%)`,
