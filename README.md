@@ -22,6 +22,10 @@ Kick off your project with this boilerplate. This starter ships with the several
 [![Build test](https://github.com/zett-8/gatsby-multilingual-blog/actions/workflows/build-test.yml/badge.svg)](https://github.com/zett-8/gatsby-multilingual-blog/actions/workflows/build-test.yml)　
 [![Netlify Status](https://api.netlify.com/api/v1/badges/5e416975-85a6-4d39-bd1a-282f9d0666ca/deploy-status)](https://app.netlify.com/sites/gatsby-multilingual-blog/deploys)
 
+## 💯 Lighthouse Performance
+
+![performance](./src/images/performance.png)
+
 ## 🚀 Quick start
 
 1.  **Create a Gatsby site.**
@@ -85,6 +89,22 @@ Kick off your project with this boilerplate. This starter ships with the several
    yarn i18n
    ```
 
+## 🖼️ How to write article
+
+1. **Folder and naming**
+
+   The article should be placed in
+
+   ```
+   /contents/<YEAR>/<MONTH>/<TITLE>/<LANGUAGE>.md
+   ```
+
+   Gatsby will automatically retrieve all markdown files on build time and make the path for each article as `/<LANGUAGE>/_/<TITLE>`.
+
+2. **Image ratio and size**
+
+   All Images are displayed with 16 / 9 ratio. The size should be bigger than 800 x 450 px.
+
 ## 🏗️ Component architecture
 
 A component file consists of five layers.
@@ -137,10 +157,6 @@ export const MyComponent = (props: ContainerProps) => {
   return <StyledComponent {...props} someData={yourState} />
 }
 ```
-
-## 🖼️ Image ratio and size
-
-All Images are displayed with 16 / 9 ratio. The size should be bigger than 800 x 450 px.
 
 ## 📝 What's inside?
 
