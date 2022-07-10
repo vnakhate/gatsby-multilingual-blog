@@ -5,24 +5,32 @@ import { _BlogPostThumbnailCardComponent } from './_blogPostThumbnailCardCompone
 
 /** 4. Styled component */
 export const BlogPostThumbnailCard = styled(_BlogPostThumbnailCardComponent)<{ first: boolean }>`
-  ${({ first }) =>
+  ${({ theme, first }) =>
     first
       ? css`
           display: grid;
           grid-template-columns: 2fr 1fr;
           grid-column: span 2;
           align-items: flex-end;
+
+          @media only screen and (max-width: ${theme.breakPoint.m}px) {
+            grid-template-columns: 1fr;
+          }
         `
       : null}
 
   > div.img {
     margin: 0 0 16px 0;
 
-    ${({ first }) =>
+    ${({ theme, first }) =>
       first
         ? css`
-            aspect-ratio: ${({ theme }) => theme.imageRatio.default};
+            aspect-ratio: ${theme.imageRatio.default};
             margin: 0 24px 0 0;
+
+            @media only screen and (max-width: ${theme.breakPoint.m}px) {
+              margin: 0 0 16px 0;
+            }
           `
         : null}
   }

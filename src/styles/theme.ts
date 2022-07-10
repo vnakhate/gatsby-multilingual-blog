@@ -3,6 +3,7 @@ import { css } from 'styled-components'
 export const theme = {
   breakPoint: {
     l: 992,
+    m: 640,
   },
 
   mainWith: 960,
