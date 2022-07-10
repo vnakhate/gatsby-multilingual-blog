@@ -11,7 +11,6 @@ import { RelatedPosts } from './relatedPosts'
 import { PopularTag } from '../../providers/types/popularTag'
 import { BlogPostNode } from '../../providers/types/blogPostNode'
 import { StateHandler } from '../../providers/hooks/useStateHandler'
-import { getRandomEmoji } from '../../providers/utils/getRandomEmoji'
 
 /** 2. Types **/
 type Props = {
@@ -27,7 +26,7 @@ const Component = ({ className, ad, blogPostData, popularTags, searchInputHandle
   <aside className={className}>
     {searchInputHandler ? <SearchInput searchInputHandler={searchInputHandler} /> : null}
     {blogPostData ? <RelatedPosts data={blogPostData.relatedPosts} /> : null}
-    {popularTags ? <PopularTags data={popularTags} emoji={getRandomEmoji()} /> : null}
+    {popularTags ? <PopularTags data={popularTags} /> : null}
     {blogPostData ? <Headings data={blogPostData} /> : null}
     {ad ? <YourSpace /> : null}
     {/*<YourSpace />*/}

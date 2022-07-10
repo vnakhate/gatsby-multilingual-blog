@@ -51,6 +51,7 @@ const StyledComponent = styled(Component)`
   }
 `
 
+/** 5. Container **/
 export const PopularTags = (props: ContainerProps) => {
   const emojiHandler = useStateHandler<string[]>([])
 
