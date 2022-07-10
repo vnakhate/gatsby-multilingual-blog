@@ -88,8 +88,11 @@ const BlogPostListTemplate = (props: Props) => {
   useEffect(() => {
     const param = new URLSearchParams(props.location.search)
     const tagParam = param.get('tag')
+
     if (tagParam) {
       searchInputHandler.setValue(`#${tagParam}`)
+    } else {
+      searchInputHandler.setValue('')
     }
   }, [props.location])
 
