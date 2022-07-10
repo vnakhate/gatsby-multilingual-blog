@@ -11,11 +11,11 @@ import { BlogPostNode } from '../../providers/types/blogPostNode'
 type Props = {
   className?: string
   data: BlogPostNode
-  emojiList: string[]
+  emoji: string[]
 }
 
 /** 3. Base component **/
-const Component = ({ className, data, emojiList }: Props) => (
+const Component = ({ className, data, emoji }: Props) => (
   <article className={className}>
     <GatsbyImage alt={'cover'} image={getImage(data.frontmatter.cover)!} />
     <h1 className={data.fields.language === 'ja' ? 'ja-title' : ''}>{data.frontmatter.title}</h1>
@@ -23,7 +23,7 @@ const Component = ({ className, data, emojiList }: Props) => (
       {data.frontmatter.tags.map((t, i) => (
         <Link key={t} to={`/?tag=${t}`} language={data.fields.language}>
           <li>
-            {emojiList[i]}#{t}
+            {emoji[i] || ''}#{t}
           </li>
         </Link>
       ))}

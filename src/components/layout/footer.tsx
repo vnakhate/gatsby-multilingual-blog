@@ -22,13 +22,17 @@ const Component = ({ className, siteTitle, language }: Props) => (
           {siteTitle}
         </li>
         <li>|</li>
-        <Link to={`/privacy-policy`} language={language}>
-          <li>Privacy policy</li>
-        </Link>
+        <li>
+          <Link to={`/privacy-policy`} language={language}>
+            Privacy policy
+          </Link>
+        </li>
         <li>|</li>
-        <Link to={`/contact`} language={language}>
-          <li>Contact</li>
-        </Link>
+        <li>
+          <Link to={`/contact`} language={language}>
+            Contact
+          </Link>
+        </li>
       </ul>
       <div></div>
     </div>

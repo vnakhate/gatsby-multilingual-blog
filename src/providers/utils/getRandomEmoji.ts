@@ -1,4 +1,4 @@
-export const getRandomEmoji = (): string[] => {
+export const getRandomEmoji = (): string[] | [] => {
   const e: string[] = [
     '💻',
     '🏛️',
@@ -25,6 +25,19 @@ export const getRandomEmoji = (): string[] => {
     '🌝',
     '🐱',
     '🤟🏽',
+    '👺',
+    '👣',
+    '🧠',
+    '🥷',
+    '🧵',
+    '🎓',
+    '🦖',
+    '🌊',
+    '🍩',
+    '🍣',
+    '🎱',
+    '💸',
+    '🧋',
   ]
-  return e.sort((a, b) => 0.5 - Math.random())
+  return typeof window !== 'undefined' ? e.sort((a, b) => 0.5 - Math.random()) : []
 }
