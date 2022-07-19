@@ -14,14 +14,15 @@ type RootWrapper = GatsbyBrowser['wrapRootElement'] | GatsbySSR['wrapRootElement
 type PageWrapper = GatsbyBrowser['wrapPageElement'] | GatsbySSR['wrapPageElement']
 
 // Set up any Provider components that will wrap the application.
-export const rootWrapper: RootWrapper = ({ element }: Props) => <>{element}</>
+export const rootWrapper: RootWrapper = ({ element }: Props) => (
+  <ThemeProvider theme={theme}>{element}</ThemeProvider>
+)
 
 // Set wrapper components around pages that won’t get unmounted on page changes.
 export const pageWrapper: PageWrapper = ({ element }: Props) => (
   <>
-    {/* Global CSS must belong here not in rootWrapper otherwise CSS loading delay occurs */}
     <CssReset />
     <CustomGlobalCss />
-    <ThemeProvider theme={theme}>{element}</ThemeProvider>
+    {element}
   </>
 )
