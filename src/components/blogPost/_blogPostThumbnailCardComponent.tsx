@@ -40,6 +40,7 @@ export const _BlogPostThumbnailCardComponent = styled(Component)`
     word-break: break-word;
 
     > h1 {
+      width: fit-content;
       padding-bottom: 8px;
 
       font-size: ${({ data }) => (data.fields.language === 'ja' ? 2.2 : 2.4)}rem;

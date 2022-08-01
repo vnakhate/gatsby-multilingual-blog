@@ -48,6 +48,7 @@ export const BlogPost = styled(Component)`
   }
 
   > h1 {
+    width: fit-content;
     padding: 8px 0;
 
     font-size: 4rem;
