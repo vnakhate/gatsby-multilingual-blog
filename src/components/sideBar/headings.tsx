@@ -6,7 +6,7 @@ import { useStateHandler } from '../../providers/hooks/useStateHandler'
 
 /** 2. Types **/
 type Props = ContainerProps & {
-  intersectingElements: Set<string>
+  intersectingElement: string
 }
 
 type ContainerProps = {
@@ -15,15 +15,15 @@ type ContainerProps = {
 }
 
 /** 3. Base component **/
-const Component = ({ className, data, intersectingElements }: Props) => (
+const Component = ({ className, data, intersectingElement }: Props) => (
   <div className={className}>
     <div className={'side-title'}>Table of Contents</div>
     <div>
       {data.headings.map((h) => (
         <React.Fragment key={h.id}>
-          <span className={intersectingElements.has(h.id) ? 'active' : ''}>{`◉`}</span>
+          <span className={intersectingElement === h.id ? 'active' : ''}>{`◉`}</span>
           <a href={`#${h.id}`}>
-            <p className={intersectingElements.has(h.id) ? 'active' : ''}>{h.value}</p>
+            <p className={intersectingElement === h.id ? 'active' : ''}>{h.value}</p>
           </a>
         </React.Fragment>
       ))}
@@ -68,19 +68,36 @@ const StyledComponent = styled(Component)`
 `
 
 export const Headings = (props: ContainerProps) => {
-  const intersectingListHandler = useStateHandler<Set<string>>(new Set())
+  const intersectingListHandler = useStateHandler<string[]>([])
 
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
-        intersectingListHandler.setValue((pre) => {
-          const s: Set<string> = new Set(JSON.parse(JSON.stringify(Array.from(pre))))
+        // Add intersecting element to list only if not exist in list yet
+        if (entry.isIntersecting) {
+          intersectingListHandler.setValue((pre) => {
+            const newState = JSON.parse(JSON.stringify(pre))
 
-          if (entry.isIntersecting) s.add(entry.target.id)
-          if (!entry.isIntersecting) s.delete(entry.target.id)
+            if (!newState.includes(entry.target.id)) newState.push(entry.target.id)
 
-          return s
-        })
+            return newState
+          })
+        }
+
+        // when the element disappear to -
+        if (!entry.isIntersecting) {
+          // to top? ignore
+          if (entry.boundingClientRect.y <= 0) return
+
+          // to bottom? remove from list only if the element is the last one in the list
+          intersectingListHandler.setValue((pre) => {
+            const newState = JSON.parse(JSON.stringify(pre))
+
+            if (newState.at(-1) === entry.target.id) newState.pop()
+
+            return newState
+          })
+        }
       })
     })
 
@@ -89,5 +106,7 @@ export const Headings = (props: ContainerProps) => {
     })
   }, [])
 
-  return <StyledComponent {...props} intersectingElements={intersectingListHandler.value} />
+  return (
+    <StyledComponent {...props} intersectingElement={intersectingListHandler.value.at(-1) || ''} />
+  )
 }
