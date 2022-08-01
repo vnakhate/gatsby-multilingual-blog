@@ -58,6 +58,9 @@ export const RelatedPosts = styled(Component)`
     }
 
     > div.info {
+      word-break: break-word;
+      white-space: pre-wrap;
+
       > a {
         font-size: ${({ data }) =>
           data.length > 0 && data[0].fields.language === 'ja' ? 2.6 : 2.8}rem;
@@ -71,6 +74,7 @@ export const RelatedPosts = styled(Component)`
 
       > div.tag {
         margin-top: 4px;
+        line-height: 1.3;
 
         > span {
           margin-right: 12px;
