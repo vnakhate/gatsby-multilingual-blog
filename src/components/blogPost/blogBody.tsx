@@ -42,8 +42,6 @@ export const BlogBody = styled(Component)`
   h4,
   h5,
   h6 {
-    width: max-content;
-    max-width: fit-content;
     padding: 6px 24px 6px 12px;
     margin: 80px 0 24px 0;
 
@@ -76,6 +74,9 @@ export const BlogBody = styled(Component)`
     font-size: larger;
   }
 
+  > div.gatsby-highlight {
+    margin-bottom: 40px;
+  }
   pre {
     font-size: 1.4rem;
     border-radius: 8px;

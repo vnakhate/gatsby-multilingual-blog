@@ -8,9 +8,10 @@ export const BlogPostThumbnailCard = styled(_BlogPostThumbnailCardComponent)<{ f
   ${({ theme, first }) =>
     first
       ? css`
+          grid-column: span 2;
+
           display: grid;
           grid-template-columns: 2fr 1fr;
-          grid-column: span 2;
           align-items: flex-end;
 
           @media only screen and (max-width: ${theme.breakPoint.m}px) {

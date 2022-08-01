@@ -67,8 +67,7 @@ export const RelatedPosts = styled(Component)`
       }
 
       p {
-        width: max-content;
-        max-width: fit-content;
+        width: 100%;
         background: ${({ theme }) => theme.highlight};
       }
 
