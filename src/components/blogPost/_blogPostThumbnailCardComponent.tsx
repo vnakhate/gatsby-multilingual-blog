@@ -36,6 +36,9 @@ export const _BlogPostThumbnailCardComponent = styled(Component)`
   }
 
   > div#info {
+    white-space: pre-wrap;
+    word-break: break-word;
+
     > h1 {
       width: max-content;
       max-width: fit-content;

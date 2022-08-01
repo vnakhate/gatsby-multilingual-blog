@@ -67,6 +67,7 @@ export const BlogPost = styled(Component)`
 
     font-size: 1.8rem;
     color: ${({ theme }) => theme.color.subTextGrey};
+    line-height: 1.3;
 
     > a:not(:last-child) {
       margin-right: 16px;

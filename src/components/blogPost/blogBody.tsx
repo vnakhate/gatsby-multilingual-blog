@@ -79,6 +79,9 @@ export const BlogBody = styled(Component)`
   pre {
     font-size: 1.4rem;
     border-radius: 8px;
+
+    word-break: break-word;
+    white-space: pre-wrap;
   }
 
   span.gatsby-resp-image-wrapper {
