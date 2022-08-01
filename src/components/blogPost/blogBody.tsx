@@ -23,6 +23,10 @@ export const BlogBody = styled(Component)`
     margin: 4px 0;
   }
 
+  a {
+    color: hsla(300, 85%, 50%);
+  }
+
   > p {
     margin-bottom: 32px;
   }
