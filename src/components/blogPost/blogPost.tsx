@@ -48,12 +48,12 @@ export const BlogPost = styled(Component)`
   }
 
   > h1 {
-    width: max-content;
-    max-width: fit-content;
     padding: 8px 0;
 
     font-size: 4rem;
     font-weight: bold;
+    word-break: break-word;
+    white-space: pre-wrap;
     background: ${({ theme }) => theme.highlight};
   }
   > h1.ja-title {
