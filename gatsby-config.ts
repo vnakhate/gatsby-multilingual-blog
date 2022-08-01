@@ -2,12 +2,20 @@ import type { GatsbyConfig } from 'gatsby'
 import { theme } from './src/styles/theme'
 import { i18nLanguages, i18nDefaultLanguage } from './i18nLanguages'
 
+const siteConfig = {
+  title: `Multilingual Blog`,
+  shortTitle: `Multilingual Blog`,
+  description: `add desc`,
+  author: `zett-8`,
+  url: `https://url.sample.com`,
+}
+
 const config: GatsbyConfig = {
   siteMetadata: {
-    title: `Multilingual Blog`,
-    description: `add desc`,
-    author: `Toshiki Kamei`,
-    url: 'https://url.sample.com',
+    title: siteConfig.title,
+    description: siteConfig.description,
+    author: siteConfig.author,
+    url: siteConfig.url,
     ogImage: '',
     twitterImage: '',
   },
@@ -15,6 +23,18 @@ const config: GatsbyConfig = {
     FAST_DEV: true,
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: siteConfig.title,
+        short_name: siteConfig.shortTitle,
+        start_url: `/`,
+        background_color: theme.color.backgroundWhite,
+        theme_color: theme.color.backgroundWhite,
+        display: `fullscreen`,
+        icon: `${__dirname}/src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+      },
+    },
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
@@ -31,7 +51,7 @@ const config: GatsbyConfig = {
         fallbackLanguage: i18nDefaultLanguage,
         generateDefaultLanguagePage: true,
         // if you are using Helmet, you must include siteUrl, and make sure you add http:https
-        siteUrl: `https://example.com`,
+        siteUrl: siteConfig.url,
         // if you are using trailingSlash gatsby config include it here, as well (the default is 'always')
         // trailingSlash: 'always',
         // you can pass any i18next options
@@ -117,18 +137,6 @@ const config: GatsbyConfig = {
           `gatsby-remark-smartypants`,
           `gatsby-remark-autolink-headers`,
         ],
-      },
-    },
-    {
-      resolve: `gatsby-plugin-manifest`,
-      options: {
-        name: `Multilingual Blog`,
-        short_name: `Gatsby`,
-        start_url: `/`,
-        background_color: theme.color.backgroundWhite,
-        theme_color: theme.color.backgroundWhite,
-        display: `fullscreen`,
-        icon: `${__dirname}/src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
