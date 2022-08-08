@@ -41,7 +41,7 @@ const StyledComponent = styled(Component)`
     grid-template-columns: min-content 1fr;
 
     > span {
-      margin: 4px 4px 0 0;
+      margin: ${({ data }) => (data.fields.language === 'ja' ? `6px 4px 0 0` : `8px 4px 0 0`)};
       color: ${({ theme }) => theme.color.disableGrey};
 
       transition: color 800ms;
@@ -55,6 +55,7 @@ const StyledComponent = styled(Component)`
 
       font-weight: 100;
       font-size: ${({ data }) => (data.fields.language === 'ja' ? 1.4 : 1.6)}rem;
+      line-height: 1.5;
       color: ${({ theme }) => theme.color.disableGrey};
 
       transition: color 800ms;
