@@ -58,7 +58,7 @@ export const BlogBody = styled(Component)`
 
   blockquote {
     padding: 32px;
-    margin: 0 16px;
+    margin: 0 16px 40px 16px;
 
     background-color: hsl(0, 0%, 96%);
     border-radius: 8px;

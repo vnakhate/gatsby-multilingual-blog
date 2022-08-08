@@ -53,6 +53,7 @@ export const BlogPost = styled(Component)`
 
     font-size: 4rem;
     font-weight: bold;
+    line-height: 1.3;
     word-break: break-word;
     white-space: pre-wrap;
     background: ${({ theme }) => theme.highlight};
