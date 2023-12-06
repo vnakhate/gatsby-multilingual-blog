@@ -23,6 +23,7 @@ The calf grew strong and bold under the watchful eyes of his mother. His hide wa
 The young elephant, wise beyond his years, sought his father's blessing for his perilous quest. The king, his heart heavy with both pride and fear, granted his son leave to embark on this noble endeavor.
 
 With a clever plan devised, the young elephant, who would come to be known as the Bodhisatta, rallied his friends for support. They would go to the lake, and upon leaving, he would stay behind, drawing the crab out with his sacrifice.
+![elephant_lake](./img1.jpg)
 
 As the animals drank their fill and left the water's edge, the Bodhisatta remained, resolute and brave. True to his plan, the giant crab emerged, clamping onto his leg with a vice-like grip. The other elephants scattered in panic, but the Bodhisatta's mate stayed behind, her loyalty unwavering.
 
