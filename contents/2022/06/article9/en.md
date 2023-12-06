@@ -1,3 +1,15 @@
+---
+title: English blog 9
+date: "2023-06-20T20:08:00.000Z"
+cover: "./cover.jpg"
+tags: ["unique", "crab", "elephant"]
+description: "this is description"
+---
+
+This is the content of English blog post.  
+You can read this post in different language, click the language toggle button!
+
+
 ##The Brave Elephant and the Very Big Crab
 
 In the misty mountains of the Himalayas, nestled amidst the clouds, there was a lake that shimmered like a sapphire under the gentle kiss of the sun. This lake was a haven for all creatures far and wide, providing cool, clear water for all who were thirsty. But, hidden beneath the lake's serene surface, a giant crab made its home.
