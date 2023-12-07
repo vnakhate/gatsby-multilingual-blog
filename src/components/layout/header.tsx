@@ -2,7 +2,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby-plugin-react-i18next'
-import { LanguageSwitchButton } from '../languageSwitchButton'
+import { LanguageSwitcher } from '../languageSwitcher';
 
 /** 2. Types **/
 type Props = {
@@ -20,11 +20,15 @@ const Component = ({ className, language, siteTitle, description, toggleLanguage
       <Link to={'/'} language={language}>
         <div id={'logo'}>{siteTitle}</div>
       </Link>
-      <LanguageSwitchButton language={language} onClick={toggleLanguage} />
+      <LanguageSwitcher
+        currentLanguage={language}
+        languages={['en', 'es', 'hi']} // replace with your actual languages
+        onLanguageChange={toggleLanguage}
+      />
     </div>
     <div id={'description'}>{description}</div>
   </header>
-)
+);
 
 /** 4. Styled component **/
 export const Header = styled(Component)`
