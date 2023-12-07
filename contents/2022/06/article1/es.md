@@ -1,6 +1,6 @@
 ---
 title: El elefante y el cangrejo muy grande.
-date: "2023-06-20T20:08:00.000Z"
+date: "2023-12-07T20:08:00.000Z"
 cover: "./cover.jpg"
 tags: ["Cangrejo", "Elefante", "oraje", "inteligente"]
 description: "Una historia sobre coraje e inteligencia."

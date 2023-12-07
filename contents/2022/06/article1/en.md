@@ -1,6 +1,6 @@
 ---
 title: The elephant and the very big crab
-date: "2023-06-20T20:08:00.000Z"
+date: "2023-12-07T20:08:00.000Z"
 cover: "./cover.jpg"
 tags: ["crab", "elephant", "courage", "wise"]
 description: "this is description"

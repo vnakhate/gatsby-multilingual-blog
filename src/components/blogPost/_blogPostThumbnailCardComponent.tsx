@@ -43,14 +43,14 @@ export const _BlogPostThumbnailCardComponent = styled(Component)`
       width: fit-content;
       padding-bottom: 8px;
 
-      font-size: ${({ data }) => (data.fields.language === 'ja' ? 2.2 : 2.4)}rem;
+      font-size: ${({ data }) => (data.fields.language === 'es' ? 2.2 : 2.4)}rem;
       background: ${({ theme }) => theme.highlight};
     }
 
     > p {
       line-height: 1.95rem;
       font-weight: 300;
-      font-size: ${({ data }) => (data.fields.language === 'ja' ? 1.4 : 1.6)}rem;
+      font-size: ${({ data }) => (data.fields.language === 'es' ? 1.4 : 1.6)}rem;
       color: ${({ theme }) => theme.color.subTextGrey};
     }
   }

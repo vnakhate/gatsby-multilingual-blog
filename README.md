@@ -60,7 +60,7 @@ Kick off your project with this boilerplate. This starter ships with the several
    ```typescript
    // i18nLanguages.ts
 
-   export const i18nLanguages: string[] = [`en`, `ja`]
+   export const i18nLanguages: string[] = [`en`, `es`, `hi`]
    export const i18nDefaultLanguage: string = `en`
    ```
 
@@ -75,7 +75,8 @@ Kick off your project with this boilerplate. This starter ships with the several
      index: {
        description: {
          en: `Hello world. This is Multilingual Blog. you can switch languages clicking the top-right button.`,
-         ja: `ハローワールド。これは多言語対応ブログです。右上のボタンで言語をスイッチすることが可能です。`,
+         es: `Hola Mundo. Este es un blog multilingüe. puedes cambiar de idioma haciendo clic en el botón superior derecho.`,
+        hi: `हैलो वर्ल्ड। यह बहुभाषी ब्लॉग है. आप शीर्ष-दाएँ बटन पर क्लिक करके भाषाएँ बदल सकते हैं.`,
        },
      },
    }

@@ -43,7 +43,7 @@ export const RelatedPosts = styled(Component)`
 
     > div.info {
       a {
-        font-size: ${({ data }) => (data.length && data[0].fields.language === 'ja' ? 2 : 2.2)}rem;
+        font-size: ${({ data }) => (data.length && data[0].fields.language === 'es' ? 2 : 2.2)}rem;
         > p {
           margin: 4px 0 4px 0;
         }
@@ -52,7 +52,7 @@ export const RelatedPosts = styled(Component)`
       > p {
         line-height: 1.7rem;
         font-size: ${({ data }) =>
-          data.length && data[0].fields.language === 'ja' ? 1.2 : 1.4}rem;
+          data.length && data[0].fields.language === 'es' ? 1.2 : 1.4}rem;
         font-weight: 100;
         color: ${({ theme }) => theme.color.subTextGrey};
       }

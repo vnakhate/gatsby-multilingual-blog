@@ -16,7 +16,7 @@ const Component = ({ className, data }: Props) => (
 
 /** 4. Styled component **/
 export const BlogBody = styled(Component)`
-  font-size: ${({ data }) => (data.fields.language === 'ja' ? 1.7 : 1.9)}rem;
+  font-size: ${({ data }) => (data.fields.language === 'es' ? 1.7 : 1.9)}rem;
   margin-bottom: 120px;
 
   > * {
@@ -32,7 +32,7 @@ export const BlogBody = styled(Component)`
   }
 
   p {
-    line-height: ${({ data }) => (data.fields.language === 'ja' ? 3.3 : 3)}rem;
+    line-height: ${({ data }) => (data.fields.language === 'es' ? 3.3 : 3)}rem;
   }
 
   p.subtitle {
@@ -134,7 +134,7 @@ export const BlogBody = styled(Component)`
     tbody {
       td {
         padding: 16px;
-        line-height: ${({ data }) => (data.fields.language === 'ja' ? 2.8 : 2.5)}rem;
+        line-height: ${({ data }) => (data.fields.language === 'es' ? 2.8 : 2.5)}rem;
       }
     }
   }
