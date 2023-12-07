@@ -1,66 +1,30 @@
 ---
-title: The elephant and the very big crab
+title: El elefante y el cangrejo muy grande.
 date: "2023-06-20T20:08:00.000Z"
 cover: "./cover.jpg"
-tags: ["crab", "elephant", "courage", "wise"]
-description: "this is description"
+tags: ["Cangrejo", "Elefante", "oraje", "inteligente"]
+description: "Una historia sobre coraje e inteligencia."
 ---
 
-In the misty mountains of the Himalayas, nestled amidst the clouds, there was a lake that shimmered like a sapphire under the gentle kiss of the sun. This lake was a haven for all creatures far and wide, providing cool, clear water for all who were thirsty. But, hidden beneath the lake’s serene surface, a giant crab made its home.
-
+En las brumosas montañas del Himalaya, escondido entre las nubes, se encontraba un lago que brillaba como un zafiro bajo el suave beso del sol. Este lago era un refugio para todas las criaturas de todas partes y proporcionaba agua fresca y clara para todos los que tenían sed. Sin embargo, escondido bajo la serena superficie del lago, un cangrejo gigante hizo su hogar.
 ![elephant_lake](./img1.jpg)
-
-This crab was no ordinary creature; it was so colossal that it had once caught and feasted upon an unfortunate elephant, striking fear into the hearts of all the animals. The elephants, once joyful bathers in the lake’s soothing embrace, now trembled at the water’s edge.
-
+Este cangrejo no era una criatura común y corriente; era tan colosal que una vez atrapó y se dio un festín con un desafortunado elefante, infundiendo miedo en los corazones de todos los animales. Los elefantes, que antes se bañaban alegremente en el reconfortante abrazo del lago, ahora temblaban en la orilla del agua.
 ![elephant_crab](./img/elephant_crab.jpg)
-Amidst this fear, a queen elephant heavy with the promise of new life made a solemn decision. To protect her unborn calf from the lurking terror of the crab, she retreated to a distant haven, where her baby was born far from the shadow of danger.
+En medio de este miedo, una elefanta reina cargada con la promesa de una nueva vida tomó una decisión solemne. Para proteger a su cría por nacer del terror acechante del cangrejo, se retiró a un refugio lejano, donde nació su bebé, muy alejado de la sombra del peligro.
 
+El ternero se hizo fuerte y audaz bajo la atenta mirada de su madre. Su piel era del color del crepúsculo y se alzaba alto y orgulloso como una montaña de brillante color púrpura. A medida que crecía, llegaron a sus oídos historias sobre el cangrejo gigante, historias de terror y la dolorosa separación de su familia. Una chispa de determinación se encendió dentro de él, la resolución de enfrentar al monstruo y restaurar la paz a sus parientes.
 
+El joven elefante, más sabio para su edad, buscó la bendición de su padre para su peligrosa búsqueda. El rey, con el corazón cargado de orgullo y miedo, concedió a su hijo permiso para embarcarse en esta noble empresa.
 
-The calf grew strong and bold under the watchful eyes of his mother. His hide was the color of twilight, and he stood tall and proud like a mountain of shining purple. As he grew, tales of the giant crab reached his ears, tales of terror and of his family’s sorrowful separation. A spark of determination ignited within him, a resolve to face the monster and restore peace to his kin.
+Con un plan inteligente ideado, el joven elefante, que llegaría a ser conocido como el Bodhisatta, reunió a sus amigos en busca de apoyo. Iban al lago y al salir él se quedaba sacando el cangrejo con su sacrificio.
 
-The young elephant, wise beyond his years, sought his father’s blessing for his perilous quest. The king, his heart heavy with both pride and fear, granted his son leave to embark on this noble endeavor.
+Mientras los animales bebían hasta saciarse y se alejaban de la orilla del agua, el Bodhisatta permaneció, resuelto y valiente. Fiel a su plan, el cangrejo gigante emergió y se sujetó a su pierna con un agarre parecido a un tornillo de banco. Los otros elefantes se dispersaron presas del pánico, pero la compañera del Bodhisatta se quedó atrás, con su lealtad inquebrantable.
 
+Con dulces palabras y elogios a la fuerza incomparable del cangrejo, el elefante compañero balanceó a la criatura, seduciéndola para que soltara su agarre. En ese momento, con un grito triunfante, el Bodhisatta convocó a sus amigos a su lado.
 
+Juntos, dominaron al cangrejo, lo arrastraron a la orilla y pusieron fin a su reinado de terror. A partir de ese día, el lago volvió a convertirse en un lugar de tranquilidad, un santuario para que todos los animales saciaran su sed sin miedo.
 
-With a clever plan devised, the young elephant, who would come to be known as the Bodhisatta, rallied his friends for support. They would go to the lake, and upon leaving, he would stay behind, drawing the crab out with his sacrifice.
+Y en cuanto a las garras del cangrejo derrotado, se embarcaron en su propio viaje, convirtiéndose en materia de leyendas, transformadas en tambores que tronaban como nubes, haciendo eco de la valentía del Bodhisatta a través de tierras y tiempos.
 
-As the animals drank their fill and left the water’s edge, the Bodhisatta remained, resolute and brave. True to his plan, the giant crab emerged, clamping onto his leg with a vice-like grip. The other elephants scattered in panic, but the Bodhisatta’s mate stayed behind, her loyalty unwavering.
-
-With sweet words and praises of the crab’s unrivaled strength, the mate elephant swayed the creature, beguiling it to loosen its hold. At that moment, with a triumphant cry, the Bodhisatta summoned his friends back to his side.
-
-
-
-Together, they overpowered the crab, pulling it ashore and ending its reign of terror. From that day forward, the lake once again became a place of tranquility, a sanctuary for all animals to quench their thirst without fear.
-
-
-
-And as for the claws of the defeated crab, they embarked on a journey of their own, becoming the stuff of legends, transformed into drums that thundered like the clouds, echoing the bravery of the Bodhisatta across lands and time.
-
-
-
-The End
-##The Brave Elephant and the Very Big Crab
-
-In the misty mountains of the Himalayas, nestled amidst the clouds, there was a lake that shimmered like a sapphire under the gentle kiss of the sun. This lake was a haven for all creatures far and wide, providing cool, clear water for all who were thirsty. But, hidden beneath the lake's serene surface, a giant crab made its home.
-
-This crab was no ordinary creature; it was so colossal that it had once caught and feasted upon an unfortunate elephant, striking fear into the hearts of all the animals. The elephants, once joyful bathers in the lake's soothing embrace, now trembled at the water's edge.
-
-Amidst this fear, a queen elephant heavy with the promise of new life made a solemn decision. To protect her unborn calf from the lurking terror of the crab, she retreated to a distant haven, where her baby was born far from the shadow of danger.
-
-The calf grew strong and bold under the watchful eyes of his mother. His hide was the color of twilight, and he stood tall and proud like a mountain of shining purple. As he grew, tales of the giant crab reached his ears, tales of terror and of his family's sorrowful separation. A spark of determination ignited within him, a resolve to face the monster and restore peace to his kin.
-
-The young elephant, wise beyond his years, sought his father's blessing for his perilous quest. The king, his heart heavy with both pride and fear, granted his son leave to embark on this noble endeavor.
-
-With a clever plan devised, the young elephant, who would come to be known as the Bodhisatta, rallied his friends for support. They would go to the lake, and upon leaving, he would stay behind, drawing the crab out with his sacrifice.
-![elephant_lake](./img1.jpg)
-
-As the animals drank their fill and left the water's edge, the Bodhisatta remained, resolute and brave. True to his plan, the giant crab emerged, clamping onto his leg with a vice-like grip. The other elephants scattered in panic, but the Bodhisatta's mate stayed behind, her loyalty unwavering.
-
-With sweet words and praises of the crab's unrivaled strength, the mate elephant swayed the creature, beguiling it to loosen its hold. At that moment, with a triumphant cry, the Bodhisatta summoned his friends back to his side.
-
-Together, they overpowered the crab, pulling it ashore and ending its reign of terror. From that day forward, the lake once again became a place of tranquility, a sanctuary for all animals to quench their thirst without fear.
-
-And as for the claws of the defeated crab, they embarked on a journey of their own, becoming the stuff of legends, transformed into drums that thundered like the clouds, echoing the bravery of the Bodhisatta across lands and time.
-
-The End
+El fin
+​
