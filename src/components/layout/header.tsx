@@ -15,6 +15,11 @@ type Props = {
 
 /** 3. Base component **/
 const Component = ({ className, language, siteTitle, description, switchLanguage }: Props) => (
+  const handleLanguageChange = (selectedLanguage: string) => {
+    switchLanguage(); // Existing logic for switching language
+    navigate(`/${selectedLanguage}`); // Navigate to the page associated with the selected language
+  }; 
+  
   <header className={className}>
     <div id={'topBox'}>
       <Link to={'/'} language={language}>
