@@ -28,7 +28,7 @@ const Component = ({ className, language, onClick }: Props) =>
 /** 4. Styled component **/
 export const LanguageSwitchButton = styled(Component)`
   position: relative;
-  width: 96px;
+  width: 300px;
   height: 32px;
 
   background-color: hsl(0, 0%, 46%);
@@ -44,7 +44,7 @@ export const LanguageSwitchButton = styled(Component)`
     align-items: center;
 
     height: 100%;
-    padding: 0 16px;
+    padding: 0 12px;
 
     font-size: 1.7rem;
     color: white;
