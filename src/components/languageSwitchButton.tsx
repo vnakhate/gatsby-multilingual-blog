@@ -12,7 +12,7 @@ type Props = {
 
 /** 3. Base component **/
 const Component = ({ className, language, onClick }: Props) =>
-  i18nLanguages.length > 2 ? (
+  i18nLanguages.length > 5 ? (
     <button onClick={onClick}>toggle language</button>
   ) : (
     <div className={className} onClick={onClick}>
