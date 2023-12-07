@@ -4,6 +4,7 @@ const translations = {
       en: `Junge Fables. Ancient tales for Modern Times.`,
       es: `Fábulas de la selva. Cuentos antiguos para los tiempos modernos`,
       hi: `जंगल दंतकथाएँ. आधुनिक समय के लिए प्राचीन कहानियाँ`,
+      ka: 'ಜಂಗಲ್ ಫೇಬಲ್ಸ್. ಆಧುನಿಕ ಕಾಲದ ಪ್ರಾಚೀನ ಕಥೆಗಳು',
     },
   },
 }
