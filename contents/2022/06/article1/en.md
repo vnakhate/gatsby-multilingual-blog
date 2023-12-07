@@ -1,97 +1,36 @@
 ---
-title: English blog 1
-date: "2022-06-18T20:08:00.000Z"
+title: English blog 9
+date: "2023-06-20T20:08:00.000Z"
 cover: "./cover.jpg"
-tags: ["tag1", "tag3", "react"]
+tags: ["unique", "crab", "elephant"]
 description: "this is description"
 ---
 
 This is the content of English blog post.  
 You can read this post in different language, click the language toggle button!
 
-## Heading & emphasize
 
-To declare heading tag, put '\#' right before the word. \#\# for \<h2>, \#\#\# for \<h3>. From h2 to h6 are available and they should be used by order in the article. Only avoid h1 tag, that's for article title. 
+##The Brave Elephant and the Very Big Crab
 
-Write paragraph with *emphasized* word and **strong** word.  
-use \*LETTER\* for emphasize and \*\*LETTER\*\* for strong.
+In the misty mountains of the Himalayas, nestled amidst the clouds, there was a lake that shimmered like a sapphire under the gentle kiss of the sun. This lake was a haven for all creatures far and wide, providing cool, clear water for all who were thirsty. But, hidden beneath the lake's serene surface, a giant crab made its home.
 
+This crab was no ordinary creature; it was so colossal that it had once caught and feasted upon an unfortunate elephant, striking fear into the hearts of all the animals. The elephants, once joyful bathers in the lake's soothing embrace, now trembled at the water's edge.
 
-## BlockQuotes
+Amidst this fear, a queen elephant heavy with the promise of new life made a solemn decision. To protect her unborn calf from the lurking terror of the crab, she retreated to a distant haven, where her baby was born far from the shadow of danger.
 
-> This is blockquotes
+The calf grew strong and bold under the watchful eyes of his mother. His hide was the color of twilight, and he stood tall and proud like a mountain of shining purple. As he grew, tales of the giant crab reached his ears, tales of terror and of his family's sorrowful separation. A spark of determination ignited within him, a resolve to face the monster and restore peace to his kin.
 
-## Lists
+The young elephant, wise beyond his years, sought his father's blessing for his perilous quest. The king, his heart heavy with both pride and fear, granted his son leave to embark on this noble endeavor.
 
-<p class="subtitle">List</p>
+With a clever plan devised, the young elephant, who would come to be known as the Bodhisatta, rallied his friends for support. They would go to the lake, and upon leaving, he would stay behind, drawing the crab out with his sacrifice.
+![elephant_lake](./img1.jpg)
 
-1. first
-2. second
-3. third
+As the animals drank their fill and left the water's edge, the Bodhisatta remained, resolute and brave. True to his plan, the giant crab emerged, clamping onto his leg with a vice-like grip. The other elephants scattered in panic, but the Bodhisatta's mate stayed behind, her loyalty unwavering.
 
-<p class="subtitle">Nested list</p>
+With sweet words and praises of the crab's unrivaled strength, the mate elephant swayed the creature, beguiling it to loosen its hold. At that moment, with a triumphant cry, the Bodhisatta summoned his friends back to his side.
 
-- first
-  - nested 1
-  - nested 2
-  - nested 3
-- second
-  - nested 4
-  - nested 5
-- third
+Together, they overpowered the crab, pulling it ashore and ending its reign of terror. From that day forward, the lake once again became a place of tranquility, a sanctuary for all animals to quench their thirst without fear.
 
-## Subtitles
+And as for the claws of the defeated crab, they embarked on a journey of their own, becoming the stuff of legends, transformed into drums that thundered like the clouds, echoing the bravery of the Bodhisatta across lands and time.
 
-**Subtitle with \<strong> tag**  
-You can use strong \*\*LETTER\*\* tag as subtitle. Do not put space under subtitle otherwise it's recognised independent \<p> tag. Use line break.
-
-<p class="subtitle">Subtitle with &#60;p> tag</p> 
-
-*\<p class="subtitle">* is also available to make subtitle. In this case, make sure to put space under subtitle.
-
-
-## Table
-
-|            | Frontend | Backend |
-|------------|----------|---------|
-| Javascript | ✅        | ✅       |  
-| Go         | ❌        | ✅       |
-| Python | ❌         | ✅        |
-
-| Good                                                                                      | Bad                                                                                            |
-|-------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------|
-| <br/> Now is the winter of our discontent Made glorious summer by this sun of York. <br/><br/> | <br/>But I, that am not shaped for sportive tricks,Nor made to court an amorous looking-glass.<br/><br/> |
-
-## Horizontal line
-
----
-
-## With Image
-Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. 
-![mountain](./img1.jpg)
-Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. 
-
-
-Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
-
-## Highlight
-```js {4-6}
-// index.js
-import React from 'react'
-
-const Component = () => {
-  return <div>Hello World</div>
-}
-
-export default Component
-```
-
-## Diff
-```diff
-- interface {
--   id: number
-- }
-+ type Props = {
-+   className?: string    
-+ }
-```
+The End

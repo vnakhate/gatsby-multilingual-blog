@@ -1,97 +1,31 @@
 ---
-title: 日本語ブログ 1
-date: "2022-06-20T20:08:00.000Z"
+title: 日本語ブログ 9
+date: "2023-06-20T20:08:00.000Z"
 cover: "./cover.jpg"
-tags: ["tag1", "tag3", "react"]
+tags: ["unique", "berlin", "label"]
 description: "this is description"
 ---
 
-これは日本語で書かれたブログです。  
-言語を切り替えることでこのブログを別の言語で読むことが可能です！
+##The Brave Elephant and the Very Big Crab - JP
 
-## タイトルと強調
+In the misty mountains of the Himalayas, nestled amidst the clouds, there was a lake that shimmered like a sapphire under the gentle kiss of the sun. This lake was a haven for all creatures far and wide, providing cool, clear water for all who were thirsty. But, hidden beneath the lake's serene surface, a giant crab made its home.
 
-タイトルを使用するには文字の前に '\#' を付けてください。 '\#\#' は\<h2>、'\#\#\#' は\<h3>として認識されます。  
-h2からh6までが有効です。h1はブログタイトルに使用されているので使用しないでください。 
+This crab was no ordinary creature; it was so colossal that it had once caught and feasted upon an unfortunate elephant, striking fear into the hearts of all the animals. The elephants, once joyful bathers in the lake's soothing embrace, now trembled at the water's edge.
 
-文章の中で文字を強調することが可能です。(\*)ひとつで文字を囲むと*こうなります*。(\*)ふたつで文字を囲むと**こうなります**。
+Amidst this fear, a queen elephant heavy with the promise of new life made a solemn decision. To protect her unborn calf from the lurking terror of the crab, she retreated to a distant haven, where her baby was born far from the shadow of danger.
 
+The calf grew strong and bold under the watchful eyes of his mother. His hide was the color of twilight, and he stood tall and proud like a mountain of shining purple. As he grew, tales of the giant crab reached his ears, tales of terror and of his family's sorrowful separation. A spark of determination ignited within him, a resolve to face the monster and restore peace to his kin.
 
-## 引用
+The young elephant, wise beyond his years, sought his father's blessing for his perilous quest. The king, his heart heavy with both pride and fear, granted his son leave to embark on this noble endeavor.
 
-> 恥の多い生涯を送って来ました。
+With a clever plan devised, the young elephant, who would come to be known as the Bodhisatta, rallied his friends for support. They would go to the lake, and upon leaving, he would stay behind, drawing the crab out with his sacrifice.
 
-## リスト
+As the animals drank their fill and left the water's edge, the Bodhisatta remained, resolute and brave. True to his plan, the giant crab emerged, clamping onto his leg with a vice-like grip. The other elephants scattered in panic, but the Bodhisatta's mate stayed behind, her loyalty unwavering.
 
-<p class="subtitle">リスト</p>
+With sweet words and praises of the crab's unrivaled strength, the mate elephant swayed the creature, beguiling it to loosen its hold. At that moment, with a triumphant cry, the Bodhisatta summoned his friends back to his side.
 
-1. ひとつ
-2. ふたつ
-3. みっつ
+Together, they overpowered the crab, pulling it ashore and ending its reign of terror. From that day forward, the lake once again became a place of tranquility, a sanctuary for all animals to quench their thirst without fear.
 
-<p class="subtitle">入れ子のリスト</p>
+And as for the claws of the defeated crab, they embarked on a journey of their own, becoming the stuff of legends, transformed into drums that thundered like the clouds, echoing the bravery of the Bodhisatta across lands and time.
 
-- ひとつ
-  - いれこ1
-  - いれこ2
-  - いれこ3
-- ふたつ
-  - いれこ4
-  - いれこ5
-- みっつ
-
-## サブタイトル
-
-**\<strong>タグを使ったサブタイトル**  
-(\*)をふたつ使った\<strong>タグを使ったサブタイトル。これを使用する場合はタイトルとその下の文章に行をあけずに改行のみで使用してください。
-行を開けてしまうとその次の文章が別の\<p>タグとして認識されます。
-
-<p class="subtitle">&#60;p>タグを使ったサブタイトル</p> 
-
-*\<p class="subtitle">* を使ってサブタイトルにすることも可能です。この場合は上記と違い、サブタイトルと続く文章の間に行を開けてください。
-
-
-## テーブル
-
-|            | Frontend | Backend |
-|------------|----------|---------|
-| Javascript | ✅        | ✅       |  
-| Go         | ❌        | ✅       |
-| Python | ❌         | ✅        |
-
-| Good                                                                                      | Bad                                                                                            |
-|-------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------|
-| <br/> その大きな海はパシフィックというの。すると黄と青じろとまだらになって、まもなくジョバンニは走りだして黒い丘の方へ走りました。 <br/><br/> | <br/>そこに学生たちや町の人たちに夢中でいろいろ指図をして台所から出ました。そのとき舟がゆれたのです。<br/><br/> |
-
-## Horizontal line
-
----
-
-## 画像を使用する
-けれどもいつかジョバンニの眼のなかに棲んでいるわけです。空気は澄みきって、まるで水のないそのままのそらのようにかかっているのが見えました。けれどもいつでも私のとこへ行くんだって。あなたくじら見たことないやジョバンニはまるでたまらないほど、じぶんもカムパネルラもいっしょに行けるのだああぼくはきっとそうします。こんなにして水の中へはいっていた席に、ぬれたような顔をしていたのです。もうなんにもこわいことありませんからな。 
-![mountain](./img1.jpg)
-けれども、どうしても誰だかわかりません。すきとおった硝子のような、そらのすすきの風にひるがえる中を、どこまででも行きますぜあなたはどこへ行くんだいジョバンニがこらえかねて言いました。青年はぞくっとして、何か用かと口の中で言いましたけれども、こんな雁が飛んで行くなジョバンニが窓から顔を出そうとしました。家ジョバンニが勢いよく帰って来たらしく、ときどきちらちら光ってながれているのです。二人がその白い道を、肩をならべて行きますとみちは十文字になって、いきなり走りだしました。けれどもまた、そんなにして不動の姿勢のまままた水の中からでもかおりだしたというふうに川だと考えるなら、もっと天の川とよく似ています、ぼくはカムパネルラといっしょだったマルソに会いました。ケンタウル祭の夜ジョバンニは、いつから乗っていたのでした。
-
-ジョバンニはまっ赤になって、なにかたいへんさびしいようなかなしいような新しいような気がする。そして二人がそのあかしの前を通るのですからしかたありませんからな。新世界交響楽はいよいよはっきり地平線のはてまで、その大きなとうもろこしの木を見ました。けれどもみんなはまだ、どこか遠くの遠くの方に不思議なものをひろいました。みんなたべるじゃありませんでした。けれどもいつでも私のとこへ行きます。ぐあい悪くなかったのです。
-
-## ハイライト
-```js {4-6}
-// index.js
-import React from 'react'
-
-const Component = () => {
-  return <div>Hello World</div>
-}
-
-export default Component
-```
-
-## Diff
-```diff
-- interface {
--   id: number
-- }
-+ type Props = {
-+   className?: string    
-+ }
-```
+The End
