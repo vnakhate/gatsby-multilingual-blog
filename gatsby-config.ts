@@ -3,8 +3,8 @@ import { theme } from './src/styles/theme'
 import { i18nLanguages, i18nDefaultLanguage } from './i18nLanguages'
 
 const siteConfig = {
-  title: `Multilingual Blog`,
-  shortTitle: `Multilingual Blog`,
+  title: `Jungle Fables - Ancient Tales for Modern Times`,
+  shortTitle: `Jungle Fables`,
   description: `add desc`,
   author: `zett-8`,
   url: `https://url.sample.com`,
