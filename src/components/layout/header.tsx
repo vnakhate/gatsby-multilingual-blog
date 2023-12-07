@@ -10,11 +10,11 @@ type Props = {
   language: string
   siteTitle: string
   description: string
-  toggleLanguage: () => void
+  switchLanguage: () => void
 }
 
 /** 3. Base component **/
-const Component = ({ className, language, siteTitle, description, toggleLanguage }: Props) => (
+const Component = ({ className, language, siteTitle, description, switchLanguage }: Props) => (
   <header className={className}>
     <div id={'topBox'}>
       <Link to={'/'} language={language}>
@@ -23,7 +23,7 @@ const Component = ({ className, language, siteTitle, description, toggleLanguage
       <LanguageSwitcher
         currentLanguage={language}
         languages={['en', 'es', 'hi', 'ka']} // replace with your actual languages
-        onLanguageChange={toggleLanguage}
+        onLanguageChange={switchLanguage}
       />
     </div>
     <div id={'description'}>{description}</div>
