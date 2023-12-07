@@ -22,7 +22,7 @@ const Component = ({ className, language, siteTitle, description, toggleLanguage
       </Link>
       <LanguageSwitcher
         currentLanguage={language}
-        languages={['en', 'es', 'hi']} // replace with your actual languages
+        languages={['en', 'es', 'hi', 'ka']} // replace with your actual languages
         onLanguageChange={toggleLanguage}
       />
     </div>
