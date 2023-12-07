@@ -1,8 +1,9 @@
 const translations = {
   index: {
     description: {
-      en: `Hello world. This is Multilingual Blog. you can switch languages clicking the top-right button.`,
-      ja: `ハローワールド。これは多言語対応ブログです。右上のボタンで言語をスイッチすることが可能です。`,
+      en: `Junge Fables. Ancient tales for Modern Times.`,
+      es: `Fábulas de la selva. Cuentos antiguos para los tiempos modernos`,
+      hi: `जंगल दंतकथाएँ. आधुनिक समय के लिए प्राचीन कहानियाँ`,
     },
   },
 }
