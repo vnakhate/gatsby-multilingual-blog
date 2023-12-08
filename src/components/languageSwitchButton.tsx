@@ -31,7 +31,7 @@ export const LanguageSwitchButton = styled(Component)`
   width: ${48 * i18nLanguages.length}px; // Adjust this line
   height: 32px;
 
-  background-color: transparent; 
+  background-color: hsl(0, 0%, 46%);
   border-radius: 12px;
   box-shadow: inset 2px 2px 6px hsla(0, 0%, 0%, 16%);
 
