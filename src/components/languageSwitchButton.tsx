@@ -7,79 +7,41 @@ import { i18nLanguages } from '../../i18nLanguages'
 type Props = {
   className?: string
   language: string
-  onClick: () => void
+  onChange: (lang: string) => void
 }
 
 /** 3. Base component **/
-const Component = ({ className, language, onClick }: Props) =>
-  i18nLanguages.length > 5 ? (
-    <button onClick={onClick}>toggle language</button>
-  ) : (
-    <div className={className} data-language={language} onClick={onClick}>
-      <ul>
-        {i18nLanguages.map((l) => (
-          <li key={l} data-lang={l}>{l.toUpperCase()}</li>
-        ))}
-      </ul>
-    </div>
-  )
+const Component = ({ className, language, onChange }: Props) => (
+  <div className={className}>
+    <select value={language} onChange={(e) => onChange(e.target.value)}>
+      {i18nLanguages.map((l) => (
+        <option key={l} value={l}>{l.toUpperCase()}</option>
+      ))}
+    </select>
+  </div>
+)
 
 /** 4. Styled component **/
 export const LanguageSwitchButton = styled(Component)`
   position: relative;
-  width: ${60 * i18nLanguages.length}px; // Adjust this line
+  width: 120px; // Adjust this line
   height: 32px;
 
-  background-color: hsl(0, 0%, 46%);q
+  background-color: hsl(0, 0%, 46%);
   border-radius: 12px;
   box-shadow: inset 2px 2px 6px hsla(0, 0%, 0%, 16%);
 
   transform: scale(0.9);
   cursor: pointer;
 
-  > ul {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
+  > select {
+    width: 100%;
     height: 100%;
-    padding: 0 12px;
-
-    font-size: 1.7rem;
+    background: transparent;
     color: white;
-  }
-
-  > div {
-    position: absolute;
-    top: 2px;
-
-    width: 48px;
-    height: 28px;
-
-    background-color: ${({ theme }) => theme.color.backgroundWhite};
-    border-radius: 10px;
-
-    transform: translateX(24px);
-  }
-
-  > ul {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 100%;
-    padding: 0 12px;
+    border: none;
     font-size: 1.7rem;
-    color: white;
-
-    > li {
-      transition: color 0.3s ease;
-      margin: 0 5px; // Add some horizontal margin
-
-      &[data-lang="${props => props['data-language']}"] {
-        color: yellow; // Highlight color for selected language
-      }
-    }
+    padding: 0 12px;
+    appearance: none; // Remove default select dropdown arrow
   }
-
-  // Rest of the styles...
 `

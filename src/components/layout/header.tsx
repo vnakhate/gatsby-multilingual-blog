@@ -1,5 +1,5 @@
 /** 1. Imports **/
-import React from 'react'
+import React,  { useState } from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby-plugin-react-i18next'
 import { LanguageSwitchButton } from '../languageSwitchButton'
@@ -20,7 +20,7 @@ const Component = ({ className, language, siteTitle, description, toggleLanguage
       <Link to={'/'} language={language}>
         <div id={'logo'}>{siteTitle}</div>
       </Link>
-      <LanguageSwitchButton language={language} onClick={toggleLanguage} />
+      <LanguageSwitchButton language={language} onChange={toggleLanguage} />
     </div>
     <div id={'description'}>{description}</div>
   </header>
