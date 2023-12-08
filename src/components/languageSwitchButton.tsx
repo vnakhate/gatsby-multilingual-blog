@@ -27,7 +27,7 @@ const Component = ({ className, language, onClick }: Props) =>
 /** 4. Styled component **/
 export const LanguageSwitchButton = styled(Component)`
   position: relative;
-  width: ${48 * i18nLanguages.length}px; // Adjust this line
+  width: ${60 * i18nLanguages.length}px; // Adjust this line
   height: 32px;
 
   background-color: hsl(0, 0%, 46%);q
@@ -73,6 +73,7 @@ export const LanguageSwitchButton = styled(Component)`
 
     > li {
       transition: color 0.3s ease;
+      margin: 0 5px; // Add some horizontal margin
 
       &[data-lang="${props => props['data-language']}"] {
         color: yellow; // Highlight color for selected language
