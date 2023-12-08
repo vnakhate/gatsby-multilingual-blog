@@ -28,8 +28,9 @@ const Component = ({ className, data, emoji }: Props) => (
         </Link>
       ))}
     </ul>
-    <p>Written or Updated on {data.frontmatter.date} 🖋️</p>
     <BlogBody data={data} />
+    <p>Written/Updated on {data.frontmatter.date} 🖋️</p>
+
     <RelatedPosts data={data.relatedPosts} />
   </article>
 )
