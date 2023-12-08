@@ -33,7 +33,8 @@ export const Header = styled(Component)`
   display: grid;
   align-content: center;
   height: ${({ theme }) => theme.headerHeight}px;
-
+  margin-top: 0; // Add this line
+  padding-top: 0; // Add this line
   > div#topBox {
     display: flex;
     justify-content: space-between;
