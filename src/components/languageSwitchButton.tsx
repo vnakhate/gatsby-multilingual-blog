@@ -28,10 +28,10 @@ const Component = ({ className, language, onClick }: Props) =>
 /** 4. Styled component **/
 export const LanguageSwitchButton = styled(Component)`
   position: relative;
-  width: ${24 * i18nLanguages.length}px; // Adjust this line
+  width: ${48 * i18nLanguages.length}px; // Adjust this line
   height: 32px;
 
-  background-color: hsl(0, 0%, 46%);
+  background-color: transparent; 
   border-radius: 12px;
   box-shadow: inset 2px 2px 6px hsla(0, 0%, 0%, 16%);
 
