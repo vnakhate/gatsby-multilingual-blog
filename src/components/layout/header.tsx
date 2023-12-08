@@ -35,6 +35,7 @@ export const Header = styled(Component)`
   height: ${({ theme }) => theme.headerHeight}px;
   margin-top: 0; // Add this line
   padding-top: 0; // Add this line
+  background-color: #f8f9fa; // Add this line
   > div#topBox {
     display: flex;
     justify-content: space-between;
