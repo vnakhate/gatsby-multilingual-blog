@@ -71,6 +71,10 @@ export const Layout = (props: Props) => {
 
     changeLanguage(nextLanguage)
   }
+  const handleLanguageChange = (newLanguage: string) => {
+    changeLanguage(newLanguage)
+  }
+
 
   return (
     <StyledComponent
