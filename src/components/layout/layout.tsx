@@ -79,7 +79,7 @@ export const Layout = (props: Props) => {
       siteTitle={siteMetadata.title}
       headerDescription={t(`index.description`)}
       language={language}
-      changeLanguage={changeLanguage}
+      toggleLanguage={handleLanguageChange}
     />
   )
 }
