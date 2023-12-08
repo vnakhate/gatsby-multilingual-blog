@@ -63,11 +63,11 @@ const StyledComponent = styled(Component)`
 export const Layout = (props: Props) => {
   const { siteMetadata } = useSiteMetadata()
   const { t, language, changeLanguage } = useI18next()
-
+  console.log('Current language:', language) // Add this line
 
   const handleLanguageChange = (newLanguage: string) => {
     
-  
+    console.log('Changing language to:', newLanguage) // Add this line
     changeLanguage(newLanguage)
   }
 
