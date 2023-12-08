@@ -64,18 +64,10 @@ export const Layout = (props: Props) => {
   const { siteMetadata } = useSiteMetadata()
   const { t, language, changeLanguage } = useI18next()
 
-  const toggleLanguage = () => {
-    const currentLanguageIdx = i18nLanguages.indexOf(language)
-    const nextLanguage =
-      i18nLanguages[currentLanguageIdx === i18nLanguages.length - 1 ? 0 : currentLanguageIdx + 1]
 
-    changeLanguage(nextLanguage)
-  }
   const handleLanguageChange = (newLanguage: string) => {
     
-    const currentLanguageIdx = i18nLanguages.indexOf(language)
-    const nextLanguage =
-      i18nLanguages[currentLanguageIdx === i18nLanguages.length - 1 ? 0 : currentLanguageIdx + 1]
+  
     changeLanguage(newLanguage)
   }
 
