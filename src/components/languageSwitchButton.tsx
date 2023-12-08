@@ -15,13 +15,12 @@ const Component = ({ className, language, onClick }: Props) =>
   i18nLanguages.length > 5 ? (
     <button onClick={onClick}>toggle language</button>
   ) : (
-    <div className={className} onClick={onClick}>
+    <div className={className} data-language={language} onClick={onClick}>
       <ul>
         {i18nLanguages.map((l) => (
-          <li key={l}>{l.toUpperCase()}</li>
+          <li key={l} data-lang={l}>{l.toUpperCase()}</li>
         ))}
       </ul>
-      <div id={i18nLanguages[0] === language ? 'right' : 'left'} />
     </div>
   )
 
@@ -31,7 +30,7 @@ export const LanguageSwitchButton = styled(Component)`
   width: ${48 * i18nLanguages.length}px; // Adjust this line
   height: 32px;
 
-  background-color: hsl(0, 0%, 46%);
+  background-color: hsl(0, 0%, 46%);q
   border-radius: 12px;
   box-shadow: inset 2px 2px 6px hsla(0, 0%, 0%, 16%);
 
@@ -63,29 +62,23 @@ export const LanguageSwitchButton = styled(Component)`
     transform: translateX(24px);
   }
 
-  > div#left {
-    @keyframes toLeft {
-      from {
-        transform: translateX(24px);
-      }
-      to {
-        transform: translateX(2px);
+  > ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    padding: 0 12px;
+    font-size: 1.7rem;
+    color: white;
+
+    > li {
+      transition: color 0.3s ease;
+
+      &[data-lang="${props => props['data-language']}"] {
+        color: yellow; // Highlight color for selected language
       }
     }
-    transform: translateX(2px);
-    animation: toLeft 400ms ease-in-out;
   }
 
-  > div#right {
-    @keyframes toRight {
-      from {
-        transform: translateX(24px);
-      }
-      to {
-        transform: translateX(46px);
-      }
-    }
-    transform: translateX(46px);
-    animation: toRight 400ms ease-in-out;
-  }
+  // Rest of the styles...
 `
